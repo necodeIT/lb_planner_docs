@@ -4,7 +4,7 @@
  * @property {string} type - Data type of the parameter
  * @property {string} description - Description of the parameter
  * @property {boolean} required - Whether the parameter is required or not
- * @property {any} default_value - Default value of the parameter
+ * @property {string} default_value - Default value of the parameter
  * @property {boolean} nullable - Whether the parameter can be null or not
  */
 
@@ -165,7 +165,7 @@ function displayFunctionDetails(func) {
             <p class="param-name">${param}</p>
             <p>${func.parameters[param].type}</p>
             <p class="param-${func.parameters[param].required ? 'required' : 'optional'}">${func.parameters[param].required ? 'required' : 'optional'}</p>
-            <p class="badge param-default" title="${param} defaults to \`${func.parameters[param].default_value}\`">${func.parameters[param].default_value ? `${func.parameters[param].default_value}` : ''}</p>
+            <p class="badge param-default" title="${param} defaults to \`${func.parameters[param].default_value}\`">${func.parameters[param].default_value ? `${func.parameters[param].default_value.replaceAll("->", "&rarr;")}` : ''}</p>
         </div>
         <p class="param-desc">${func.parameters[param].description}</p>
     </div>
@@ -202,6 +202,8 @@ function displayFunctionDetails(func) {
             copyToClipboard(param.innerText)
         });
     }
+
+    detailsPane.scrollTop = 0;
 }
 
 function copyToClipboard(text) {
@@ -209,12 +211,16 @@ function copyToClipboard(text) {
     showSnackbar(`Copied <i>${text}<i/> to clipboard`);
 }
 
+var timeout = null;
+
 function showSnackbar(message, duration = 3000) {
+    if (timeout) clearTimeout(timeout);
+
     const snackbar = document.getElementById("snackbar");
     snackbar.innerHTML = message;
     snackbar.className = "show";
 
-    setTimeout(() => {
+    timeout = setTimeout(() => {
         snackbar.className = snackbar.className.replace("show", "");
     }, duration);
 }
