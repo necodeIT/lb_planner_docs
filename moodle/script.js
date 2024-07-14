@@ -150,8 +150,8 @@ function displayGroupsAndFunctions() {
 function displayFunctionDetails(func) {
 
     detailsPane.innerHTML = `
-    <h1>${funcName(func.name)}</h1>
-    <p id="full-func-name">${func.name} <i class="fa-regular fa-copy" id="copy"></i></p>
+    <h1>${func.name.replaceAll("_", " ")}</h1>
+    <p id="full-func-name">${func.group}_${func.name} <i class="fa-regular fa-copy" id="copy"></i></p>
     <hr />
     <p id="func_desc">${func.description}</p>
     <h2>Capabilities</h2>
@@ -165,6 +165,7 @@ function displayFunctionDetails(func) {
             <p class="param-name">${param}</p>
             <p>${func.parameters[param].type}</p>
             <p class="param-${func.parameters[param].required ? 'required' : 'optional'}">${func.parameters[param].required ? 'required' : 'optional'}</p>
+            <p class="badge param-default" title="${param} defaults to \`${func.parameters[param].default_value}\`">${func.parameters[param].default_value ? `${func.parameters[param].default_value}` : ''}</p>
         </div>
         <p class="param-desc">${func.parameters[param].description}</p>
     </div>
@@ -184,7 +185,7 @@ function displayFunctionDetails(func) {
 
     let copy = document.getElementById('copy');
     copy.onclick = () => {
-        navigator.clipboard.writeText(func.name);
+        copyToClipboard(func.name);
     }
 
     let returnValues = document.querySelectorAll('.value-name');
@@ -192,17 +193,34 @@ function displayFunctionDetails(func) {
 
     for (let value of returnValues) {
         value.addEventListener('click', () => {
-            navigator.clipboard.writeText(value.innerText)
+            copyToClipboard(value.innerText)
         });
     }
 
     for (let param of params) {
         param.addEventListener('click', () => {
-            navigator.clipboard.writeText(param.innerText)
+            copyToClipboard(param.innerText)
         });
     }
+}
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text);
+    showSnackbar(`Copied <i>${text}<i/> to clipboard`);
+}
+
+function showSnackbar(message, duration = 3000) {
+    const snackbar = document.getElementById("snackbar");
+    snackbar.innerHTML = message;
+    snackbar.className = "show";
+
+    setTimeout(() => {
+        snackbar.className = snackbar.className.replace("show", "");
+    }, duration);
 }
 
 displayGroupsAndFunctions();
 
 document.getElementById('search').addEventListener('keyup', searchFunction);
+
+

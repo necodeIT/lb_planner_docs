@@ -57,6 +57,10 @@ html {
   max-width: 100%;
 }
 
+#copy {
+  cursor: pointer;
+}
+
 #sidebar {
   background-color: var(--secondary-background-color);
   color: var(--text-color);
@@ -142,6 +146,14 @@ html {
   font-size: 0.8rem;
 }
 
+.param-default:empty {
+  display: none;
+}
+
+.param-default {
+  font-size: 0.8rem;
+}
+
 .badge {
   background-color: var(--secondary-background-color);
   border-radius: 7px;
@@ -213,4 +225,30 @@ html {
   height: 100%;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
+}
+
+#snackbar {
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: var(--secondary-background-color);
+  color: var(--text-color);
+  text-align: center;
+  border-radius: 10px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+#snackbar.show {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.5s, opacity 0.5s;
 }
