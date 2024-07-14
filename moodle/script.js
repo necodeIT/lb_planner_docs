@@ -1,8 +1,62 @@
 
+/**
+ * @typedef {Object} Parameter
+ * @property {string} type - Data type of the parameter
+ * @property {string} description - Description of the parameter
+ * @property {boolean} required - Whether the parameter is required or not
+ * @property {any} default_value - Default value of the parameter
+ * @property {boolean} nullable - Whether the parameter can be null or not
+ */
 
+/**
+ * @typedef {Object} ReturnValue
+ * @property {string} type - Data type of the return value
+ * @property {string} description - Description of the return value
+ */
+
+/**
+ * @typedef {Object} Func
+ * @property {string} name - Name of the function
+ * @property {string} group - Group to which the function belongs
+ * @property {string} capabilities - Capabilities required to execute the function
+ * @property {string} description - Description of the function
+ * @property {string} path - Path to the function endpoint
+ * @property {Object.<string, Parameter>} parameters - Parameters for the function
+ * @property {Object.<string, ReturnValue>} returns - Return values of the function
+ * @property {boolean} returns_multiple - Whether the function returns multiple items or a single item
+ */
+
+/**
+ * Contains all function definitions from our API service.
+ * @type {Func[]}
+ */
 const funcs = [];
 
+/**
+ * @typedef {Object} Func
+ * @property {string} name - Name of the function
+ * @property {string} group - Group to which the function belongs
+ * @property {string} capabilities - Capabilities required to execute the function
+ * @property {string} description - Description of the function
+ * @property {string} path - Path to the function endpoint
+ * @property {Object.<string, Parameter>} parameters - Parameters for the function
+ * @property {Object.<string, ReturnValue>} returns - Return values of the function
+ * @property {boolean} returns_multiple - Whether the function returns multiple items or a single item
+ */
 
+/**
+ * @typedef {Object} Group
+ * @property {string} groupName - Name of the group
+ * @property {Func[]} functions - Array of functions belonging to the group
+ */
+
+/**
+ * Contains all functions grouped by their group name.
+ * @see funcs
+ * @see Func
+ * 
+ * @type {Group[]}
+ */
 let groups = [];
 
 for (let func of funcs) {
@@ -24,13 +78,12 @@ let currentFunction = null;
 
 
 function searchFunction() {
-
     const input = document.getElementById('search').value.toUpperCase();
     const functions = document.querySelectorAll('.func-name');
 
     for (let i = 0; i < functions.length; i++) {
         const textValue = functions[i].textContent || functions[i].innerText;
-        if (funcName(textValue).toUpperCase().includes(input)) {
+        if (textValue.toUpperCase().includes(input)) {
             functions[i].style.display = "";
         } else {
             functions[i].style.display = "none";
@@ -90,12 +143,10 @@ function displayGroupsAndFunctions() {
     groupsElement.appendChild(bottomSpacer);
 }
 
-function funcName(fullName) {
-    // remove everything from the third underscore
-    const split = fullName.split('_');
-    return split.slice(3, split.length).join(' ');
-}
-
+/**
+ * 
+ * @param {Func} func 
+ */
 function displayFunctionDetails(func) {
 
     detailsPane.innerHTML = `
@@ -139,13 +190,13 @@ function displayFunctionDetails(func) {
     let returnValues = document.querySelectorAll('.value-name');
     let params = document.querySelectorAll('.param-name');
 
-    for (let value of returnValues){
+    for (let value of returnValues) {
         value.addEventListener('click', () => {
             navigator.clipboard.writeText(value.innerText)
         });
     }
 
-    for (let param of params){
+    for (let param of params) {
         param.addEventListener('click', () => {
             navigator.clipboard.writeText(param.innerText)
         });
