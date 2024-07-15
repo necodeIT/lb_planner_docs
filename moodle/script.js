@@ -1,48 +1,63 @@
 
 /**
- * @typedef {Object} Parameter
- * @property {string} type - Data type of the parameter
- * @property {string} description - Description of the parameter
- * @property {boolean} required - Whether the parameter is required or not
- * @property {string} default_value - Default value of the parameter
- * @property {boolean} nullable - Whether the parameter can be null or not
+ * @typedef {Object} Value 
+ * @property {string} type Data type of the parameter
+ * @property {string} description Description of the parameter
+ * @property {boolean} required Whether the parameter is required or not
+ * @property {string} default_value Default value of the parameter
+ * @property {boolean} nullable Whether the parameter can be null or not
  */
 
-/**
- * @typedef {Object} ReturnValue
- * @property {string} type - Data type of the return value
- * @property {string} description - Description of the return value
- */
 
 /**
- * @typedef {Object} Func
- * @property {string} name - Name of the function
- * @property {string} group - Group to which the function belongs
- * @property {string} capabilities - Capabilities required to execute the function
- * @property {string} description - Description of the function
- * @property {string} path - Path to the function endpoint
- * @property {Object.<string, Parameter>} parameters - Parameters for the function
- * @property {Object.<string, ReturnValue>} returns - Return values of the function
- * @property {boolean} returns_multiple - Whether the function returns multiple items or a single item
+ * @typedef {Object} Func API Function
+ * @property {string} name Name of the function
+ * @property {string} group Group to which the function belongs
+ * @property {string[]} capabilities Capabilities required to execute the function
+ * @property {string} description Description of the function
+ * @property {string} path Path to the function endpoint (relative to the project root)
+ * @property {Object.<string, Value>} parameters Parameters for the function
+ * @property {Object.<string, Value>} returns Return values of the function
+ * @property {boolean} returns_multiple Whether the function returns multiple items or a single item
  */
 
 /**
  * Contains all function definitions from our API service.
  * @type {Func[]}
  */
-const funcs = [];
+const funcs = [{
+    group: "User",
+    name: "get_user",
+    capabilities: [
+        "moodle/user:view",
+        "lbplanner/user"
+    ],
+    description: "Get user information",
+    returns_multiple: false,
+    path: "lbplanner/services/user/get_user.php",
+    parameters: {
+        "user_id": {
+            type: "int",
+            description: "The id of the user",
+            required: false,
+            default_value: "$USER->id",
+            nullable: false
+        }
+    },
+    returns: {
+        "user": {
+            type: "object",
+            description: "The user object"
+        }
+    }
+}];
 
 /**
- * @typedef {Object} Func
- * @property {string} name - Name of the function
- * @property {string} group - Group to which the function belongs
- * @property {string} capabilities - Capabilities required to execute the function
- * @property {string} description - Description of the function
- * @property {string} path - Path to the function endpoint
- * @property {Object.<string, Parameter>} parameters - Parameters for the function
- * @property {Object.<string, ReturnValue>} returns - Return values of the function
- * @property {boolean} returns_multiple - Whether the function returns multiple items or a single item
+ * The origin URL of the repository containing the source code for the API service.
+ * 
+ * @type {string}
  */
+const origin = "https://github.com/necodeIT/lb_planner/tree/LP-55-Backend-Refactor";
 
 /**
  * @typedef {Object} Group
@@ -184,22 +199,22 @@ function displayGroupsAndFunctions() {
 function displayFunctionDetails(func) {
 
     detailsPane.innerHTML = `
-    <h1>${func.name.replaceAll("_", " ")}</h1>
-    <p id="full-func-name">${func.group}_${func.name} <i class="fa-regular fa-copy" id="copy"></i></p>
+    <h1>${func.name.replaceAll("_", " ")} <i class="fa-regular fa-link-simple" id="func-src" tooltip="View source code">sdasdd</i></h1>
+    <p id="full-func-name">${func.group.toLowerCase()}_${func.name} <i class="fa-regular fa-copy" id="copy"></i></p>
     <hr />
     <p id="func_desc">${func.description}</p>
     <h2>Capabilities</h2>
     <hr />
-    <p>${func.capabilities}</p>
+    <ul>${func.capabilities.map((c) => `<li>${c}</li>`).join("")}</ul>
     <h2>Parameters</h2>
     <hr />
     ${Object.keys(func.parameters).map(param => `
     <div class="param">
         <div class="param-signature">
-            <p class="param-name">${param}</p>
+            <p class="param-name" tooltip="Copy">${param}</p>
             <p>${func.parameters[param].type}</p>
             <p class="param-${func.parameters[param].required ? 'required' : 'optional'}">${func.parameters[param].required ? 'required' : 'optional'}</p>
-            <p class="badge param-default" title="${param} defaults to \`${func.parameters[param].default_value}\`">${func.parameters[param].default_value ? `${func.parameters[param].default_value.replaceAll("->", "&rarr;")}` : ''}</p>
+            <p class="badge param-default" tooltip="${param} defaults to \`${func.parameters[param].default_value}\`">${func.parameters[param].default_value ? `${func.parameters[param].default_value.replaceAll("->", "&rarr;")}` : ''}</p>
         </div>
         <p class="param-desc">${func.parameters[param].description}</p>
     </div>
@@ -220,6 +235,11 @@ function displayFunctionDetails(func) {
     let copy = document.getElementById('copy');
     copy.onclick = () => {
         copyToClipboard(func.name);
+    }
+
+    let src = document.getElementById('func-src');
+    src.onclick = () => {
+        window.open(`${origin}/${func.path}`, '_blank');
     }
 
     let returnValues = document.querySelectorAll('.value-name');
