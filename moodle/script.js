@@ -33,10 +33,10 @@ const funcs = [];
 //         group: "User",
 //         name: "get_user",
 //         capabilities: [
-//             "lbplanner/student",
-//             "lbplanner/admin",
-//             "lbplanner/manager",
-//             "lbplanner/teacher",
+//             "local/lb_planner:student",
+//             "local/lb_planner:admin",
+//             "local/lb_planner:manager",
+//             "local/lb_planner:teacher",
 //             "moodle/user:viewdetails",
 //         ],
 //         description: "Get user information",
@@ -278,7 +278,7 @@ function capabilityIcon(capability) {
     if (capability.includes("admin")) return '<i class="fa-solid fa-user-shield"></i>';
     if (capability.includes("manager")) return '<i class="fa-solid fa-user-tie"></i>';
     if (capability.includes("teacher")) return '<i class="fa-solid fa-user-graduate"></i>';
-    if (capability.includes("student") || capability.includes("lbplanner")) return '<i class="fa-solid fa-user"></i>';
+    if (capability.includes("student") || capability.includes("lb_planner")) return '<i class="fa-solid fa-user"></i>';
 
     return '<i class="fa-solid fa-graduation-cap"></i>';
 }
