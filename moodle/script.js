@@ -25,32 +25,40 @@
  * Contains all function definitions from our API service.
  * @type {Func[]}
  */
-const funcs = [{
-    group: "User",
-    name: "get_user",
-    capabilities: [
-        "moodle/user:view",
-        "lbplanner/user"
-    ],
-    description: "Get user information",
-    returns_multiple: false,
-    path: "lbplanner/services/user/get_user.php",
-    parameters: {
-        "user_id": {
-            type: "int",
-            description: "The id of the user",
-            required: false,
-            default_value: "$USER->id",
-            nullable: false
-        }
-    },
-    returns: {
-        "user": {
-            type: "object",
-            description: "The user object"
-        }
-    }
-}];
+const funcs = [];
+
+// Test data for development
+// const funcs = [
+//     {
+//         group: "User",
+//         name: "get_user",
+//         capabilities: [
+//             "lbplanner/student",
+//             "lbplanner/admin",
+//             "lbplanner/manager",
+//             "lbplanner/teacher",
+//             "moodle/user:viewdetails",
+//         ],
+//         description: "Get user information",
+//         returns_multiple: false,
+//         path: "lbplanner/services/user/get_user.php",
+//         parameters: {
+//             "user_id": {
+//                 type: "int",
+//                 description: "The id of the user",
+//                 required: false,
+//                 default_value: "$USER->id",
+//                 nullable: false
+//             }
+//         },
+//         returns: {
+//             "user": {
+//                 type: "object",
+//                 description: "The user object"
+//             }
+//         }
+//     }
+// ]
 
 /**
  * The origin URL of the repository containing the source code for the API service.
@@ -197,15 +205,14 @@ function displayGroupsAndFunctions() {
  * @see detailsPane
  */
 function displayFunctionDetails(func) {
-
     detailsPane.innerHTML = `
-    <h1>${func.name.replaceAll("_", " ")} <i class="fa-regular fa-link-simple" id="func-src" tooltip="View source code">sdasdd</i></h1>
-    <p id="full-func-name">${func.group.toLowerCase()}_${func.name} <i class="fa-regular fa-copy" id="copy"></i></p>
+    <h1>${func.name.replaceAll("_", " ")}<i class="fa-solid fa-file-code" id="func-src" tooltip="View source code"></i></h1>
+    <p id="full-func-name">${func.group.toLowerCase()}_${func.name} <i class="fa-regular fa-copy" id="copy" tooltip="Copy"></i></p>
     <hr />
     <p id="func_desc">${func.description}</p>
     <h2>Capabilities</h2>
     <hr />
-    <ul>${func.capabilities.map((c) => `<li>${c}</li>`).join("")}</ul>
+    <ul>${func.capabilities.map((c) => `<li>${capabilityIcon(c)}${c}</li>`).join("")}</ul>
     <h2>Parameters</h2>
     <hr />
     ${Object.keys(func.parameters).map(param => `
@@ -224,7 +231,7 @@ function displayFunctionDetails(func) {
     ${Object.keys(func.returns).map(ret => `
     <div class="value">
     <div class="value-signature">
-      <p class="value-name">${ret}</p>
+      <p class="value-name" tooltip="Copy">${ret}</p>
       <p>${func.returns[ret].type}</p>
     </div>
     <p class="value-desc">${func.returns[ret].description}</p>
@@ -234,7 +241,7 @@ function displayFunctionDetails(func) {
 
     let copy = document.getElementById('copy');
     copy.onclick = () => {
-        copyToClipboard(func.name);
+        copyToClipboard(`${func.group.toLowerCase()}_${func.name}`);
     }
 
     let src = document.getElementById('func-src');
@@ -258,6 +265,22 @@ function displayFunctionDetails(func) {
     }
 
     detailsPane.scrollTop = 0;
+}
+
+/**
+ * Returns the icon representing the given capability.
+ * 
+ * @param {string} capability The capability to get the icon for
+ * 
+ * @returns {string} The icon representing the given capability as HTML code
+ */
+function capabilityIcon(capability) {
+    if (capability.includes("admin")) return '<i class="fa-solid fa-user-shield"></i>';
+    if (capability.includes("manager")) return '<i class="fa-solid fa-user-tie"></i>';
+    if (capability.includes("teacher")) return '<i class="fa-solid fa-user-graduate"></i>';
+    if (capability.includes("student") || capability.includes("lbplanner")) return '<i class="fa-solid fa-user"></i>';
+
+    return '<i class="fa-solid fa-graduation-cap"></i>';
 }
 
 /**
