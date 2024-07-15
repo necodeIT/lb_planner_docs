@@ -71,12 +71,26 @@ for (let func of funcs) {
     group.functions.push(func);
 }
 
+/**
+ * The HTML element containing the sidebar.
+ * 
+ * @type {HTMLElement}
+ */
 const sidebar = document.getElementById('sidebar');
-const content = document.getElementById('content');
 
+
+/**
+ * The HTML element displaying the currently selected func.
+ * 
+ * Null if no function is selected.
+ * 
+ * @type {HTMLElement}
+ */
 let currentFunction = null;
 
-
+/**
+ * Hides all functions that do not match the search query.
+ */
 function searchFunction() {
     const input = document.getElementById('search').value.toUpperCase();
     const functions = document.querySelectorAll('.func-name');
@@ -106,9 +120,25 @@ function searchFunction() {
     }
 }
 
+/**
+ * The HTML element listing all groups and functions.
+ * 
+ * @type {HTMLElement}
+ */
 const groupsElement = document.querySelector('#func-groups');
+
+/**
+ * The HTML element displaying the details of the currently selected function.
+ * 
+ * @type {HTMLElement}
+ */
 const detailsPane = document.querySelector('#func-details');
 
+/**
+ * Populates the sidebar with all groups and functions contained in the `groups` array.
+ * 
+ * @see groups
+ */
 function displayGroupsAndFunctions() {
     groups.forEach(group => {
         const groupElement = document.createElement('div');
@@ -144,8 +174,12 @@ function displayGroupsAndFunctions() {
 }
 
 /**
+ * Updates the details pane with the details of the given function.
  * 
- * @param {Func} func 
+ * @param {Func} func
+ * 
+ * @see currentFunction
+ * @see detailsPane
  */
 function displayFunctionDetails(func) {
 
@@ -206,13 +240,31 @@ function displayFunctionDetails(func) {
     detailsPane.scrollTop = 0;
 }
 
+/**
+ * Copies the given text to the clipboard and shows a snackbar message confirming the action.
+ * 
+ * @param {String} text The text to copy to the clipboard
+ * 
+ * @see showSnackbar
+ */
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text);
     showSnackbar(`Copied <i>${text}<i/> to clipboard`);
 }
 
+/**
+ * The timout id for the last snackbar message.
+ * 
+ * @type {number}
+ */
 var timeout = null;
 
+/**
+ * Displays a snackbar message for the given duration.
+ * 
+ * @param {String} message The message to display
+ * @param {Number} duration The duration to display the message for in milliseconds (default: 3000)
+ */
 function showSnackbar(message, duration = 3000) {
     if (timeout) clearTimeout(timeout);
 
@@ -225,8 +277,10 @@ function showSnackbar(message, duration = 3000) {
     }, duration);
 }
 
-displayGroupsAndFunctions();
+// ------------------------------------- INIT UI ------------------------------------- //
 
 document.getElementById('search').addEventListener('keyup', searchFunction);
+
+displayGroupsAndFunctions();
 
 
