@@ -47,7 +47,7 @@ const funcs = [];
 //                 type: "int",
 //                 description: "The id of the user",
 //                 required: false,
-//                 default_value: "$USER->id",
+//                 default_value: "derived from token",
 //                 nullable: false
 //             }
 //         },
@@ -221,7 +221,7 @@ function displayFunctionDetails(func) {
             <p class="param-name" tooltip="Copy">${param}</p>
             <p>${func.parameters[param].type}</p>
             <p class="param-${func.parameters[param].required ? 'required' : 'optional'}">${func.parameters[param].required ? 'required' : 'optional'}</p>
-            <p class="badge param-default" tooltip="${param} defaults to \`${func.parameters[param].default_value}\`">${func.parameters[param].default_value ? `${func.parameters[param].default_value.replaceAll("->", "&rarr;")}` : ''}</p>
+            <p class="badge param-default" tooltip="${param} is ${func.parameters[param].default_value} if omitted">${func.parameters[param].default_value ? `${func.parameters[param].default_value.replaceAll("->", "&rarr;")}` : ''}</p>
         </div>
         <p class="param-desc">${func.parameters[param].description}</p>
     </div>
