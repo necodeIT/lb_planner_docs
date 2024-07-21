@@ -186,11 +186,14 @@ html {
   color: var(--accent-color);
 }
 
-#full-func-name {
-  font-family: "Roboto Mono", monospace;
+.subtitle {
   font-size: 0.8rem;
+  margin-top: -1rem;
 }
 
+#full-func-name {
+  font-family: "Roboto Mono", monospace;
+}
 
 
 .func-group h1 {
@@ -314,6 +317,10 @@ ul {
   flex-wrap: wrap;
   gap: 2rem;
   list-style-type: none;
+}
+
+ul:empty {
+  display: none;
 }
 
 li i {
