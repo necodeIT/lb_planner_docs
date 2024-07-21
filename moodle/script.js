@@ -219,9 +219,10 @@ function displayFunctionDetails(func) {
     <div class="param">
         <div class="param-signature">
             <p class="param-name" tooltip="Copy">${param}</p>
+            <i class="fa-solid fa-arrow-right-long"></i>
             <p>${func.parameters[param].type}</p>
             <p class="param-${func.parameters[param].required ? 'required' : 'optional'}">${func.parameters[param].required ? 'required' : 'optional'}</p>
-            <p class="badge param-default" tooltip="${param} is ${func.parameters[param].default_value} if omitted">${func.parameters[param].default_value ? `${func.parameters[param].default_value.replaceAll("->", "&rarr;")}` : ''}</p>
+            <p class="badge param-default" tooltip="${param} is ${func.parameters[param].default_value} if omitted">${func.parameters[param].default_value ? `${func.parameters[param].default_value}` : ''}</p>
         </div>
         <p class="param-desc">${func.parameters[param].description}</p>
     </div>
@@ -232,6 +233,7 @@ function displayFunctionDetails(func) {
     <div class="value">
     <div class="value-signature">
       <p class="value-name" tooltip="Copy">${ret}</p>
+      <i class="fa-solid fa-arrow-right-long"></i>
       <p>${func.returns[ret].type}</p>
     </div>
     <p class="value-desc">${func.returns[ret].description}</p>
