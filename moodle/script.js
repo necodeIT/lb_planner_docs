@@ -201,7 +201,10 @@ function displayGroupsAndFunctions() {
         let group = queryParams.get('group');
         let func = queryParams.get('func');
 
-        displayFunctionDetails(funcs.find(f => f.group === group && f.name === func));
+        let groupElement = document.evaluate(`//h1[text()="${group}"]`, groupsElement, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        let funcElement = document.evaluate(`//p[text()="${func}"]`, groupElement, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+        funcElement.click();
     }
 }
 
