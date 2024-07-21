@@ -6,7 +6,7 @@
     --red: #e74c3c;
     --green: #4fb930;
     --accent-color: #27bcf3;
-    --accent-color--light: #acdaec;
+    --accent-color-light: #acdaec;
   }
 }
 
@@ -18,7 +18,7 @@
     --red: #D15C4F;
     --green: #208767;
     --accent-color: #78A5FE;
-    --accent-color--light: #a7c4ff;
+    --accent-color-light: #a7c4ff;
   }
 }
 
@@ -78,7 +78,7 @@ html {
 
 #func-details hr {
   margin: 1rem 0;
-  border: 1px solid var(--accent-color--light);
+  border: 1px solid var(--accent-color-light);
 }
 
 #func-details h2 {
@@ -88,10 +88,19 @@ html {
 }
 
 .param-signature,
-.param-signature p {
-  /*display in same line*/
+.param-signature p,
+.value-signature,
+.value-signature p {
   display: inline;
   vertical-align: middle;
+}
+
+.param-signature i,
+.value-signature i {
+  font-size: 0.7rem;
+  margin-left: 0.15rem;
+  margin-right: 0.15rem;
+  color: var(--accent-color-light);
 }
 
 /* The entire scrollbar */
@@ -115,7 +124,7 @@ html {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-color--light);
+  background: var(--accent-color-light);
 }
 
 #func-details h1 {
@@ -125,12 +134,14 @@ html {
   align-items: center;
 }
 
-.param-name {
+.param-name,
+.value-name {
   font-weight: bold;
   color: var(--accent-color);
 }
 
-.param-name:hover {
+.param-name:hover,
+.value-name:hover {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -144,9 +155,10 @@ html {
   color: var(--green);
 }
 
-.param-desc {
+.param-desc,
+.value-desc {
   margin-top: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .param-default:empty {
@@ -166,7 +178,7 @@ html {
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
   padding: 0.2rem 0.5rem;
-  border: 1px solid var(--accent-color--light);
+  border: 1px solid var(--accent-color-light);
   width: fit-content;
   display: inline-block;
   margin: 0 0.5rem;
@@ -179,26 +191,7 @@ html {
   font-size: 0.8rem;
 }
 
-.value-desc {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-}
 
-.value-name {
-  font-weight: bold;
-  color: var(--accent-color);
-}
-
-.value-name:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.value-signature,
-.value-signature p {
-  /*display in same line*/
-  display: inline;
-}
 
 .func-group h1 {
   font-size: 1rem;
