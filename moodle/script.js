@@ -224,7 +224,7 @@ function displayFunctionDetails(func) {
 
     detailsPane.innerHTML = `
     <h1>${func.name.replaceAll("_", " ")}<i class="fa-solid fa-file-code" id="func-src" tooltip="View source code"></i></h1>
-    <p id="full-func-name" class="subtitle">${func.group.toLowerCase()}_${func.name} <i class="fa-regular fa-copy" id="copy" tooltip="Copy"></i></p>
+    <p id="full-func-name" class="subtitle">local_lbplanner_${func.group.toLowerCase()}_${func.name} <i class="fa-regular fa-copy" id="copy" tooltip="Copy"></i></p>
     <hr />
     <p id="func_desc">${func.description}</p>
     <h2>Capabilities</h2>
@@ -263,7 +263,7 @@ function displayFunctionDetails(func) {
 
     let copy = document.getElementById('copy');
     copy.onclick = () => {
-        copyToClipboard(`${func.group.toLowerCase()}_${func.name}`);
+        copyToClipboard(`local_lbplanner_${func.group.toLowerCase()}_${func.name}`);
     }
 
     let src = document.getElementById('func-src');
