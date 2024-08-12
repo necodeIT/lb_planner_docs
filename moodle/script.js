@@ -65,7 +65,7 @@ const funcs = [{"name": "get_user", "group": "user", "capabilities": ["local/lb_
  * 
  * @type {string}
  */
-const origin = "https://github.com/necodeIT/lb_planner/tree/LP-55-Backend-Refactor";
+const origin = "https://github.com/necodeIT/lb_planner_plugin/tree/main/";
 
 /**
  * @typedef {Object} Group
