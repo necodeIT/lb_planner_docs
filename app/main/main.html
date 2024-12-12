@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
@@ -29,21 +29,21 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">lb_planner</a></li>
-    <li><a href="../main/main-library.html">main</a></li>
+    <li><a href="../main/main-library.html">main.dart</a></li>
     <li class="self-crumb">main function</li>
   </ol>
   <div class="self-name">main</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
-  <div class="toggle" id="theme-button">
+  <div class="toggle" id="theme-button" title="Toggle brightness">
     <label for="theme">
       <input type="checkbox" id="theme" value="light-theme">
       <span id="dark-theme-button" class="material-symbols-outlined">
-        brightness_4
+        dark_mode
       </span>
       <span id="light-theme-button" class="material-symbols-outlined">
-        brightness_5
+        light_mode
       </span>
     </label>
   </div>
@@ -76,9 +76,70 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void main() async {
+  final options = Catcher2Options(ShoutReportMode(), []);
+
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(ProviderScope(child: App()));
+  Logger.root.level = Level.ALL;
+
+  DeclarativeEdgeInsets.defaultPadding = Spacing.mediumSpacing;
+  NetworkService.timeout = const Duration(seconds: 30);
+
+  await Sentry.init(
+    (options) =&gt; options
+      ..dsn = kSentryDSN
+      ..environment = kInstalledRelease.channel.name,
+  );
+
+  &#47;&#47; False positive as it&#39;s wrapped in a kDebugMode check
+  &#47;&#47; ignore: avoid_print
+  if (kDebugMode) Logger.root.onRecord.listen(debugLogHandler);
+
+  &#47;&#47; TODO(mcquenji): write to file in release mode
+  if (kReleaseMode) Logger.root.onRecord.listen(debugLogHandler);
+
+  Modular
+    ..setInitialRoute(&#39;&#47;dashboard&#47;&#39;)
+    ..setObservers([LogObserver()]);
+
+  setPrintResolver((msg) {
+    final logger = Logger(&#39;Modular&#39;);
+    final parts = msg.split(&#39; &#39;);
+
+    final log = logger.info;
+
+    if (parts.length == 3 &amp;&amp; parts[0] == &#39;--&#39;) {
+      final module = parts[1].replaceAll(&#39;Module&#39;, &#39; Module&#39;).toLowerCase();
+      final action = parts[2];
+
+      if (action == &#39;DISPOSED&#39;) {
+        log(&#39;Disposed $module&#39;);
+        return;
+      }
+
+      if (action == &#39;INITIALIZED&#39;) {
+        log(&#39;Initilaized $module&#39;);
+        return;
+      }
+    }
+
+    log(msg);
+  });
+
+  if (await FlutterSingleInstance.platform.isFirstInstance()) {
+    Catcher2(
+      releaseConfig: options,
+      debugConfig: options,
+      rootWidget: ModularApp(
+        module: AppModule(),
+        debugMode: false,
+        child: const AppWidget(),
+      ),
+      enableLogger: false,
+    );
+  } else {
+    Logger(kAppName).severe(&#39;App is already running&#39;);
+  }
 }</code></pre>
 </section>
 
@@ -101,6 +162,7 @@
 
 
     <h5>main library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-left-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">

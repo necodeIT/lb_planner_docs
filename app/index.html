@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="generator" content="made with love by dartdoc 7.0.0-dev">
   <meta name="description" content="lb_planner API docs, for the Dart programming language.">
   <title>lb_planner - Dart API docs</title>
 
@@ -12,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="static-assets/github.css?v1">
   <link rel="stylesheet" href="static-assets/styles.css?v1">
@@ -35,14 +34,14 @@
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
-  <div class="toggle" id="theme-button">
+  <div class="toggle" id="theme-button" title="Toggle brightness">
     <label for="theme">
       <input type="checkbox" id="theme" value="light-theme">
       <span id="dark-theme-button" class="material-symbols-outlined">
-        brightness_4
+        dark_mode
       </span>
       <span id="light-theme-button" class="material-symbols-outlined">
-        brightness_5
+        light_mode
       </span>
     </label>
   </div>
@@ -52,540 +51,125 @@
   <div id="dartdoc-main-content" class="main-content">
       
 <section class="desc markdown">
-  <h1 id="lb-planner">LB Planner</h1>
-<p>LB Planner is an application designed to help students plan and organize their self-taught studying by tracking and managing their modules. It provides an easy-to-use interface that allows users to stay on top of their academic goals. For more information, please visit our <a href="https://projekte.tgm.ac.at/lb-planner/">website</a>.</p>
-<h2 id="compile-instructions">Compile Instructions</h2>
-<ol>
-<li>Clone the repository to your local machine.</li>
-<li>Ensure that you have <a href="https://fvm.app/docs/getting_started/installation/">FVM</a> installed on your machine.</li>
-<li>Navigate to the project directory in the terminal.</li>
-<li>Run <code>fvm use</code> to select the Flutter version.</li>
-<li>Run <code>fvm flutter pub get</code> to install the required dependencies.</li>
-<li>To build the application for release on macOS, run <code>fvm flutter build macos --release --no-sound-null-safety</code>. The built application can be found in the <code>build/macos/Build/Products/Release/</code> directory.</li>
-<li>To build the application for release on Windows, run <code>fvm flutter build windows --release --no-sound-null-safety</code>. The built application can be found in the <code>build\windows\runner\Release\</code> directory.</li>
-<li>To build the application for release on Linux, run <code>fvm flutter build linux --release --no-sound-null-safety</code>. The built application can be found in the <code>build/linux/release/bundle/</code> directory.</li>
-</ol>
-<p>Note: LB Planner uses <code>--no-sound-null-safety</code> because some of the third-party packages used in the app do not yet support Flutter's null safety feature. If you encounter any issues while compiling or running the application, please refer to the official <a href="https://flutter.dev/docs">Flutter documentation</a> or the <a href="https://fvm.app">FVM documentation</a> for troubleshooting tips.</p>
-<h2 id="contributors">Contributors</h2>
-<p>LB Planner was created by <a href="https://github.com/bmceachnie">McQuenji</a>, <a href="https://github.com/mkocagoel">Muhi</a>, <a href="https://github.com/RiedleroD">Riedler</a>, <a href="https://github.com/officialbishowb">Bishow B</a> and <a href="https://github.com/cpolat-tgm">Can Polat</a>. We would like to extend our appreciation to the following external contributors for their contributions to the project:</p>
+  <h1 id="lb-planner-app">LB Planner (App)</h1>
+<p>This is the source code for the frontend of LB Planner.</p>
+<h2 id="development">Development</h2>
+<h3 id="prerequisites">Prerequisites</h3>
 <ul>
-<li><a href="https://github.com/Blobii">Blobi blob</a> for helping with the design</li>
-<li><a href="https://github.com/Jszuecs">jszuecs-tgm</a> for helping with documentation on the website</li>
-<li><a href="https://github.com/sproshut">sproshut</a> for "Workflow for automated build" (<a href="https://github.com/necodeIT/lb_planner/pull/11">#11</a>)</li>
-<li><a href="https://github.com/melli736">melli736</a> for helping with macOS testing &amp; development</li>
-<li><a href="https://github.com/mariusthaler">mariusthaler</a> for macOS testing</li>
+<li>
+<p>Flutter Version Manager (fvm): <a href="https://fvm.app/documentation/getting-started/installation">Installation Guide</a></p>
+<ul>
+<li>
+<p>You may want to set an alias for flutter to fvm in your shell configuration file.</p>
+<pre class="language-bash"><code class="language-bash">alias flutter="fvm flutter"
+alias dart="fvm dart"
+</code></pre>
+</li>
 </ul>
-<p>If you would like to contribute to the project, please feel free to contact us at <a href="mailto:lb-planner@tgm.ac.at">lb-planner@tgm.ac.at</a> or create a pull request.</p>
-<h2 id="license">License</h2>
-<p>LB Planner is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> license.</p>
+</li>
+<li>
+<p>VsCode</p>
+</li>
+<li>
+<p>slidy (optional): <a href="https://pub.dev/packages/slidy">Installation Guide</a></p>
+<pre class="language-bash"><code class="language-bash">dart pub global activate slidy
+</code></pre>
+</li>
+</ul>
+<h3 id="setup">Setup</h3>
+<ol>
+<li>Once you've cloned the repository open it in VsCode</li>
+<li>If not already, install the recommended extensions.
+<ul>
+<li>VsCode should prompt you upon opening the project.</li>
+</ul>
+</li>
+<li>Run <code>fvm use &amp;&amp; fvm flutter pub get</code> to install the flutter version used for this project.</li>
+<li>Restart VsCode so that it recognizes the flutter version.</li>
+</ol>
+<h3 id="tools">Tools</h3>
+<ul>
+<li>
+<p><a href="https://github.com/mcquenji/flutter_modular_bricks">flutter_modular_bricks</a>: A tool to generate boilerplate code for flutter_modular.</p>
+<ul>
+<li><code>mason make module</code> to create a new module.</li>
+<li><code>mason make service</code> to create a new service.</li>
+<li><code>mason make service-impl</code> to implement a service.</li>
+<li><code>mason make datasource</code> to create a new datasource.</li>
+<li><code>mason make datasource-impl</code> to implement a datasource.</li>
+<li><code>mason make repo</code> to create a new repository.</li>
+<li><code>mason make widget</code> to create a new widget.</li>
+<li><code>mason make screen</code> to create a new screen.</li>
+<li><code>mason make model</code> to create a new model.</li>
+<li><code>mason make util</code> to create a new utility group.</li>
+<li><code>mason make guard</code> to create a new route guard</li>
+</ul>
+</li>
+<li>
+<p><code>slidy run translate</code> to generate the dart code for the translation files.</p>
+</li>
+<li>
+<p><code>slidy run generate</code> to run all generators.</p>
+</li>
+<li>
+<p><code>slidy run clean</code> to clean the project and refetch dependencies.</p>
+</li>
+</ul>
+<h3 id="guidelines">Guidelines</h3>
+<p>Coding style is enforced as defined per the <a href="https://dart.dev/guides/language/effective-dart">Effective Dart</a> guidelines and the <a href="analysis_options.yaml">analysis_options.yaml</a> file.</p>
+<h4 id="architecture">Architecture</h4>
+<ul>
+<li>LB Planner uses <code>flutter_modular</code> and adheres to <a href="https://github.com/mcquenji/Clean-Dart">Clean Dart</a> principles (a port of Clean Architecture to Dart).</li>
+<li>The project is divided into modules, each module representing a feature or a group of features (e.g. <code>auth</code>, <code>home</code>, <code>settings</code>).</li>
+<li>Each module has its own <code>domain</code>, <code>infra</code>, and <code>presentation</code> layers.
+<ul>
+<li><strong>Domain</strong>: Defines contracts logic and entities.</li>
+<li><strong>Infra</strong>: Implements the contracts defined in the domain layer.</li>
+<li><strong>Presentation</strong>: Contains the UI and business logic.</li>
+</ul>
+</li>
+</ul>
+<h4 id="commits">Commits</h4>
+<ul>
+<li>Use <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> for commit messages.</li>
+<li>It is recommended to use the <a href="https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits">Conventional Commits VsCode extension</a> to help you write conventional commit messages.
+<ul>
+<li>You should be prompted to install this extension upon opening the project.</li>
+</ul>
+</li>
+</ul>
 </section>
 
 
       <section class="summary">
           <h2>Libraries</h2>
         <dl>
-          <dt id="api_service">
-  <span class="name"><a href="shared_domain_services_api_service/shared_domain_services_api_service-library.html">api_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="api_service_provider">
-  <span class="name"><a href="shared_domain_providers_api_service_provider/shared_domain_providers_api_service_provider-library.html">api_service_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="app">
-  <span class="name"><a href="app/app-library.html">app</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="app_dir_service">
-  <span class="name"><a href="shared_domain_services_app_dir_service/shared_domain_services_app_dir_service-library.html">app_dir_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="app_dir_service_provider">
-  <span class="name"><a href="shared_domain_providers_app_dir_service_provider/shared_domain_providers_app_dir_service_provider-library.html">app_dir_service_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="app_image_patcher_service">
-  <span class="name"><a href="features_update_data_services_app_image_patcher_service/features_update_data_services_app_image_patcher_service-library.html">app_image_patcher_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="app_router">
-  <span class="name"><a href="app_router/app_router-library.html">app_router</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="aur_patcher_service">
-  <span class="name"><a href="features_update_data_services_aur_patcher_service/features_update_data_services_aur_patcher_service-library.html">aur_patcher_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="auth">
-  <span class="name"><a href="features_auth_auth/features_auth_auth-library.html">auth</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="auth_service">
-  <span class="name"><a href="features_auth_domain_services_auth_service/features_auth_domain_services_auth_service-library.html">auth_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="auth_service_provider">
-  <span class="name"><a href="features_auth_domain_providers_auth_service_provider/features_auth_domain_providers_auth_service_provider-library.html">auth_service_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="auto_refresh_async_notifier">
-  <span class="name"><a href="shared_utils_auto_refresh_async_notifier/shared_utils_auto_refresh_async_notifier-library.html">auto_refresh_async_notifier</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="auto_refresh_state_notifier">
-  <span class="name"><a href="shared_utils_auto_refresh_state_notifier/shared_utils_auto_refresh_state_notifier-library.html">auto_refresh_state_notifier</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="color_preview_box">
-  <span class="name"><a href="features_themes_presentation_widgets_color_preview_box/features_themes_presentation_widgets_color_preview_box-library.html">color_preview_box</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="conditional_wrapper">
-  <span class="name"><a href="shared_presentation_widgets_conditional_wrapper/shared_presentation_widgets_conditional_wrapper-library.html">conditional_wrapper</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="configs.endpoints">
-  <span class="name"><a href="configs.endpoints/configs.endpoints-library.html">configs.endpoints</a></span> 
+          <dt id="lb_planner.configs.endpoints">
+  <span class="name"><a href="lb_planner.configs.endpoints/lb_planner.configs.endpoints-library.html">config/endpoints</a></span> 
 
 </dt>
 <dd>Contains configs for all endpoints used by the app.
 </dd>
 
-          <dt id="configs.install_medium">
-  <span class="name"><a href="configs.install_medium/configs.install_medium-library.html">configs.install_medium</a></span> 
+          <dt id="lb_planner.config.sentry">
+  <span class="name"><a href="lb_planner.config.sentry/lb_planner.config.sentry-library.html">config/sentry</a></span> 
 
 </dt>
-<dd>This library contains configurations related to the install medium used to install the app.
+<dd>Configuration for <a href="https://sentry.io/">Sentry</a>.
 </dd>
 
-          <dt id="configs.misc">
-  <span class="name"><a href="configs.misc/configs.misc-library.html">configs.misc</a></span> 
+          <dt id="lb_planner.config.version">
+  <span class="name"><a href="lb_planner.config.version/lb_planner.config.version-library.html">config/version</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="configs.version">
-  <span class="name"><a href="configs.version/configs.version-library.html">configs.version</a></span> 
+          <dt id="assets.gen">
+  <span class="name"><a href="gen_assets_assets.gen/gen_assets_assets.gen-library.html">gen/assets/assets.gen</a></span> 
 
 </dt>
-<dd>This library contains configurations related to the version and build channel of the app.
-</dd>
-
-          <dt id="connection_service">
-  <span class="name"><a href="shared_domain_services_connection_service/shared_domain_services_connection_service-library.html">connection_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="connection_service_provider">
-  <span class="name"><a href="shared_domain_providers_connection_service_provider/shared_domain_providers_connection_service_provider-library.html">connection_service_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="data">
-  <span class="name"><a href="features_themes_data_data/features_themes_data_data-library.html">data</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="data">
-  <span class="name"><a href="features_auth_data_data/features_auth_data_data-library.html">data</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="data">
-  <span class="name"><a href="features_feedback_data_data/features_feedback_data_data-library.html">data</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="data">
-  <span class="name"><a href="features_update_data_data/features_update_data_data-library.html">data</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="data">
-  <span class="name"><a href="features_notifications_data_data/features_notifications_data_data-library.html">data</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="data">
-  <span class="name"><a href="shared_data_data/shared_data_data-library.html">data</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_feedback_domain_datasources_datasources/features_feedback_domain_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_update_data_datasources_datasources/features_update_data_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_auth_data_datasources_datasources/features_auth_data_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_notifications_data_datasources_datasources/features_notifications_data_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_auth_domain_datasources_datasources/features_auth_domain_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_notifications_domain_datasources_datasources/features_notifications_domain_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_themes_data_datasources_datasources/features_themes_data_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_themes_domain_datasources_datasources/features_themes_domain_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_feedback_data_datasources_datasources/features_feedback_data_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="datasources">
-  <span class="name"><a href="features_update_domain_datasources_datasources/features_update_domain_datasources_datasources-library.html">datasources</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="debug_app_dir_service">
-  <span class="name"><a href="shared_data_services_debug_app_dir_service/shared_data_services_debug_app_dir_service-library.html">debug_app_dir_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="dio_download_service">
-  <span class="name"><a href="shared_data_services_dio_download_service/shared_data_services_dio_download_service-library.html">dio_download_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="dio_network_service">
-  <span class="name"><a href="shared_data_services_dio_network_service/shared_data_services_dio_network_service-library.html">dio_network_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="dmg_patcher_service">
-  <span class="name"><a href="features_update_data_services_dmg_patcher_service/features_update_data_services_dmg_patcher_service-library.html">dmg_patcher_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="domain">
-  <span class="name"><a href="features_themes_domain_domain/features_themes_domain_domain-library.html">domain</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="domain">
-  <span class="name"><a href="features_feedback_domain_domain/features_feedback_domain_domain-library.html">domain</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="domain">
-  <span class="name"><a href="features_auth_domain_domain/features_auth_domain_domain-library.html">domain</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="domain">
-  <span class="name"><a href="shared_domain_domain/shared_domain_domain-library.html">domain</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="domain">
-  <span class="name"><a href="features_update_domain_domain/features_update_domain_domain-library.html">domain</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="domain">
-  <span class="name"><a href="features_settings_domain_domain/features_settings_domain_domain-library.html">domain</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="domain">
-  <span class="name"><a href="features_notifications_domain_domain/features_notifications_domain_domain-library.html">domain</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="download_service">
-  <span class="name"><a href="shared_domain_services_download_service/shared_domain_services_download_service-library.html">download_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="download_service_provider">
-  <span class="name"><a href="shared_domain_providers_download_service_provider/shared_domain_providers_download_service_provider-library.html">download_service_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="feedback">
-  <span class="name"><a href="features_feedback_feedback/features_feedback_feedback-library.html">feedback</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="feedback">
-  <span class="name"><a href="features_feedback_domain_models_feedback/features_feedback_domain_models_feedback-library.html">feedback</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="feedback_datasource">
-  <span class="name"><a href="features_feedback_domain_datasources_feedback_datasource/features_feedback_domain_datasources_feedback_datasource-library.html">feedback_datasource</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="feedback_datasource_provider">
-  <span class="name"><a href="features_feedback_domain_providers_feedback_datasource_provider/features_feedback_domain_providers_feedback_datasource_provider-library.html">feedback_datasource_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="feedback_provider">
-  <span class="name"><a href="features_feedback_domain_providers_feedback_provider/features_feedback_domain_providers_feedback_provider-library.html">feedback_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="feedback_provider_state">
-  <span class="name"><a href="features_feedback_domain_providers_feedback_provider_state/features_feedback_domain_providers_feedback_provider_state-library.html">feedback_provider_state</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="feedback_repository">
-  <span class="name"><a href="features_feedback_domain_repositories_feedback_repository/features_feedback_domain_repositories_feedback_repository-library.html">feedback_repository</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="feedback_repository_provider">
-  <span class="name"><a href="features_feedback_domain_providers_feedback_repository_provider/features_feedback_domain_providers_feedback_repository_provider-library.html">feedback_repository_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="hover_builder">
-  <span class="name"><a href="shared_presentation_widgets_hover_builder/shared_presentation_widgets_hover_builder-library.html">hover_builder</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="hoverable_widget">
-  <span class="name"><a href="shared_presentation_widgets_hoverable_widget/shared_presentation_widgets_hoverable_widget-library.html">hoverable_widget</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="http_response">
-  <span class="name"><a href="shared_domain_models_http_response/shared_domain_models_http_response-library.html">http_response</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="inno_setup_patcher_service">
-  <span class="name"><a href="features_update_data_services_inno_setup_patcher_service/features_update_data_services_inno_setup_patcher_service-library.html">inno_setup_patcher_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="install_medium">
-  <span class="name"><a href="shared_domain_models_install_medium/shared_domain_models_install_medium-library.html">install_medium</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="internet_address_lookup_connection_service">
-  <span class="name"><a href="shared_data_services_internet_address_lookup_connection_service/shared_data_services_internet_address_lookup_connection_service-library.html">internet_address_lookup_connection_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="is_update_available_provider">
-  <span class="name"><a href="features_update_domain_providers_is_update_available_provider/features_update_domain_providers_is_update_available_provider-library.html">is_update_available_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="is_update_available_provider_state">
-  <span class="name"><a href="features_update_domain_providers_is_update_available_provider_state/features_update_domain_providers_is_update_available_provider_state-library.html">is_update_available_provider_state</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="linux_app_dir_service">
-  <span class="name"><a href="shared_data_services_linux_app_dir_service/shared_data_services_linux_app_dir_service-library.html">linux_app_dir_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="local_config_service">
-  <span class="name"><a href="shared_domain_services_local_config_service/shared_domain_services_local_config_service-library.html">local_config_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="login_form">
-  <span class="name"><a href="features_auth_presentation_widgets_login_form/features_auth_presentation_widgets_login_form-library.html">login_form</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="login_screen">
-  <span class="name"><a href="features_auth_presentation_screens_login_screen/features_auth_presentation_screens_login_screen-library.html">login_screen</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="logo">
-  <span class="name"><a href="shared_presentation_widgets_logo/shared_presentation_widgets_logo-library.html">logo</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="mac_os_app_dir_service">
-  <span class="name"><a href="shared_data_services_mac_os_app_dir_service/shared_data_services_mac_os_app_dir_service-library.html">mac_os_app_dir_service</a></span> 
-
-</dt>
-<dd>
+<dd>GENERATED CODE - DO NOT MODIFY BY HAND
 </dd>
 
           <dt id="main">
@@ -595,792 +179,1625 @@
 <dd>
 </dd>
 
-          <dt id="models">
-  <span class="name"><a href="features_notifications_domain_models_models/features_notifications_domain_models_models-library.html">models</a></span> 
+          <dt id="lb_planner.modules.app">
+  <span class="name"><a href="lb_planner.modules.app/lb_planner.modules.app-library.html">modules/app/app</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_app_domain_datasources_datasources/modules_app_domain_datasources_datasources-library.html">modules/app/domain/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_app_domain_domain/modules_app_domain_domain-library.html">modules/app/domain/domain</a></span> 
 
 </dt>
 <dd>
 </dd>
 
           <dt id="models">
-  <span class="name"><a href="features_auth_domain_models_models/features_auth_domain_models_models-library.html">models</a></span> 
+  <span class="name"><a href="modules_app_domain_models_models/modules_app_domain_models_models-library.html">modules/app/domain/models/models</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="models">
-  <span class="name"><a href="features_feedback_domain_models_models/features_feedback_domain_models_models-library.html">models</a></span> 
+          <dt id="services">
+  <span class="name"><a href="modules_app_domain_services_services/modules_app_domain_services_services-library.html">modules/app/domain/services/services</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="models">
-  <span class="name"><a href="features_themes_domain_models_models/features_themes_domain_models_models-library.html">models</a></span> 
+          <dt id="datasources">
+  <span class="name"><a href="modules_app_infra_datasources_datasources/modules_app_infra_datasources_datasources-library.html">modules/app/infra/datasources/datasources</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="models">
-  <span class="name"><a href="features_update_domain_models_models/features_update_domain_models_models-library.html">models</a></span> 
+          <dt id="infra">
+  <span class="name"><a href="modules_app_infra_infra/modules_app_infra_infra-library.html">modules/app/infra/infra</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="models">
-  <span class="name"><a href="shared_domain_models_models/shared_domain_models_models-library.html">models</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="module_status_theme">
-  <span class="name"><a href="features_themes_domain_models_module_status_theme/features_themes_domain_models_module_status_theme-library.html">module_status_theme</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="moodle_api_service">
-  <span class="name"><a href="shared_data_services_moodle_api_service/shared_data_services_moodle_api_service-library.html">moodle_api_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="moodle_auth_service">
-  <span class="name"><a href="features_auth_data_services_moodle_auth_service/features_auth_data_services_moodle_auth_service-library.html">moodle_auth_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="network_service">
-  <span class="name"><a href="shared_domain_services_network_service/shared_domain_services_network_service-library.html">network_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="network_service_provider">
-  <span class="name"><a href="shared_domain_providers_network_service_provider/shared_domain_providers_network_service_provider-library.html">network_service_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="notification">
-  <span class="name"><a href="features_notifications_domain_models_notification/features_notifications_domain_models_notification-library.html">notification</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="notifications">
-  <span class="name"><a href="features_notifications_notifications/features_notifications_notifications-library.html">notifications</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="notifications_datasource">
-  <span class="name"><a href="features_notifications_domain_datasources_notifications_datasource/features_notifications_domain_datasources_notifications_datasource-library.html">notifications_datasource</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="notifications_datasource_provider">
-  <span class="name"><a href="features_notifications_domain_providers_notifications_datasource_provider/features_notifications_domain_providers_notifications_datasource_provider-library.html">notifications_datasource_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="notifications_provider">
-  <span class="name"><a href="features_notifications_domain_providers_notifications_provider/features_notifications_domain_providers_notifications_provider-library.html">notifications_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="notifications_provider_state">
-  <span class="name"><a href="features_notifications_domain_providers_notifications_provider_state/features_notifications_domain_providers_notifications_provider_state-library.html">notifications_provider_state</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="notifications_repository">
-  <span class="name"><a href="features_notifications_data_repostiroies_notifications_repository/features_notifications_data_repostiroies_notifications_repository-library.html">notifications_repository</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="notifications_repository">
-  <span class="name"><a href="features_notifications_domain_repostiroies_notifications_repository/features_notifications_domain_repostiroies_notifications_repository-library.html">notifications_repository</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="notifications_repository_provider">
-  <span class="name"><a href="features_notifications_domain_providers_notifications_repository_provider/features_notifications_domain_providers_notifications_repository_provider-library.html">notifications_repository_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="offset_on_hover">
-  <span class="name"><a href="shared_presentation_widgets_offset_on_hover/shared_presentation_widgets_offset_on_hover-library.html">offset_on_hover</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="patcher_service">
-  <span class="name"><a href="features_update_domain_services_patcher_service/features_update_domain_services_patcher_service-library.html">patcher_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="patcher_service_provider">
-  <span class="name"><a href="features_update_domain_providers_patcher_service_provider/features_update_domain_providers_patcher_service_provider-library.html">patcher_service_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="patching_progress">
-  <span class="name"><a href="features_update_domain_models_patching_progress/features_update_domain_models_patching_progress-library.html">patching_progress</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="patching_progress_provider">
-  <span class="name"><a href="features_update_domain_providers_patching_progress_provider/features_update_domain_providers_patching_progress_provider-library.html">patching_progress_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="patching_progress_provider_state">
-  <span class="name"><a href="features_update_domain_providers_patching_progress_provider_state/features_update_domain_providers_patching_progress_provider_state-library.html">patching_progress_provider_state</a></span> 
+          <dt id="services">
+  <span class="name"><a href="modules_app_infra_services_services/modules_app_infra_services_services-library.html">modules/app/infra/services/services</a></span> 
 
 </dt>
 <dd>
 </dd>
 
           <dt id="presentation">
-  <span class="name"><a href="shared_presentation_presentation/shared_presentation_presentation-library.html">presentation</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="presentation">
-  <span class="name"><a href="features_auth_presentation_presentation/features_auth_presentation_presentation-library.html">presentation</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="presentation">
-  <span class="name"><a href="features_themes_presentation_presentation/features_themes_presentation_presentation-library.html">presentation</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="providers">
-  <span class="name"><a href="features_update_domain_providers_providers/features_update_domain_providers_providers-library.html">providers</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="providers">
-  <span class="name"><a href="features_themes_domain_providers_providers/features_themes_domain_providers_providers-library.html">providers</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="providers">
-  <span class="name"><a href="features_feedback_domain_providers_providers/features_feedback_domain_providers_providers-library.html">providers</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="providers">
-  <span class="name"><a href="features_settings_domain_providers_providers/features_settings_domain_providers_providers-library.html">providers</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="providers">
-  <span class="name"><a href="features_auth_domain_providers_providers/features_auth_domain_providers_providers-library.html">providers</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="providers">
-  <span class="name"><a href="features_notifications_domain_providers_providers/features_notifications_domain_providers_providers-library.html">providers</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="providers">
-  <span class="name"><a href="shared_domain_providers_providers/shared_domain_providers_providers-library.html">providers</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="release">
-  <span class="name"><a href="features_update_domain_models_release/features_update_domain_models_release-library.html">release</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="release_data_source">
-  <span class="name"><a href="features_update_domain_datasources_release_data_source/features_update_domain_datasources_release_data_source-library.html">release_data_source</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="release_datasource_provider">
-  <span class="name"><a href="features_update_domain_providers_release_datasource_provider/features_update_domain_providers_release_datasource_provider-library.html">release_datasource_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="release_downloads">
-  <span class="name"><a href="features_update_domain_models_release_downloads/features_update_domain_models_release_downloads-library.html">release_downloads</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="release_repository">
-  <span class="name"><a href="features_update_domain_repositories_release_repository/features_update_domain_repositories_release_repository-library.html">release_repository</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="release_repository_provider">
-  <span class="name"><a href="features_update_domain_providers_release_repository_provider/features_update_domain_providers_release_repository_provider-library.html">release_repository_provider</a></span> 
+  <span class="name"><a href="modules_app_presentation_presentation/modules_app_presentation_presentation-library.html">modules/app/presentation/presentation</a></span> 
 
 </dt>
 <dd>
 </dd>
 
           <dt id="repositories">
-  <span class="name"><a href="features_feedback_data_repositories_repositories/features_feedback_data_repositories_repositories-library.html">repositories</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="repositories">
-  <span class="name"><a href="features_notifications_domain_repostiroies_repositories/features_notifications_domain_repostiroies_repositories-library.html">repositories</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="repositories">
-  <span class="name"><a href="features_notifications_data_repostiroies_repositories/features_notifications_data_repostiroies_repositories-library.html">repositories</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="repositories">
-  <span class="name"><a href="features_themes_data_repositories_repositories/features_themes_data_repositories_repositories-library.html">repositories</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="repositories">
-  <span class="name"><a href="features_update_domain_repositories_repositories/features_update_domain_repositories_repositories-library.html">repositories</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="repositories">
-  <span class="name"><a href="features_themes_domain_repositories_repositories/features_themes_domain_repositories_repositories-library.html">repositories</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="repositories">
-  <span class="name"><a href="features_feedback_domain_repositories_repositories/features_feedback_domain_repositories_repositories-library.html">repositories</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="repositories">
-  <span class="name"><a href="features_update_data_repositories_repositories/features_update_data_repositories_repositories-library.html">repositories</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="scale_on_hover">
-  <span class="name"><a href="shared_presentation_widgets_scale_on_hover/shared_presentation_widgets_scale_on_hover-library.html">scale_on_hover</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="screen_title_bar">
-  <span class="name"><a href="shared_presentation_widgets_screen_title_bar/shared_presentation_widgets_screen_title_bar-library.html">screen_title_bar</a></span> 
+  <span class="name"><a href="modules_app_presentation_repositories_repositories/modules_app_presentation_repositories_repositories-library.html">modules/app/presentation/repositories/repositories</a></span> 
 
 </dt>
 <dd>
 </dd>
 
           <dt id="screens">
-  <span class="name"><a href="features_themes_presentation_screens_screens/features_themes_presentation_screens_screens-library.html">screens</a></span> 
+  <span class="name"><a href="modules_app_presentation_screens_screens/modules_app_presentation_screens_screens-library.html">modules/app/presentation/screens/screens</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="screens">
-  <span class="name"><a href="features_auth_presentation_screens_screens/features_auth_presentation_screens_screens-library.html">screens</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="self_compiled_patcher_service">
-  <span class="name"><a href="features_update_data_services_self_compiled_patcher_service/features_update_data_services_self_compiled_patcher_service-library.html">self_compiled_patcher_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="services">
-  <span class="name"><a href="features_themes_data_services_services/features_themes_data_services_services-library.html">services</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="services">
-  <span class="name"><a href="shared_data_services_services/shared_data_services_services-library.html">services</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="services">
-  <span class="name"><a href="features_themes_domain_services_services/features_themes_domain_services_services-library.html">services</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="services">
-  <span class="name"><a href="features_auth_domain_services_services/features_auth_domain_services_services-library.html">services</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="services">
-  <span class="name"><a href="features_auth_data_services_services/features_auth_data_services_services-library.html">services</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="services">
-  <span class="name"><a href="features_update_data_services_services/features_update_data_services_services-library.html">services</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="services">
-  <span class="name"><a href="shared_domain_services_services/shared_domain_services_services-library.html">services</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="services">
-  <span class="name"><a href="features_update_domain_services_services/features_update_domain_services_services-library.html">services</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="settings">
-  <span class="name"><a href="features_settings_settings/features_settings_settings-library.html">settings</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="settings_provider">
-  <span class="name"><a href="features_settings_domain_providers_settings_provider/features_settings_domain_providers_settings_provider-library.html">settings_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="settings_provider_state">
-  <span class="name"><a href="features_settings_domain_providers_settings_provider_state/features_settings_domain_providers_settings_provider_state-library.html">settings_provider_state</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="shared">
-  <span class="name"><a href="shared_shared/shared_shared-library.html">shared</a></span> 
+          <dt id="sidebar_screen">
+  <span class="name"><a href="modules_app_presentation_screens_sidebar_screen/modules_app_presentation_screens_sidebar_screen-library.html">modules/app/presentation/screens/sidebar_screen</a></span> 
 
 </dt>
 <dd>
 </dd>
 
           <dt id="sidebar">
-  <span class="name"><a href="shared_presentation_widgets_sidebar/shared_presentation_widgets_sidebar-library.html">sidebar</a></span> 
+  <span class="name"><a href="modules_app_presentation_widgets_sidebar/modules_app_presentation_widgets_sidebar-library.html">modules/app/presentation/widgets/sidebar</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="sidebar_item">
-  <span class="name"><a href="shared_presentation_widgets_sidebar_item/shared_presentation_widgets_sidebar_item-library.html">sidebar_item</a></span> 
+          <dt id="sidebar_target">
+  <span class="name"><a href="modules_app_presentation_widgets_sidebar_target/modules_app_presentation_widgets_sidebar_target-library.html">modules/app/presentation/widgets/sidebar_target</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="spacing">
-  <span class="name"><a href="shared_presentation_widgets_spacing/shared_presentation_widgets_spacing-library.html">spacing</a></span> 
+          <dt id="title_bar">
+  <span class="name"><a href="modules_app_presentation_widgets_title_bar/modules_app_presentation_widgets_title_bar-library.html">modules/app/presentation/widgets/title_bar</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="std_feedback_datasource">
-  <span class="name"><a href="features_feedback_data_datasources_std_feedback_datasource/features_feedback_data_datasources_std_feedback_datasource-library.html">std_feedback_datasource</a></span> 
+          <dt id="widgets">
+  <span class="name"><a href="modules_app_presentation_widgets_widgets/modules_app_presentation_widgets_widgets-library.html">modules/app/presentation/widgets/widgets</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="std_feedback_repository">
-  <span class="name"><a href="features_feedback_data_repositories_std_feedback_repository/features_feedback_data_repositories_std_feedback_repository-library.html">std_feedback_repository</a></span> 
+          <dt id="animate_utils">
+  <span class="name"><a href="modules_app_utils_animate_utils/modules_app_utils_animate_utils-library.html">modules/app/utils/animate_utils</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="std_notifications_datasource">
-  <span class="name"><a href="features_notifications_data_datasources_std_notifications_datasource/features_notifications_data_datasources_std_notifications_datasource-library.html">std_notifications_datasource</a></span> 
+          <dt id="button_utils">
+  <span class="name"><a href="modules_app_utils_button_utils/modules_app_utils_button_utils-library.html">modules/app/utils/button_utils</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="std_release_data_source">
-  <span class="name"><a href="features_update_data_datasources_std_release_data_source/features_update_data_datasources_std_release_data_source-library.html">std_release_data_source</a></span> 
+          <dt id="context_utils">
+  <span class="name"><a href="modules_app_utils_context_utils/modules_app_utils_context_utils-library.html">modules/app/utils/context_utils</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="std_release_repository">
-  <span class="name"><a href="features_update_data_repositories_std_release_repository/features_update_data_repositories_std_release_repository-library.html">std_release_repository</a></span> 
+          <dt id="json_serializable_utils">
+  <span class="name"><a href="modules_app_utils_json_serializable_utils/modules_app_utils_json_serializable_utils-library.html">modules/app/utils/json_serializable_utils</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="std_theme_bases_datasource">
-  <span class="name"><a href="features_themes_data_datasources_std_theme_bases_datasource/features_themes_data_datasources_std_theme_bases_datasource-library.html">std_theme_bases_datasource</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="std_theme_bases_repository">
-  <span class="name"><a href="features_themes_data_repositories_std_theme_bases_repository/features_themes_data_repositories_std_theme_bases_repository-library.html">std_theme_bases_repository</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="std_theme_service">
-  <span class="name"><a href="features_themes_data_services_std_theme_service/features_themes_data_services_std_theme_service-library.html">std_theme_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="std_user_data_source">
-  <span class="name"><a href="features_auth_data_datasources_std_user_data_source/features_auth_data_datasources_std_user_data_source-library.html">std_user_data_source</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="string_utils">
-  <span class="name"><a href="shared_utils_string_utils/shared_utils_string_utils-library.html">string_utils</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="theme_base">
-  <span class="name"><a href="features_themes_domain_models_theme_base/features_themes_domain_models_theme_base-library.html">theme_base</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="theme_bases_datasource">
-  <span class="name"><a href="features_themes_domain_datasources_theme_bases_datasource/features_themes_domain_datasources_theme_bases_datasource-library.html">theme_bases_datasource</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="theme_bases_datasource_provider">
-  <span class="name"><a href="features_themes_domain_providers_theme_bases_datasource_provider/features_themes_domain_providers_theme_bases_datasource_provider-library.html">theme_bases_datasource_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="theme_bases_repository">
-  <span class="name"><a href="features_themes_domain_repositories_theme_bases_repository/features_themes_domain_repositories_theme_bases_repository-library.html">theme_bases_repository</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="theme_bases_repository_provider">
-  <span class="name"><a href="features_themes_domain_providers_theme_bases_repository_provider/features_themes_domain_providers_theme_bases_repository_provider-library.html">theme_bases_repository_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="theme_development_screen">
-  <span class="name"><a href="features_themes_presentation_screens_theme_development_screen/features_themes_presentation_screens_theme_development_screen-library.html">theme_development_screen</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="theme_provider">
-  <span class="name"><a href="features_themes_domain_providers_theme_provider/features_themes_domain_providers_theme_provider-library.html">theme_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="theme_service">
-  <span class="name"><a href="features_themes_domain_services_theme_service/features_themes_domain_services_theme_service-library.html">theme_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="theme_service_provider">
-  <span class="name"><a href="features_themes_domain_providers_theme_service_provider/features_themes_domain_providers_theme_service_provider-library.html">theme_service_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="themes">
-  <span class="name"><a href="features_themes_themes/features_themes_themes-library.html">themes</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="token_unavailable_datasource">
-  <span class="name"><a href="features_feedback_data_datasources_token_unavailable_datasource/features_feedback_data_datasources_token_unavailable_datasource-library.html">token_unavailable_datasource</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="token_unavailable_notifications_datasource">
-  <span class="name"><a href="features_notifications_data_datasources_token_unavailable_notifications_datasource/features_notifications_data_datasources_token_unavailable_notifications_datasource-library.html">token_unavailable_notifications_datasource</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="token_unavailable_user_data_source">
-  <span class="name"><a href="features_auth_data_datasources_token_unavailable_user_data_source/features_auth_data_datasources_token_unavailable_user_data_source-library.html">token_unavailable_user_data_source</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="transform_on_hover">
-  <span class="name"><a href="shared_presentation_widgets_transform_on_hover/shared_presentation_widgets_transform_on_hover-library.html">transform_on_hover</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="update">
-  <span class="name"><a href="features_update_update/features_update_update-library.html">update</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="user">
-  <span class="name"><a href="features_auth_domain_models_user/features_auth_domain_models_user-library.html">user</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="user_data_source">
-  <span class="name"><a href="features_auth_domain_datasources_user_data_source/features_auth_domain_datasources_user_data_source-library.html">user_data_source</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="user_data_source_provider">
-  <span class="name"><a href="features_auth_domain_providers_user_data_source_provider/features_auth_domain_providers_user_data_source_provider-library.html">user_data_source_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="user_provider">
-  <span class="name"><a href="features_auth_domain_providers_user_provider/features_auth_domain_providers_user_provider-library.html">user_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="user_token">
-  <span class="name"><a href="features_auth_domain_models_user_token/features_auth_domain_models_user_token-library.html">user_token</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="user_token_local_config_service">
-  <span class="name"><a href="features_auth_domain_providers_user_token_local_config_service/features_auth_domain_providers_user_token_local_config_service-library.html">user_token_local_config_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="user_token_local_config_service">
-  <span class="name"><a href="features_auth_data_services_user_token_local_config_service/features_auth_data_services_user_token_local_config_service-library.html">user_token_local_config_service</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="user_token_provider">
-  <span class="name"><a href="features_auth_domain_providers_user_token_provider/features_auth_domain_providers_user_token_provider-library.html">user_token_provider</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="user_token_state">
-  <span class="name"><a href="features_auth_domain_providers_user_token_state/features_auth_domain_providers_user_token_state-library.html">user_token_state</a></span> 
-
-</dt>
-<dd>
-</dd>
-
-          <dt id="users_provider">
-  <span class="name"><a href="features_auth_domain_providers_users_provider/features_auth_domain_providers_users_provider-library.html">users_provider</a></span> 
+          <dt id="svg_utils">
+  <span class="name"><a href="modules_app_utils_svg_utils/modules_app_utils_svg_utils-library.html">modules/app/utils/svg_utils</a></span> 
 
 </dt>
 <dd>
 </dd>
 
           <dt id="utils">
-  <span class="name"><a href="shared_utils_utils/shared_utils_utils-library.html">utils</a></span> 
+  <span class="name"><a href="modules_app_utils_utils/modules_app_utils_utils-library.html">modules/app/utils/utils</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="vector_image">
-  <span class="name"><a href="shared_presentation_widgets_vector_image/shared_presentation_widgets_vector_image-library.html">vector_image</a></span> 
+          <dt id="auth">
+  <span class="name"><a href="modules_auth_auth/modules_auth_auth-library.html">modules/auth/auth</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="version">
-  <span class="name"><a href="shared_domain_models_version/shared_domain_models_version-library.html">version</a></span> 
+          <dt id="datasources">
+  <span class="name"><a href="modules_auth_domain_datasources_datasources/modules_auth_domain_datasources_datasources-library.html">modules/auth/domain/datasources/datasources</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="widget_ext">
-  <span class="name"><a href="shared_utils_widget_ext/shared_utils_widget_ext-library.html">widget_ext</a></span> 
+          <dt id="user_datasource">
+  <span class="name"><a href="modules_auth_domain_datasources_user_datasource/modules_auth_domain_datasources_user_datasource-library.html">modules/auth/domain/datasources/user_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_auth_domain_domain/modules_auth_domain_domain-library.html">modules/auth/domain/domain</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="models">
+  <span class="name"><a href="modules_auth_domain_models_models/modules_auth_domain_models_models-library.html">modules/auth/domain/models/models</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="token">
+  <span class="name"><a href="modules_auth_domain_models_token/modules_auth_domain_models_token-library.html">modules/auth/domain/models/token</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="user">
+  <span class="name"><a href="modules_auth_domain_models_user/modules_auth_domain_models_user-library.html">modules/auth/domain/models/user</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="api_service">
+  <span class="name"><a href="modules_auth_domain_services_api_service/modules_auth_domain_services_api_service-library.html">modules/auth/domain/services/api_service</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="auth_service">
+  <span class="name"><a href="modules_auth_domain_services_auth_service/modules_auth_domain_services_auth_service-library.html">modules/auth/domain/services/auth_service</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_auth_domain_services_services/modules_auth_domain_services_services-library.html">modules/auth/domain/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_auth_infra_datasources_datasources/modules_auth_infra_datasources_datasources-library.html">modules/auth/infra/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_user_datasource">
+  <span class="name"><a href="modules_auth_infra_datasources_moodle_user_datasource/modules_auth_infra_datasources_moodle_user_datasource-library.html">modules/auth/infra/datasources/moodle_user_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="infra">
+  <span class="name"><a href="modules_auth_infra_infra/modules_auth_infra_infra-library.html">modules/auth/infra/infra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_api_service">
+  <span class="name"><a href="modules_auth_infra_services_moodle_api_service/modules_auth_infra_services_moodle_api_service-library.html">modules/auth/infra/services/moodle_api_service</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_auth_service">
+  <span class="name"><a href="modules_auth_infra_services_moodle_auth_service/modules_auth_infra_services_moodle_auth_service-library.html">modules/auth/infra/services/moodle_auth_service</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_auth_infra_services_services/modules_auth_infra_services_services-library.html">modules/auth/infra/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="auth_guard">
+  <span class="name"><a href="modules_auth_presentation_guards_auth_guard/modules_auth_presentation_guards_auth_guard-library.html">modules/auth/presentation/guards/auth_guard</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="guards">
+  <span class="name"><a href="modules_auth_presentation_guards_guards/modules_auth_presentation_guards_guards-library.html">modules/auth/presentation/guards/guards</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="presentation">
+  <span class="name"><a href="modules_auth_presentation_presentation/modules_auth_presentation_presentation-library.html">modules/auth/presentation/presentation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="auth_repository">
+  <span class="name"><a href="modules_auth_presentation_repositories_auth_repository/modules_auth_presentation_repositories_auth_repository-library.html">modules/auth/presentation/repositories/auth_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="repositories">
+  <span class="name"><a href="modules_auth_presentation_repositories_repositories/modules_auth_presentation_repositories_repositories-library.html">modules/auth/presentation/repositories/repositories</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="user_repository">
+  <span class="name"><a href="modules_auth_presentation_repositories_user_repository/modules_auth_presentation_repositories_user_repository-library.html">modules/auth/presentation/repositories/user_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="login_screen">
+  <span class="name"><a href="modules_auth_presentation_screens_login_screen/modules_auth_presentation_screens_login_screen-library.html">modules/auth/presentation/screens/login_screen</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="screens">
+  <span class="name"><a href="modules_auth_presentation_screens_screens/modules_auth_presentation_screens_screens-library.html">modules/auth/presentation/screens/screens</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="login_form">
+  <span class="name"><a href="modules_auth_presentation_widgets_login_form/modules_auth_presentation_widgets_login_form-library.html">modules/auth/presentation/widgets/login_form</a></span> 
 
 </dt>
 <dd>
 </dd>
 
           <dt id="widgets">
-  <span class="name"><a href="features_themes_presentation_widgets_widgets/features_themes_presentation_widgets_widgets-library.html">widgets</a></span> 
+  <span class="name"><a href="modules_auth_presentation_widgets_widgets/modules_auth_presentation_widgets_widgets-library.html">modules/auth/presentation/widgets/widgets</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="token_utils">
+  <span class="name"><a href="modules_auth_utils_token_utils/modules_auth_utils_token_utils-library.html">modules/auth/utils/token_utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="utils">
+  <span class="name"><a href="modules_auth_utils_utils/modules_auth_utils_utils-library.html">modules/auth/utils/utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="calendar">
+  <span class="name"><a href="modules_calendar_calendar/modules_calendar_calendar-library.html">modules/calendar/calendar</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_calendar_domain_datasources_datasources/modules_calendar_domain_datasources_datasources-library.html">modules/calendar/domain/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="deadlines_datasource">
+  <span class="name"><a href="modules_calendar_domain_datasources_deadlines_datasource/modules_calendar_domain_datasources_deadlines_datasource-library.html">modules/calendar/domain/datasources/deadlines_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="invites_datasource">
+  <span class="name"><a href="modules_calendar_domain_datasources_invites_datasource/modules_calendar_domain_datasources_invites_datasource-library.html">modules/calendar/domain/datasources/invites_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="plan_datasource">
+  <span class="name"><a href="modules_calendar_domain_datasources_plan_datasource/modules_calendar_domain_datasources_plan_datasource-library.html">modules/calendar/domain/datasources/plan_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_calendar_domain_domain/modules_calendar_domain_domain-library.html">modules/calendar/domain/domain</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="calendar_plan">
+  <span class="name"><a href="modules_calendar_domain_models_calendar_plan/modules_calendar_domain_models_calendar_plan-library.html">modules/calendar/domain/models/calendar_plan</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="models">
+  <span class="name"><a href="modules_calendar_domain_models_models/modules_calendar_domain_models_models-library.html">modules/calendar/domain/models/models</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="plan_deadline">
+  <span class="name"><a href="modules_calendar_domain_models_plan_deadline/modules_calendar_domain_models_plan_deadline-library.html">modules/calendar/domain/models/plan_deadline</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="plan_invite">
+  <span class="name"><a href="modules_calendar_domain_models_plan_invite/modules_calendar_domain_models_plan_invite-library.html">modules/calendar/domain/models/plan_invite</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="plan_member">
+  <span class="name"><a href="modules_calendar_domain_models_plan_member/modules_calendar_domain_models_plan_member-library.html">modules/calendar/domain/models/plan_member</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_calendar_domain_services_services/modules_calendar_domain_services_services-library.html">modules/calendar/domain/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_calendar_infra_datasources_datasources/modules_calendar_infra_datasources_datasources-library.html">modules/calendar/infra/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="std_deadlines_datasource">
+  <span class="name"><a href="modules_calendar_infra_datasources_std_deadlines_datasource/modules_calendar_infra_datasources_std_deadlines_datasource-library.html">modules/calendar/infra/datasources/std_deadlines_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="std_invites_datasource">
+  <span class="name"><a href="modules_calendar_infra_datasources_std_invites_datasource/modules_calendar_infra_datasources_std_invites_datasource-library.html">modules/calendar/infra/datasources/std_invites_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="std_plan_datasource">
+  <span class="name"><a href="modules_calendar_infra_datasources_std_plan_datasource/modules_calendar_infra_datasources_std_plan_datasource-library.html">modules/calendar/infra/datasources/std_plan_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="infra">
+  <span class="name"><a href="modules_calendar_infra_infra/modules_calendar_infra_infra-library.html">modules/calendar/infra/infra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_calendar_infra_services_services/modules_calendar_infra_services_services-library.html">modules/calendar/infra/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="guards">
+  <span class="name"><a href="modules_calendar_presentation_guards_guards/modules_calendar_presentation_guards_guards-library.html">modules/calendar/presentation/guards/guards</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="presentation">
+  <span class="name"><a href="modules_calendar_presentation_presentation/modules_calendar_presentation_presentation-library.html">modules/calendar/presentation/presentation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="calendar_plan_repository">
+  <span class="name"><a href="modules_calendar_presentation_repositories_calendar_plan_repository/modules_calendar_presentation_repositories_calendar_plan_repository-library.html">modules/calendar/presentation/repositories/calendar_plan_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="repositories">
+  <span class="name"><a href="modules_calendar_presentation_repositories_repositories/modules_calendar_presentation_repositories_repositories-library.html">modules/calendar/presentation/repositories/repositories</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="calendar_screen">
+  <span class="name"><a href="modules_calendar_presentation_screens_calendar_screen/modules_calendar_presentation_screens_calendar_screen-library.html">modules/calendar/presentation/screens/calendar_screen</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="screens">
+  <span class="name"><a href="modules_calendar_presentation_screens_screens/modules_calendar_presentation_screens_screens-library.html">modules/calendar/presentation/screens/screens</a></span> 
 
 </dt>
 <dd>
 </dd>
 
           <dt id="widgets">
-  <span class="name"><a href="shared_presentation_widgets_widgets/shared_presentation_widgets_widgets-library.html">widgets</a></span> 
+  <span class="name"><a href="modules_calendar_presentation_widgets_widgets/modules_calendar_presentation_widgets_widgets-library.html">modules/calendar/presentation/widgets/widgets</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="utils">
+  <span class="name"><a href="modules_calendar_utils_utils/modules_calendar_utils_utils-library.html">modules/calendar/utils/utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="dashboard">
+  <span class="name"><a href="modules_dashboard_dashboard/modules_dashboard_dashboard-library.html">modules/dashboard/dashboard</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_dashboard_domain_datasources_datasources/modules_dashboard_domain_datasources_datasources-library.html">modules/dashboard/domain/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_dashboard_domain_domain/modules_dashboard_domain_domain-library.html">modules/dashboard/domain/domain</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="models">
+  <span class="name"><a href="modules_dashboard_domain_models_models/modules_dashboard_domain_models_models-library.html">modules/dashboard/domain/models/models</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_dashboard_domain_services_services/modules_dashboard_domain_services_services-library.html">modules/dashboard/domain/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_dashboard_infra_datasources_datasources/modules_dashboard_infra_datasources_datasources-library.html">modules/dashboard/infra/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="infra">
+  <span class="name"><a href="modules_dashboard_infra_infra/modules_dashboard_infra_infra-library.html">modules/dashboard/infra/infra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_dashboard_infra_services_services/modules_dashboard_infra_services_services-library.html">modules/dashboard/infra/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="guards">
+  <span class="name"><a href="modules_dashboard_presentation_guards_guards/modules_dashboard_presentation_guards_guards-library.html">modules/dashboard/presentation/guards/guards</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="presentation">
+  <span class="name"><a href="modules_dashboard_presentation_presentation/modules_dashboard_presentation_presentation-library.html">modules/dashboard/presentation/presentation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="repositories">
+  <span class="name"><a href="modules_dashboard_presentation_repositories_repositories/modules_dashboard_presentation_repositories_repositories-library.html">modules/dashboard/presentation/repositories/repositories</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="dashboard_screen">
+  <span class="name"><a href="modules_dashboard_presentation_screens_dashboard_screen/modules_dashboard_presentation_screens_dashboard_screen-library.html">modules/dashboard/presentation/screens/dashboard_screen</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="screens">
+  <span class="name"><a href="modules_dashboard_presentation_screens_screens/modules_dashboard_presentation_screens_screens-library.html">modules/dashboard/presentation/screens/screens</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="burndown_chart">
+  <span class="name"><a href="modules_dashboard_presentation_widgets_burndown_chart/modules_dashboard_presentation_widgets_burndown_chart-library.html">modules/dashboard/presentation/widgets/burndown_chart</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="exams">
+  <span class="name"><a href="modules_dashboard_presentation_widgets_exams/modules_dashboard_presentation_widgets_exams-library.html">modules/dashboard/presentation/widgets/exams</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="status_overview">
+  <span class="name"><a href="modules_dashboard_presentation_widgets_status_overview/modules_dashboard_presentation_widgets_status_overview-library.html">modules/dashboard/presentation/widgets/status_overview</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="todays_tasks">
+  <span class="name"><a href="modules_dashboard_presentation_widgets_todays_tasks/modules_dashboard_presentation_widgets_todays_tasks-library.html">modules/dashboard/presentation/widgets/todays_tasks</a></span> 
 
 </dt>
 <dd>
 </dd>
 
           <dt id="widgets">
-  <span class="name"><a href="features_auth_presentation_widgets_widgets/features_auth_presentation_widgets_widgets-library.html">widgets</a></span> 
+  <span class="name"><a href="modules_dashboard_presentation_widgets_widgets/modules_dashboard_presentation_widgets_widgets-library.html">modules/dashboard/presentation/widgets/widgets</a></span> 
 
 </dt>
 <dd>
 </dd>
 
-          <dt id="windows_app_dir_service">
-  <span class="name"><a href="shared_data_services_windows_app_dir_service/shared_data_services_windows_app_dir_service-library.html">windows_app_dir_service</a></span> 
+          <dt id="utils">
+  <span class="name"><a href="modules_dashboard_utils_utils/modules_dashboard_utils_utils-library.html">modules/dashboard/utils/utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_moodle_domain_datasources_datasources/modules_moodle_domain_datasources_datasources-library.html">modules/moodle/domain/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_course_datasource">
+  <span class="name"><a href="modules_moodle_domain_datasources_moodle_course_datasource/modules_moodle_domain_datasources_moodle_course_datasource-library.html">modules/moodle/domain/datasources/moodle_course_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_task_datasource">
+  <span class="name"><a href="modules_moodle_domain_datasources_moodle_task_datasource/modules_moodle_domain_datasources_moodle_task_datasource-library.html">modules/moodle/domain/datasources/moodle_task_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_moodle_domain_domain/modules_moodle_domain_domain-library.html">modules/moodle/domain/domain</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="models">
+  <span class="name"><a href="modules_moodle_domain_models_models/modules_moodle_domain_models_models-library.html">modules/moodle/domain/models/models</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_course">
+  <span class="name"><a href="modules_moodle_domain_models_moodle_course/modules_moodle_domain_models_moodle_course-library.html">modules/moodle/domain/models/moodle_course</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_task">
+  <span class="name"><a href="modules_moodle_domain_models_moodle_task/modules_moodle_domain_models_moodle_task-library.html">modules/moodle/domain/models/moodle_task</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="api_service">
+  <span class="name"><a href="modules_moodle_domain_services_api_service/modules_moodle_domain_services_api_service-library.html">modules/moodle/domain/services/api_service</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_moodle_domain_services_services/modules_moodle_domain_services_services-library.html">modules/moodle/domain/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_moodle_infra_datasources_datasources/modules_moodle_infra_datasources_datasources-library.html">modules/moodle/infra/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="std_moodle_course_datasource">
+  <span class="name"><a href="modules_moodle_infra_datasources_std_moodle_course_datasource/modules_moodle_infra_datasources_std_moodle_course_datasource-library.html">modules/moodle/infra/datasources/std_moodle_course_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="std_moodle_task_datasource">
+  <span class="name"><a href="modules_moodle_infra_datasources_std_moodle_task_datasource/modules_moodle_infra_datasources_std_moodle_task_datasource-library.html">modules/moodle/infra/datasources/std_moodle_task_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="infra">
+  <span class="name"><a href="modules_moodle_infra_infra/modules_moodle_infra_infra-library.html">modules/moodle/infra/infra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_moodle_infra_services_services/modules_moodle_infra_services_services-library.html">modules/moodle/infra/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle">
+  <span class="name"><a href="modules_moodle_moodle/modules_moodle_moodle-library.html">modules/moodle/moodle</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="guards">
+  <span class="name"><a href="modules_moodle_presentation_guards_guards/modules_moodle_presentation_guards_guards-library.html">modules/moodle/presentation/guards/guards</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="presentation">
+  <span class="name"><a href="modules_moodle_presentation_presentation/modules_moodle_presentation_presentation-library.html">modules/moodle/presentation/presentation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_courses_repository">
+  <span class="name"><a href="modules_moodle_presentation_repositories_moodle_courses_repository/modules_moodle_presentation_repositories_moodle_courses_repository-library.html">modules/moodle/presentation/repositories/moodle_courses_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_tasks_repository">
+  <span class="name"><a href="modules_moodle_presentation_repositories_moodle_tasks_repository/modules_moodle_presentation_repositories_moodle_tasks_repository-library.html">modules/moodle/presentation/repositories/moodle_tasks_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="repositories">
+  <span class="name"><a href="modules_moodle_presentation_repositories_repositories/modules_moodle_presentation_repositories_repositories-library.html">modules/moodle/presentation/repositories/repositories</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="users_repository">
+  <span class="name"><a href="modules_moodle_presentation_repositories_users_repository/modules_moodle_presentation_repositories_users_repository-library.html">modules/moodle/presentation/repositories/users_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="screens">
+  <span class="name"><a href="modules_moodle_presentation_screens_screens/modules_moodle_presentation_screens_screens-library.html">modules/moodle/presentation/screens/screens</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="course_selector">
+  <span class="name"><a href="modules_moodle_presentation_widgets_course_selector/modules_moodle_presentation_widgets_course_selector-library.html">modules/moodle/presentation/widgets/course_selector</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="course_tag">
+  <span class="name"><a href="modules_moodle_presentation_widgets_course_tag/modules_moodle_presentation_widgets_course_tag-library.html">modules/moodle/presentation/widgets/course_tag</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="course_widget">
+  <span class="name"><a href="modules_moodle_presentation_widgets_course_widget/modules_moodle_presentation_widgets_course_widget-library.html">modules/moodle/presentation/widgets/course_widget</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_task_widget">
+  <span class="name"><a href="modules_moodle_presentation_widgets_moodle_task_widget/modules_moodle_presentation_widgets_moodle_task_widget-library.html">modules/moodle/presentation/widgets/moodle_task_widget</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="user_profile_image">
+  <span class="name"><a href="modules_moodle_presentation_widgets_user_profile_image/modules_moodle_presentation_widgets_user_profile_image-library.html">modules/moodle/presentation/widgets/user_profile_image</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="widgets">
+  <span class="name"><a href="modules_moodle_presentation_widgets_widgets/modules_moodle_presentation_widgets_widgets-library.html">modules/moodle/presentation/widgets/widgets</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="api_service_utils">
+  <span class="name"><a href="modules_moodle_utils_api_service_utils/modules_moodle_utils_api_service_utils-library.html">modules/moodle/utils/api_service_utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="utils">
+  <span class="name"><a href="modules_moodle_utils_utils/modules_moodle_utils_utils-library.html">modules/moodle/utils/utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_notifications_domain_datasources_datasources/modules_notifications_domain_datasources_datasources-library.html">modules/notifications/domain/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="notifications_datasource">
+  <span class="name"><a href="modules_notifications_domain_datasources_notifications_datasource/modules_notifications_domain_datasources_notifications_datasource-library.html">modules/notifications/domain/datasources/notifications_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_notifications_domain_domain/modules_notifications_domain_domain-library.html">modules/notifications/domain/domain</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="models">
+  <span class="name"><a href="modules_notifications_domain_models_models/modules_notifications_domain_models_models-library.html">modules/notifications/domain/models/models</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="notification">
+  <span class="name"><a href="modules_notifications_domain_models_notification/modules_notifications_domain_models_notification-library.html">modules/notifications/domain/models/notification</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_notifications_domain_services_services/modules_notifications_domain_services_services-library.html">modules/notifications/domain/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_notifications_infra_datasources_datasources/modules_notifications_infra_datasources_datasources-library.html">modules/notifications/infra/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="moodle_notifications_datasource">
+  <span class="name"><a href="modules_notifications_infra_datasources_moodle_notifications_datasource/modules_notifications_infra_datasources_moodle_notifications_datasource-library.html">modules/notifications/infra/datasources/moodle_notifications_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="infra">
+  <span class="name"><a href="modules_notifications_infra_infra/modules_notifications_infra_infra-library.html">modules/notifications/infra/infra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_notifications_infra_services_services/modules_notifications_infra_services_services-library.html">modules/notifications/infra/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="notifications">
+  <span class="name"><a href="modules_notifications_notifications/modules_notifications_notifications-library.html">modules/notifications/notifications</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="guards">
+  <span class="name"><a href="modules_notifications_presentation_guards_guards/modules_notifications_presentation_guards_guards-library.html">modules/notifications/presentation/guards/guards</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="presentation">
+  <span class="name"><a href="modules_notifications_presentation_presentation/modules_notifications_presentation_presentation-library.html">modules/notifications/presentation/presentation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="notifications_repository">
+  <span class="name"><a href="modules_notifications_presentation_repositories_notifications_repository/modules_notifications_presentation_repositories_notifications_repository-library.html">modules/notifications/presentation/repositories/notifications_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="repositories">
+  <span class="name"><a href="modules_notifications_presentation_repositories_repositories/modules_notifications_presentation_repositories_repositories-library.html">modules/notifications/presentation/repositories/repositories</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="screens">
+  <span class="name"><a href="modules_notifications_presentation_screens_screens/modules_notifications_presentation_screens_screens-library.html">modules/notifications/presentation/screens/screens</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="notifications_list">
+  <span class="name"><a href="modules_notifications_presentation_widgets_notifications_list/modules_notifications_presentation_widgets_notifications_list-library.html">modules/notifications/presentation/widgets/notifications_list</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="widgets">
+  <span class="name"><a href="modules_notifications_presentation_widgets_widgets/modules_notifications_presentation_widgets_widgets-library.html">modules/notifications/presentation/widgets/widgets</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="utils">
+  <span class="name"><a href="modules_notifications_utils_utils/modules_notifications_utils_utils-library.html">modules/notifications/utils/utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_settings_domain_datasources_datasources/modules_settings_domain_datasources_datasources-library.html">modules/settings/domain/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_settings_domain_domain/modules_settings_domain_domain-library.html">modules/settings/domain/domain</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="models">
+  <span class="name"><a href="modules_settings_domain_models_models/modules_settings_domain_models_models-library.html">modules/settings/domain/models/models</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_settings_domain_services_services/modules_settings_domain_services_services-library.html">modules/settings/domain/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_settings_infra_datasources_datasources/modules_settings_infra_datasources_datasources-library.html">modules/settings/infra/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="infra">
+  <span class="name"><a href="modules_settings_infra_infra/modules_settings_infra_infra-library.html">modules/settings/infra/infra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_settings_infra_services_services/modules_settings_infra_services_services-library.html">modules/settings/infra/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="guards">
+  <span class="name"><a href="modules_settings_presentation_guards_guards/modules_settings_presentation_guards_guards-library.html">modules/settings/presentation/guards/guards</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="presentation">
+  <span class="name"><a href="modules_settings_presentation_presentation/modules_settings_presentation_presentation-library.html">modules/settings/presentation/presentation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="repositories">
+  <span class="name"><a href="modules_settings_presentation_repositories_repositories/modules_settings_presentation_repositories_repositories-library.html">modules/settings/presentation/repositories/repositories</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="screens">
+  <span class="name"><a href="modules_settings_presentation_screens_screens/modules_settings_presentation_screens_screens-library.html">modules/settings/presentation/screens/screens</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="settings_screen">
+  <span class="name"><a href="modules_settings_presentation_screens_settings_screen/modules_settings_presentation_screens_settings_screen-library.html">modules/settings/presentation/screens/settings_screen</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="general_settings">
+  <span class="name"><a href="modules_settings_presentation_widgets_general_settings/modules_settings_presentation_widgets_general_settings-library.html">modules/settings/presentation/widgets/general_settings</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="theme_preview">
+  <span class="name"><a href="modules_settings_presentation_widgets_theme_preview/modules_settings_presentation_widgets_theme_preview-library.html">modules/settings/presentation/widgets/theme_preview</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="themes_settings">
+  <span class="name"><a href="modules_settings_presentation_widgets_themes_settings/modules_settings_presentation_widgets_themes_settings-library.html">modules/settings/presentation/widgets/themes_settings</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="widgets">
+  <span class="name"><a href="modules_settings_presentation_widgets_widgets/modules_settings_presentation_widgets_widgets-library.html">modules/settings/presentation/widgets/widgets</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="settings">
+  <span class="name"><a href="modules_settings_settings/modules_settings_settings-library.html">modules/settings/settings</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="utils">
+  <span class="name"><a href="modules_settings_utils_utils/modules_settings_utils_utils-library.html">modules/settings/utils/utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_slots_domain_datasources_datasources/modules_slots_domain_datasources_datasources-library.html">modules/slots/domain/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="slots_datasource">
+  <span class="name"><a href="modules_slots_domain_datasources_slots_datasource/modules_slots_domain_datasources_slots_datasource-library.html">modules/slots/domain/datasources/slots_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_slots_domain_domain/modules_slots_domain_domain-library.html">modules/slots/domain/domain</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="course_to_slot">
+  <span class="name"><a href="modules_slots_domain_models_course_to_slot/modules_slots_domain_models_course_to_slot-library.html">modules/slots/domain/models/course_to_slot</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="models">
+  <span class="name"><a href="modules_slots_domain_models_models/modules_slots_domain_models_models-library.html">modules/slots/domain/models/models</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="reservation">
+  <span class="name"><a href="modules_slots_domain_models_reservation/modules_slots_domain_models_reservation-library.html">modules/slots/domain/models/reservation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="slot">
+  <span class="name"><a href="modules_slots_domain_models_slot/modules_slots_domain_models_slot-library.html">modules/slots/domain/models/slot</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="slot_aggregate">
+  <span class="name"><a href="modules_slots_domain_models_slot_aggregate/modules_slots_domain_models_slot_aggregate-library.html">modules/slots/domain/models/slot_aggregate</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_slots_domain_services_services/modules_slots_domain_services_services-library.html">modules/slots/domain/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_slots_infra_datasources_datasources/modules_slots_infra_datasources_datasources-library.html">modules/slots/infra/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="std_slots_datasource">
+  <span class="name"><a href="modules_slots_infra_datasources_std_slots_datasource/modules_slots_infra_datasources_std_slots_datasource-library.html">modules/slots/infra/datasources/std_slots_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="infra">
+  <span class="name"><a href="modules_slots_infra_infra/modules_slots_infra_infra-library.html">modules/slots/infra/infra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_slots_infra_services_services/modules_slots_infra_services_services-library.html">modules/slots/infra/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="guards">
+  <span class="name"><a href="modules_slots_presentation_guards_guards/modules_slots_presentation_guards_guards-library.html">modules/slots/presentation/guards/guards</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="presentation">
+  <span class="name"><a href="modules_slots_presentation_presentation/modules_slots_presentation_presentation-library.html">modules/slots/presentation/presentation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="repositories">
+  <span class="name"><a href="modules_slots_presentation_repositories_repositories/modules_slots_presentation_repositories_repositories-library.html">modules/slots/presentation/repositories/repositories</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="slots_repository">
+  <span class="name"><a href="modules_slots_presentation_repositories_slots_repository/modules_slots_presentation_repositories_slots_repository-library.html">modules/slots/presentation/repositories/slots_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="screens">
+  <span class="name"><a href="modules_slots_presentation_screens_screens/modules_slots_presentation_screens_screens-library.html">modules/slots/presentation/screens/screens</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="slot_widget">
+  <span class="name"><a href="modules_slots_presentation_widgets_slot_widget/modules_slots_presentation_widgets_slot_widget-library.html">modules/slots/presentation/widgets/slot_widget</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="widgets">
+  <span class="name"><a href="modules_slots_presentation_widgets_widgets/modules_slots_presentation_widgets_widgets-library.html">modules/slots/presentation/widgets/widgets</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="slots">
+  <span class="name"><a href="modules_slots_slots/modules_slots_slots-library.html">modules/slots/slots</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="reservation_date_time_converter_utils">
+  <span class="name"><a href="modules_slots_utils_reservation_date_time_converter_utils/modules_slots_utils_reservation_date_time_converter_utils-library.html">modules/slots/utils/reservation_date_time_converter_utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="utils">
+  <span class="name"><a href="modules_slots_utils_utils/modules_slots_utils_utils-library.html">modules/slots/utils/utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_statistics_domain_datasources_datasources/modules_statistics_domain_datasources_datasources-library.html">modules/statistics/domain/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_statistics_domain_domain/modules_statistics_domain_domain-library.html">modules/statistics/domain/domain</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="chart_value">
+  <span class="name"><a href="modules_statistics_domain_models_chart_value/modules_statistics_domain_models_chart_value-library.html">modules/statistics/domain/models/chart_value</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="models">
+  <span class="name"><a href="modules_statistics_domain_models_models/modules_statistics_domain_models_models-library.html">modules/statistics/domain/models/models</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="status_aggregate">
+  <span class="name"><a href="modules_statistics_domain_models_status_aggregate/modules_statistics_domain_models_status_aggregate-library.html">modules/statistics/domain/models/status_aggregate</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="task_aggregate">
+  <span class="name"><a href="modules_statistics_domain_models_task_aggregate/modules_statistics_domain_models_task_aggregate-library.html">modules/statistics/domain/models/task_aggregate</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="type_aggregate">
+  <span class="name"><a href="modules_statistics_domain_models_type_aggregate/modules_statistics_domain_models_type_aggregate-library.html">modules/statistics/domain/models/type_aggregate</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_statistics_domain_services_services/modules_statistics_domain_services_services-library.html">modules/statistics/domain/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_statistics_infra_datasources_datasources/modules_statistics_infra_datasources_datasources-library.html">modules/statistics/infra/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="infra">
+  <span class="name"><a href="modules_statistics_infra_infra/modules_statistics_infra_infra-library.html">modules/statistics/infra/infra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_statistics_infra_services_services/modules_statistics_infra_services_services-library.html">modules/statistics/infra/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="guards">
+  <span class="name"><a href="modules_statistics_presentation_guards_guards/modules_statistics_presentation_guards_guards-library.html">modules/statistics/presentation/guards/guards</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="presentation">
+  <span class="name"><a href="modules_statistics_presentation_presentation/modules_statistics_presentation_presentation-library.html">modules/statistics/presentation/presentation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="course_stats_repository">
+  <span class="name"><a href="modules_statistics_presentation_repositories_course_stats_repository/modules_statistics_presentation_repositories_course_stats_repository-library.html">modules/statistics/presentation/repositories/course_stats_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="global_stats_repository">
+  <span class="name"><a href="modules_statistics_presentation_repositories_global_stats_repository/modules_statistics_presentation_repositories_global_stats_repository-library.html">modules/statistics/presentation/repositories/global_stats_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="repositories">
+  <span class="name"><a href="modules_statistics_presentation_repositories_repositories/modules_statistics_presentation_repositories_repositories-library.html">modules/statistics/presentation/repositories/repositories</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="screens">
+  <span class="name"><a href="modules_statistics_presentation_screens_screens/modules_statistics_presentation_screens_screens-library.html">modules/statistics/presentation/screens/screens</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="bar_chart">
+  <span class="name"><a href="modules_statistics_presentation_widgets_bar_chart/modules_statistics_presentation_widgets_bar_chart-library.html">modules/statistics/presentation/widgets/bar_chart</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="chart">
+  <span class="name"><a href="modules_statistics_presentation_widgets_chart/modules_statistics_presentation_widgets_chart-library.html">modules/statistics/presentation/widgets/chart</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="horizontal_bar_chart">
+  <span class="name"><a href="modules_statistics_presentation_widgets_horizontal_bar_chart/modules_statistics_presentation_widgets_horizontal_bar_chart-library.html">modules/statistics/presentation/widgets/horizontal_bar_chart</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="vertical_bar_chart">
+  <span class="name"><a href="modules_statistics_presentation_widgets_vertical_bar_chart/modules_statistics_presentation_widgets_vertical_bar_chart-library.html">modules/statistics/presentation/widgets/vertical_bar_chart</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="widgets">
+  <span class="name"><a href="modules_statistics_presentation_widgets_widgets/modules_statistics_presentation_widgets_widgets-library.html">modules/statistics/presentation/widgets/widgets</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="statistics">
+  <span class="name"><a href="modules_statistics_statistics/modules_statistics_statistics-library.html">modules/statistics/statistics</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="num_utils">
+  <span class="name"><a href="modules_statistics_utils_num_utils/modules_statistics_utils_num_utils-library.html">modules/statistics/utils/num_utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="utils">
+  <span class="name"><a href="modules_statistics_utils_utils/modules_statistics_utils_utils-library.html">modules/statistics/utils/utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_theming_domain_datasources_datasources/modules_theming_domain_datasources_datasources-library.html">modules/theming/domain/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="themes_datasource">
+  <span class="name"><a href="modules_theming_domain_datasources_themes_datasource/modules_theming_domain_datasources_themes_datasource-library.html">modules/theming/domain/datasources/themes_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="domain">
+  <span class="name"><a href="modules_theming_domain_domain/modules_theming_domain_domain-library.html">modules/theming/domain/domain</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="models">
+  <span class="name"><a href="modules_theming_domain_models_models/modules_theming_domain_models_models-library.html">modules/theming/domain/models/models</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="task_status_theme">
+  <span class="name"><a href="modules_theming_domain_models_task_status_theme/modules_theming_domain_models_task_status_theme-library.html">modules/theming/domain/models/task_status_theme</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="theme_base">
+  <span class="name"><a href="modules_theming_domain_models_theme_base/modules_theming_domain_models_theme_base-library.html">modules/theming/domain/models/theme_base</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_theming_domain_services_services/modules_theming_domain_services_services-library.html">modules/theming/domain/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="theme_generator_service">
+  <span class="name"><a href="modules_theming_domain_services_theme_generator_service/modules_theming_domain_services_theme_generator_service-library.html">modules/theming/domain/services/theme_generator_service</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="datasources">
+  <span class="name"><a href="modules_theming_infra_datasources_datasources/modules_theming_infra_datasources_datasources-library.html">modules/theming/infra/datasources/datasources</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="std_themes_datasource">
+  <span class="name"><a href="modules_theming_infra_datasources_std_themes_datasource/modules_theming_infra_datasources_std_themes_datasource-library.html">modules/theming/infra/datasources/std_themes_datasource</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="infra">
+  <span class="name"><a href="modules_theming_infra_infra/modules_theming_infra_infra-library.html">modules/theming/infra/infra</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="material_theme_generator_service">
+  <span class="name"><a href="modules_theming_infra_services_material_theme_generator_service/modules_theming_infra_services_material_theme_generator_service-library.html">modules/theming/infra/services/material_theme_generator_service</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="services">
+  <span class="name"><a href="modules_theming_infra_services_services/modules_theming_infra_services_services-library.html">modules/theming/infra/services/services</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="guards">
+  <span class="name"><a href="modules_theming_presentation_guards_guards/modules_theming_presentation_guards_guards-library.html">modules/theming/presentation/guards/guards</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="presentation">
+  <span class="name"><a href="modules_theming_presentation_presentation/modules_theming_presentation_presentation-library.html">modules/theming/presentation/presentation</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="repositories">
+  <span class="name"><a href="modules_theming_presentation_repositories_repositories/modules_theming_presentation_repositories_repositories-library.html">modules/theming/presentation/repositories/repositories</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="theme_repository">
+  <span class="name"><a href="modules_theming_presentation_repositories_theme_repository/modules_theming_presentation_repositories_theme_repository-library.html">modules/theming/presentation/repositories/theme_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="screens">
+  <span class="name"><a href="modules_theming_presentation_screens_screens/modules_theming_presentation_screens_screens-library.html">modules/theming/presentation/screens/screens</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="widgets">
+  <span class="name"><a href="modules_theming_presentation_widgets_widgets/modules_theming_presentation_widgets_widgets-library.html">modules/theming/presentation/widgets/widgets</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="theming">
+  <span class="name"><a href="modules_theming_theming/modules_theming_theming-library.html">modules/theming/theming</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="theme_utils">
+  <span class="name"><a href="modules_theming_utils_theme_utils/modules_theming_utils_theme_utils-library.html">modules/theming/utils/theme_utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="utils">
+  <span class="name"><a href="modules_theming_utils_utils/modules_theming_utils_utils-library.html">modules/theming/utils/utils</a></span> 
 
 </dt>
 <dd>
@@ -1407,192 +1824,243 @@
     <h5 class="hidden-xs"><span class="package-name">lb_planner</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
-      <li><a href="shared_domain_services_api_service/shared_domain_services_api_service-library.html">api_service</a></li>
-      <li><a href="shared_domain_providers_api_service_provider/shared_domain_providers_api_service_provider-library.html">api_service_provider</a></li>
-      <li><a href="app/app-library.html">app</a></li>
-      <li><a href="shared_domain_services_app_dir_service/shared_domain_services_app_dir_service-library.html">app_dir_service</a></li>
-      <li><a href="shared_domain_providers_app_dir_service_provider/shared_domain_providers_app_dir_service_provider-library.html">app_dir_service_provider</a></li>
-      <li><a href="features_update_data_services_app_image_patcher_service/features_update_data_services_app_image_patcher_service-library.html">app_image_patcher_service</a></li>
-      <li><a href="app_router/app_router-library.html">app_router</a></li>
-      <li><a href="features_update_data_services_aur_patcher_service/features_update_data_services_aur_patcher_service-library.html">aur_patcher_service</a></li>
-      <li><a href="features_auth_auth/features_auth_auth-library.html">auth</a></li>
-      <li><a href="features_auth_domain_services_auth_service/features_auth_domain_services_auth_service-library.html">auth_service</a></li>
-      <li><a href="features_auth_domain_providers_auth_service_provider/features_auth_domain_providers_auth_service_provider-library.html">auth_service_provider</a></li>
-      <li><a href="shared_utils_auto_refresh_async_notifier/shared_utils_auto_refresh_async_notifier-library.html">auto_refresh_async_notifier</a></li>
-      <li><a href="shared_utils_auto_refresh_state_notifier/shared_utils_auto_refresh_state_notifier-library.html">auto_refresh_state_notifier</a></li>
-      <li><a href="features_themes_presentation_widgets_color_preview_box/features_themes_presentation_widgets_color_preview_box-library.html">color_preview_box</a></li>
-      <li><a href="shared_presentation_widgets_conditional_wrapper/shared_presentation_widgets_conditional_wrapper-library.html">conditional_wrapper</a></li>
-      <li><a href="configs.endpoints/configs.endpoints-library.html">configs.endpoints</a></li>
-      <li><a href="configs.install_medium/configs.install_medium-library.html">configs.install_medium</a></li>
-      <li><a href="configs.misc/configs.misc-library.html">configs.misc</a></li>
-      <li><a href="configs.version/configs.version-library.html">configs.version</a></li>
-      <li><a href="shared_domain_services_connection_service/shared_domain_services_connection_service-library.html">connection_service</a></li>
-      <li><a href="shared_domain_providers_connection_service_provider/shared_domain_providers_connection_service_provider-library.html">connection_service_provider</a></li>
-      <li><a href="features_themes_data_data/features_themes_data_data-library.html">data</a></li>
-      <li><a href="features_auth_data_data/features_auth_data_data-library.html">data</a></li>
-      <li><a href="features_feedback_data_data/features_feedback_data_data-library.html">data</a></li>
-      <li><a href="features_update_data_data/features_update_data_data-library.html">data</a></li>
-      <li><a href="features_notifications_data_data/features_notifications_data_data-library.html">data</a></li>
-      <li><a href="shared_data_data/shared_data_data-library.html">data</a></li>
-      <li><a href="features_feedback_domain_datasources_datasources/features_feedback_domain_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="features_update_data_datasources_datasources/features_update_data_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="features_auth_data_datasources_datasources/features_auth_data_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="features_notifications_data_datasources_datasources/features_notifications_data_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="features_auth_domain_datasources_datasources/features_auth_domain_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="features_notifications_domain_datasources_datasources/features_notifications_domain_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="features_themes_data_datasources_datasources/features_themes_data_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="features_themes_domain_datasources_datasources/features_themes_domain_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="features_feedback_data_datasources_datasources/features_feedback_data_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="features_update_domain_datasources_datasources/features_update_domain_datasources_datasources-library.html">datasources</a></li>
-      <li><a href="shared_data_services_debug_app_dir_service/shared_data_services_debug_app_dir_service-library.html">debug_app_dir_service</a></li>
-      <li><a href="shared_data_services_dio_download_service/shared_data_services_dio_download_service-library.html">dio_download_service</a></li>
-      <li><a href="shared_data_services_dio_network_service/shared_data_services_dio_network_service-library.html">dio_network_service</a></li>
-      <li><a href="features_update_data_services_dmg_patcher_service/features_update_data_services_dmg_patcher_service-library.html">dmg_patcher_service</a></li>
-      <li><a href="features_themes_domain_domain/features_themes_domain_domain-library.html">domain</a></li>
-      <li><a href="features_feedback_domain_domain/features_feedback_domain_domain-library.html">domain</a></li>
-      <li><a href="features_auth_domain_domain/features_auth_domain_domain-library.html">domain</a></li>
-      <li><a href="shared_domain_domain/shared_domain_domain-library.html">domain</a></li>
-      <li><a href="features_update_domain_domain/features_update_domain_domain-library.html">domain</a></li>
-      <li><a href="features_settings_domain_domain/features_settings_domain_domain-library.html">domain</a></li>
-      <li><a href="features_notifications_domain_domain/features_notifications_domain_domain-library.html">domain</a></li>
-      <li><a href="shared_domain_services_download_service/shared_domain_services_download_service-library.html">download_service</a></li>
-      <li><a href="shared_domain_providers_download_service_provider/shared_domain_providers_download_service_provider-library.html">download_service_provider</a></li>
-      <li><a href="features_feedback_feedback/features_feedback_feedback-library.html">feedback</a></li>
-      <li><a href="features_feedback_domain_models_feedback/features_feedback_domain_models_feedback-library.html">feedback</a></li>
-      <li><a href="features_feedback_domain_datasources_feedback_datasource/features_feedback_domain_datasources_feedback_datasource-library.html">feedback_datasource</a></li>
-      <li><a href="features_feedback_domain_providers_feedback_datasource_provider/features_feedback_domain_providers_feedback_datasource_provider-library.html">feedback_datasource_provider</a></li>
-      <li><a href="features_feedback_domain_providers_feedback_provider/features_feedback_domain_providers_feedback_provider-library.html">feedback_provider</a></li>
-      <li><a href="features_feedback_domain_providers_feedback_provider_state/features_feedback_domain_providers_feedback_provider_state-library.html">feedback_provider_state</a></li>
-      <li><a href="features_feedback_domain_repositories_feedback_repository/features_feedback_domain_repositories_feedback_repository-library.html">feedback_repository</a></li>
-      <li><a href="features_feedback_domain_providers_feedback_repository_provider/features_feedback_domain_providers_feedback_repository_provider-library.html">feedback_repository_provider</a></li>
-      <li><a href="shared_presentation_widgets_hover_builder/shared_presentation_widgets_hover_builder-library.html">hover_builder</a></li>
-      <li><a href="shared_presentation_widgets_hoverable_widget/shared_presentation_widgets_hoverable_widget-library.html">hoverable_widget</a></li>
-      <li><a href="shared_domain_models_http_response/shared_domain_models_http_response-library.html">http_response</a></li>
-      <li><a href="features_update_data_services_inno_setup_patcher_service/features_update_data_services_inno_setup_patcher_service-library.html">inno_setup_patcher_service</a></li>
-      <li><a href="shared_domain_models_install_medium/shared_domain_models_install_medium-library.html">install_medium</a></li>
-      <li><a href="shared_data_services_internet_address_lookup_connection_service/shared_data_services_internet_address_lookup_connection_service-library.html">internet_address_lookup_connection_service</a></li>
-      <li><a href="features_update_domain_providers_is_update_available_provider/features_update_domain_providers_is_update_available_provider-library.html">is_update_available_provider</a></li>
-      <li><a href="features_update_domain_providers_is_update_available_provider_state/features_update_domain_providers_is_update_available_provider_state-library.html">is_update_available_provider_state</a></li>
-      <li><a href="shared_data_services_linux_app_dir_service/shared_data_services_linux_app_dir_service-library.html">linux_app_dir_service</a></li>
-      <li><a href="shared_domain_services_local_config_service/shared_domain_services_local_config_service-library.html">local_config_service</a></li>
-      <li><a href="features_auth_presentation_widgets_login_form/features_auth_presentation_widgets_login_form-library.html">login_form</a></li>
-      <li><a href="features_auth_presentation_screens_login_screen/features_auth_presentation_screens_login_screen-library.html">login_screen</a></li>
-      <li><a href="shared_presentation_widgets_logo/shared_presentation_widgets_logo-library.html">logo</a></li>
-      <li><a href="shared_data_services_mac_os_app_dir_service/shared_data_services_mac_os_app_dir_service-library.html">mac_os_app_dir_service</a></li>
+      <li><a href="lb_planner.configs.endpoints/lb_planner.configs.endpoints-library.html">config/endpoints</a></li>
+      <li><a href="lb_planner.config.sentry/lb_planner.config.sentry-library.html">config/sentry</a></li>
+      <li><a href="lb_planner.config.version/lb_planner.config.version-library.html">config/version</a></li>
+      <li><a href="gen_assets_assets.gen/gen_assets_assets.gen-library.html">gen/assets/assets.gen</a></li>
       <li><a href="main/main-library.html">main</a></li>
-      <li><a href="features_notifications_domain_models_models/features_notifications_domain_models_models-library.html">models</a></li>
-      <li><a href="features_auth_domain_models_models/features_auth_domain_models_models-library.html">models</a></li>
-      <li><a href="features_feedback_domain_models_models/features_feedback_domain_models_models-library.html">models</a></li>
-      <li><a href="features_themes_domain_models_models/features_themes_domain_models_models-library.html">models</a></li>
-      <li><a href="features_update_domain_models_models/features_update_domain_models_models-library.html">models</a></li>
-      <li><a href="shared_domain_models_models/shared_domain_models_models-library.html">models</a></li>
-      <li><a href="features_themes_domain_models_module_status_theme/features_themes_domain_models_module_status_theme-library.html">module_status_theme</a></li>
-      <li><a href="shared_data_services_moodle_api_service/shared_data_services_moodle_api_service-library.html">moodle_api_service</a></li>
-      <li><a href="features_auth_data_services_moodle_auth_service/features_auth_data_services_moodle_auth_service-library.html">moodle_auth_service</a></li>
-      <li><a href="shared_domain_services_network_service/shared_domain_services_network_service-library.html">network_service</a></li>
-      <li><a href="shared_domain_providers_network_service_provider/shared_domain_providers_network_service_provider-library.html">network_service_provider</a></li>
-      <li><a href="features_notifications_domain_models_notification/features_notifications_domain_models_notification-library.html">notification</a></li>
-      <li><a href="features_notifications_notifications/features_notifications_notifications-library.html">notifications</a></li>
-      <li><a href="features_notifications_domain_datasources_notifications_datasource/features_notifications_domain_datasources_notifications_datasource-library.html">notifications_datasource</a></li>
-      <li><a href="features_notifications_domain_providers_notifications_datasource_provider/features_notifications_domain_providers_notifications_datasource_provider-library.html">notifications_datasource_provider</a></li>
-      <li><a href="features_notifications_domain_providers_notifications_provider/features_notifications_domain_providers_notifications_provider-library.html">notifications_provider</a></li>
-      <li><a href="features_notifications_domain_providers_notifications_provider_state/features_notifications_domain_providers_notifications_provider_state-library.html">notifications_provider_state</a></li>
-      <li><a href="features_notifications_data_repostiroies_notifications_repository/features_notifications_data_repostiroies_notifications_repository-library.html">notifications_repository</a></li>
-      <li><a href="features_notifications_domain_repostiroies_notifications_repository/features_notifications_domain_repostiroies_notifications_repository-library.html">notifications_repository</a></li>
-      <li><a href="features_notifications_domain_providers_notifications_repository_provider/features_notifications_domain_providers_notifications_repository_provider-library.html">notifications_repository_provider</a></li>
-      <li><a href="shared_presentation_widgets_offset_on_hover/shared_presentation_widgets_offset_on_hover-library.html">offset_on_hover</a></li>
-      <li><a href="features_update_domain_services_patcher_service/features_update_domain_services_patcher_service-library.html">patcher_service</a></li>
-      <li><a href="features_update_domain_providers_patcher_service_provider/features_update_domain_providers_patcher_service_provider-library.html">patcher_service_provider</a></li>
-      <li><a href="features_update_domain_models_patching_progress/features_update_domain_models_patching_progress-library.html">patching_progress</a></li>
-      <li><a href="features_update_domain_providers_patching_progress_provider/features_update_domain_providers_patching_progress_provider-library.html">patching_progress_provider</a></li>
-      <li><a href="features_update_domain_providers_patching_progress_provider_state/features_update_domain_providers_patching_progress_provider_state-library.html">patching_progress_provider_state</a></li>
-      <li><a href="shared_presentation_presentation/shared_presentation_presentation-library.html">presentation</a></li>
-      <li><a href="features_auth_presentation_presentation/features_auth_presentation_presentation-library.html">presentation</a></li>
-      <li><a href="features_themes_presentation_presentation/features_themes_presentation_presentation-library.html">presentation</a></li>
-      <li><a href="features_update_domain_providers_providers/features_update_domain_providers_providers-library.html">providers</a></li>
-      <li><a href="features_themes_domain_providers_providers/features_themes_domain_providers_providers-library.html">providers</a></li>
-      <li><a href="features_feedback_domain_providers_providers/features_feedback_domain_providers_providers-library.html">providers</a></li>
-      <li><a href="features_settings_domain_providers_providers/features_settings_domain_providers_providers-library.html">providers</a></li>
-      <li><a href="features_auth_domain_providers_providers/features_auth_domain_providers_providers-library.html">providers</a></li>
-      <li><a href="features_notifications_domain_providers_providers/features_notifications_domain_providers_providers-library.html">providers</a></li>
-      <li><a href="shared_domain_providers_providers/shared_domain_providers_providers-library.html">providers</a></li>
-      <li><a href="features_update_domain_models_release/features_update_domain_models_release-library.html">release</a></li>
-      <li><a href="features_update_domain_datasources_release_data_source/features_update_domain_datasources_release_data_source-library.html">release_data_source</a></li>
-      <li><a href="features_update_domain_providers_release_datasource_provider/features_update_domain_providers_release_datasource_provider-library.html">release_datasource_provider</a></li>
-      <li><a href="features_update_domain_models_release_downloads/features_update_domain_models_release_downloads-library.html">release_downloads</a></li>
-      <li><a href="features_update_domain_repositories_release_repository/features_update_domain_repositories_release_repository-library.html">release_repository</a></li>
-      <li><a href="features_update_domain_providers_release_repository_provider/features_update_domain_providers_release_repository_provider-library.html">release_repository_provider</a></li>
-      <li><a href="features_feedback_data_repositories_repositories/features_feedback_data_repositories_repositories-library.html">repositories</a></li>
-      <li><a href="features_notifications_domain_repostiroies_repositories/features_notifications_domain_repostiroies_repositories-library.html">repositories</a></li>
-      <li><a href="features_notifications_data_repostiroies_repositories/features_notifications_data_repostiroies_repositories-library.html">repositories</a></li>
-      <li><a href="features_themes_data_repositories_repositories/features_themes_data_repositories_repositories-library.html">repositories</a></li>
-      <li><a href="features_update_domain_repositories_repositories/features_update_domain_repositories_repositories-library.html">repositories</a></li>
-      <li><a href="features_themes_domain_repositories_repositories/features_themes_domain_repositories_repositories-library.html">repositories</a></li>
-      <li><a href="features_feedback_domain_repositories_repositories/features_feedback_domain_repositories_repositories-library.html">repositories</a></li>
-      <li><a href="features_update_data_repositories_repositories/features_update_data_repositories_repositories-library.html">repositories</a></li>
-      <li><a href="shared_presentation_widgets_scale_on_hover/shared_presentation_widgets_scale_on_hover-library.html">scale_on_hover</a></li>
-      <li><a href="shared_presentation_widgets_screen_title_bar/shared_presentation_widgets_screen_title_bar-library.html">screen_title_bar</a></li>
-      <li><a href="features_themes_presentation_screens_screens/features_themes_presentation_screens_screens-library.html">screens</a></li>
-      <li><a href="features_auth_presentation_screens_screens/features_auth_presentation_screens_screens-library.html">screens</a></li>
-      <li><a href="features_update_data_services_self_compiled_patcher_service/features_update_data_services_self_compiled_patcher_service-library.html">self_compiled_patcher_service</a></li>
-      <li><a href="features_themes_data_services_services/features_themes_data_services_services-library.html">services</a></li>
-      <li><a href="shared_data_services_services/shared_data_services_services-library.html">services</a></li>
-      <li><a href="features_themes_domain_services_services/features_themes_domain_services_services-library.html">services</a></li>
-      <li><a href="features_auth_domain_services_services/features_auth_domain_services_services-library.html">services</a></li>
-      <li><a href="features_auth_data_services_services/features_auth_data_services_services-library.html">services</a></li>
-      <li><a href="features_update_data_services_services/features_update_data_services_services-library.html">services</a></li>
-      <li><a href="shared_domain_services_services/shared_domain_services_services-library.html">services</a></li>
-      <li><a href="features_update_domain_services_services/features_update_domain_services_services-library.html">services</a></li>
-      <li><a href="features_settings_settings/features_settings_settings-library.html">settings</a></li>
-      <li><a href="features_settings_domain_providers_settings_provider/features_settings_domain_providers_settings_provider-library.html">settings_provider</a></li>
-      <li><a href="features_settings_domain_providers_settings_provider_state/features_settings_domain_providers_settings_provider_state-library.html">settings_provider_state</a></li>
-      <li><a href="shared_shared/shared_shared-library.html">shared</a></li>
-      <li><a href="shared_presentation_widgets_sidebar/shared_presentation_widgets_sidebar-library.html">sidebar</a></li>
-      <li><a href="shared_presentation_widgets_sidebar_item/shared_presentation_widgets_sidebar_item-library.html">sidebar_item</a></li>
-      <li><a href="shared_presentation_widgets_spacing/shared_presentation_widgets_spacing-library.html">spacing</a></li>
-      <li><a href="features_feedback_data_datasources_std_feedback_datasource/features_feedback_data_datasources_std_feedback_datasource-library.html">std_feedback_datasource</a></li>
-      <li><a href="features_feedback_data_repositories_std_feedback_repository/features_feedback_data_repositories_std_feedback_repository-library.html">std_feedback_repository</a></li>
-      <li><a href="features_notifications_data_datasources_std_notifications_datasource/features_notifications_data_datasources_std_notifications_datasource-library.html">std_notifications_datasource</a></li>
-      <li><a href="features_update_data_datasources_std_release_data_source/features_update_data_datasources_std_release_data_source-library.html">std_release_data_source</a></li>
-      <li><a href="features_update_data_repositories_std_release_repository/features_update_data_repositories_std_release_repository-library.html">std_release_repository</a></li>
-      <li><a href="features_themes_data_datasources_std_theme_bases_datasource/features_themes_data_datasources_std_theme_bases_datasource-library.html">std_theme_bases_datasource</a></li>
-      <li><a href="features_themes_data_repositories_std_theme_bases_repository/features_themes_data_repositories_std_theme_bases_repository-library.html">std_theme_bases_repository</a></li>
-      <li><a href="features_themes_data_services_std_theme_service/features_themes_data_services_std_theme_service-library.html">std_theme_service</a></li>
-      <li><a href="features_auth_data_datasources_std_user_data_source/features_auth_data_datasources_std_user_data_source-library.html">std_user_data_source</a></li>
-      <li><a href="shared_utils_string_utils/shared_utils_string_utils-library.html">string_utils</a></li>
-      <li><a href="features_themes_domain_models_theme_base/features_themes_domain_models_theme_base-library.html">theme_base</a></li>
-      <li><a href="features_themes_domain_datasources_theme_bases_datasource/features_themes_domain_datasources_theme_bases_datasource-library.html">theme_bases_datasource</a></li>
-      <li><a href="features_themes_domain_providers_theme_bases_datasource_provider/features_themes_domain_providers_theme_bases_datasource_provider-library.html">theme_bases_datasource_provider</a></li>
-      <li><a href="features_themes_domain_repositories_theme_bases_repository/features_themes_domain_repositories_theme_bases_repository-library.html">theme_bases_repository</a></li>
-      <li><a href="features_themes_domain_providers_theme_bases_repository_provider/features_themes_domain_providers_theme_bases_repository_provider-library.html">theme_bases_repository_provider</a></li>
-      <li><a href="features_themes_presentation_screens_theme_development_screen/features_themes_presentation_screens_theme_development_screen-library.html">theme_development_screen</a></li>
-      <li><a href="features_themes_domain_providers_theme_provider/features_themes_domain_providers_theme_provider-library.html">theme_provider</a></li>
-      <li><a href="features_themes_domain_services_theme_service/features_themes_domain_services_theme_service-library.html">theme_service</a></li>
-      <li><a href="features_themes_domain_providers_theme_service_provider/features_themes_domain_providers_theme_service_provider-library.html">theme_service_provider</a></li>
-      <li><a href="features_themes_themes/features_themes_themes-library.html">themes</a></li>
-      <li><a href="features_feedback_data_datasources_token_unavailable_datasource/features_feedback_data_datasources_token_unavailable_datasource-library.html">token_unavailable_datasource</a></li>
-      <li><a href="features_notifications_data_datasources_token_unavailable_notifications_datasource/features_notifications_data_datasources_token_unavailable_notifications_datasource-library.html">token_unavailable_notifications_datasource</a></li>
-      <li><a href="features_auth_data_datasources_token_unavailable_user_data_source/features_auth_data_datasources_token_unavailable_user_data_source-library.html">token_unavailable_user_data_source</a></li>
-      <li><a href="shared_presentation_widgets_transform_on_hover/shared_presentation_widgets_transform_on_hover-library.html">transform_on_hover</a></li>
-      <li><a href="features_update_update/features_update_update-library.html">update</a></li>
-      <li><a href="features_auth_domain_models_user/features_auth_domain_models_user-library.html">user</a></li>
-      <li><a href="features_auth_domain_datasources_user_data_source/features_auth_domain_datasources_user_data_source-library.html">user_data_source</a></li>
-      <li><a href="features_auth_domain_providers_user_data_source_provider/features_auth_domain_providers_user_data_source_provider-library.html">user_data_source_provider</a></li>
-      <li><a href="features_auth_domain_providers_user_provider/features_auth_domain_providers_user_provider-library.html">user_provider</a></li>
-      <li><a href="features_auth_domain_models_user_token/features_auth_domain_models_user_token-library.html">user_token</a></li>
-      <li><a href="features_auth_domain_providers_user_token_local_config_service/features_auth_domain_providers_user_token_local_config_service-library.html">user_token_local_config_service</a></li>
-      <li><a href="features_auth_data_services_user_token_local_config_service/features_auth_data_services_user_token_local_config_service-library.html">user_token_local_config_service</a></li>
-      <li><a href="features_auth_domain_providers_user_token_provider/features_auth_domain_providers_user_token_provider-library.html">user_token_provider</a></li>
-      <li><a href="features_auth_domain_providers_user_token_state/features_auth_domain_providers_user_token_state-library.html">user_token_state</a></li>
-      <li><a href="features_auth_domain_providers_users_provider/features_auth_domain_providers_users_provider-library.html">users_provider</a></li>
-      <li><a href="shared_utils_utils/shared_utils_utils-library.html">utils</a></li>
-      <li><a href="shared_presentation_widgets_vector_image/shared_presentation_widgets_vector_image-library.html">vector_image</a></li>
-      <li><a href="shared_domain_models_version/shared_domain_models_version-library.html">version</a></li>
-      <li><a href="shared_utils_widget_ext/shared_utils_widget_ext-library.html">widget_ext</a></li>
-      <li><a href="features_themes_presentation_widgets_widgets/features_themes_presentation_widgets_widgets-library.html">widgets</a></li>
-      <li><a href="shared_presentation_widgets_widgets/shared_presentation_widgets_widgets-library.html">widgets</a></li>
-      <li><a href="features_auth_presentation_widgets_widgets/features_auth_presentation_widgets_widgets-library.html">widgets</a></li>
-      <li><a href="shared_data_services_windows_app_dir_service/shared_data_services_windows_app_dir_service-library.html">windows_app_dir_service</a></li>
+      <li><a href="lb_planner.modules.app/lb_planner.modules.app-library.html">modules/app/app</a></li>
+      <li><a href="modules_app_domain_datasources_datasources/modules_app_domain_datasources_datasources-library.html">modules/app/domain/datasources/datasources</a></li>
+      <li><a href="modules_app_domain_domain/modules_app_domain_domain-library.html">modules/app/domain/domain</a></li>
+      <li><a href="modules_app_domain_models_models/modules_app_domain_models_models-library.html">modules/app/domain/models/models</a></li>
+      <li><a href="modules_app_domain_services_services/modules_app_domain_services_services-library.html">modules/app/domain/services/services</a></li>
+      <li><a href="modules_app_infra_datasources_datasources/modules_app_infra_datasources_datasources-library.html">modules/app/infra/datasources/datasources</a></li>
+      <li><a href="modules_app_infra_infra/modules_app_infra_infra-library.html">modules/app/infra/infra</a></li>
+      <li><a href="modules_app_infra_services_services/modules_app_infra_services_services-library.html">modules/app/infra/services/services</a></li>
+      <li><a href="modules_app_presentation_presentation/modules_app_presentation_presentation-library.html">modules/app/presentation/presentation</a></li>
+      <li><a href="modules_app_presentation_repositories_repositories/modules_app_presentation_repositories_repositories-library.html">modules/app/presentation/repositories/repositories</a></li>
+      <li><a href="modules_app_presentation_screens_screens/modules_app_presentation_screens_screens-library.html">modules/app/presentation/screens/screens</a></li>
+      <li><a href="modules_app_presentation_screens_sidebar_screen/modules_app_presentation_screens_sidebar_screen-library.html">modules/app/presentation/screens/sidebar_screen</a></li>
+      <li><a href="modules_app_presentation_widgets_sidebar/modules_app_presentation_widgets_sidebar-library.html">modules/app/presentation/widgets/sidebar</a></li>
+      <li><a href="modules_app_presentation_widgets_sidebar_target/modules_app_presentation_widgets_sidebar_target-library.html">modules/app/presentation/widgets/sidebar_target</a></li>
+      <li><a href="modules_app_presentation_widgets_title_bar/modules_app_presentation_widgets_title_bar-library.html">modules/app/presentation/widgets/title_bar</a></li>
+      <li><a href="modules_app_presentation_widgets_widgets/modules_app_presentation_widgets_widgets-library.html">modules/app/presentation/widgets/widgets</a></li>
+      <li><a href="modules_app_utils_animate_utils/modules_app_utils_animate_utils-library.html">modules/app/utils/animate_utils</a></li>
+      <li><a href="modules_app_utils_button_utils/modules_app_utils_button_utils-library.html">modules/app/utils/button_utils</a></li>
+      <li><a href="modules_app_utils_context_utils/modules_app_utils_context_utils-library.html">modules/app/utils/context_utils</a></li>
+      <li><a href="modules_app_utils_json_serializable_utils/modules_app_utils_json_serializable_utils-library.html">modules/app/utils/json_serializable_utils</a></li>
+      <li><a href="modules_app_utils_svg_utils/modules_app_utils_svg_utils-library.html">modules/app/utils/svg_utils</a></li>
+      <li><a href="modules_app_utils_utils/modules_app_utils_utils-library.html">modules/app/utils/utils</a></li>
+      <li><a href="modules_auth_auth/modules_auth_auth-library.html">modules/auth/auth</a></li>
+      <li><a href="modules_auth_domain_datasources_datasources/modules_auth_domain_datasources_datasources-library.html">modules/auth/domain/datasources/datasources</a></li>
+      <li><a href="modules_auth_domain_datasources_user_datasource/modules_auth_domain_datasources_user_datasource-library.html">modules/auth/domain/datasources/user_datasource</a></li>
+      <li><a href="modules_auth_domain_domain/modules_auth_domain_domain-library.html">modules/auth/domain/domain</a></li>
+      <li><a href="modules_auth_domain_models_models/modules_auth_domain_models_models-library.html">modules/auth/domain/models/models</a></li>
+      <li><a href="modules_auth_domain_models_token/modules_auth_domain_models_token-library.html">modules/auth/domain/models/token</a></li>
+      <li><a href="modules_auth_domain_models_user/modules_auth_domain_models_user-library.html">modules/auth/domain/models/user</a></li>
+      <li><a href="modules_auth_domain_services_api_service/modules_auth_domain_services_api_service-library.html">modules/auth/domain/services/api_service</a></li>
+      <li><a href="modules_auth_domain_services_auth_service/modules_auth_domain_services_auth_service-library.html">modules/auth/domain/services/auth_service</a></li>
+      <li><a href="modules_auth_domain_services_services/modules_auth_domain_services_services-library.html">modules/auth/domain/services/services</a></li>
+      <li><a href="modules_auth_infra_datasources_datasources/modules_auth_infra_datasources_datasources-library.html">modules/auth/infra/datasources/datasources</a></li>
+      <li><a href="modules_auth_infra_datasources_moodle_user_datasource/modules_auth_infra_datasources_moodle_user_datasource-library.html">modules/auth/infra/datasources/moodle_user_datasource</a></li>
+      <li><a href="modules_auth_infra_infra/modules_auth_infra_infra-library.html">modules/auth/infra/infra</a></li>
+      <li><a href="modules_auth_infra_services_moodle_api_service/modules_auth_infra_services_moodle_api_service-library.html">modules/auth/infra/services/moodle_api_service</a></li>
+      <li><a href="modules_auth_infra_services_moodle_auth_service/modules_auth_infra_services_moodle_auth_service-library.html">modules/auth/infra/services/moodle_auth_service</a></li>
+      <li><a href="modules_auth_infra_services_services/modules_auth_infra_services_services-library.html">modules/auth/infra/services/services</a></li>
+      <li><a href="modules_auth_presentation_guards_auth_guard/modules_auth_presentation_guards_auth_guard-library.html">modules/auth/presentation/guards/auth_guard</a></li>
+      <li><a href="modules_auth_presentation_guards_guards/modules_auth_presentation_guards_guards-library.html">modules/auth/presentation/guards/guards</a></li>
+      <li><a href="modules_auth_presentation_presentation/modules_auth_presentation_presentation-library.html">modules/auth/presentation/presentation</a></li>
+      <li><a href="modules_auth_presentation_repositories_auth_repository/modules_auth_presentation_repositories_auth_repository-library.html">modules/auth/presentation/repositories/auth_repository</a></li>
+      <li><a href="modules_auth_presentation_repositories_repositories/modules_auth_presentation_repositories_repositories-library.html">modules/auth/presentation/repositories/repositories</a></li>
+      <li><a href="modules_auth_presentation_repositories_user_repository/modules_auth_presentation_repositories_user_repository-library.html">modules/auth/presentation/repositories/user_repository</a></li>
+      <li><a href="modules_auth_presentation_screens_login_screen/modules_auth_presentation_screens_login_screen-library.html">modules/auth/presentation/screens/login_screen</a></li>
+      <li><a href="modules_auth_presentation_screens_screens/modules_auth_presentation_screens_screens-library.html">modules/auth/presentation/screens/screens</a></li>
+      <li><a href="modules_auth_presentation_widgets_login_form/modules_auth_presentation_widgets_login_form-library.html">modules/auth/presentation/widgets/login_form</a></li>
+      <li><a href="modules_auth_presentation_widgets_widgets/modules_auth_presentation_widgets_widgets-library.html">modules/auth/presentation/widgets/widgets</a></li>
+      <li><a href="modules_auth_utils_token_utils/modules_auth_utils_token_utils-library.html">modules/auth/utils/token_utils</a></li>
+      <li><a href="modules_auth_utils_utils/modules_auth_utils_utils-library.html">modules/auth/utils/utils</a></li>
+      <li><a href="modules_calendar_calendar/modules_calendar_calendar-library.html">modules/calendar/calendar</a></li>
+      <li><a href="modules_calendar_domain_datasources_datasources/modules_calendar_domain_datasources_datasources-library.html">modules/calendar/domain/datasources/datasources</a></li>
+      <li><a href="modules_calendar_domain_datasources_deadlines_datasource/modules_calendar_domain_datasources_deadlines_datasource-library.html">modules/calendar/domain/datasources/deadlines_datasource</a></li>
+      <li><a href="modules_calendar_domain_datasources_invites_datasource/modules_calendar_domain_datasources_invites_datasource-library.html">modules/calendar/domain/datasources/invites_datasource</a></li>
+      <li><a href="modules_calendar_domain_datasources_plan_datasource/modules_calendar_domain_datasources_plan_datasource-library.html">modules/calendar/domain/datasources/plan_datasource</a></li>
+      <li><a href="modules_calendar_domain_domain/modules_calendar_domain_domain-library.html">modules/calendar/domain/domain</a></li>
+      <li><a href="modules_calendar_domain_models_calendar_plan/modules_calendar_domain_models_calendar_plan-library.html">modules/calendar/domain/models/calendar_plan</a></li>
+      <li><a href="modules_calendar_domain_models_models/modules_calendar_domain_models_models-library.html">modules/calendar/domain/models/models</a></li>
+      <li><a href="modules_calendar_domain_models_plan_deadline/modules_calendar_domain_models_plan_deadline-library.html">modules/calendar/domain/models/plan_deadline</a></li>
+      <li><a href="modules_calendar_domain_models_plan_invite/modules_calendar_domain_models_plan_invite-library.html">modules/calendar/domain/models/plan_invite</a></li>
+      <li><a href="modules_calendar_domain_models_plan_member/modules_calendar_domain_models_plan_member-library.html">modules/calendar/domain/models/plan_member</a></li>
+      <li><a href="modules_calendar_domain_services_services/modules_calendar_domain_services_services-library.html">modules/calendar/domain/services/services</a></li>
+      <li><a href="modules_calendar_infra_datasources_datasources/modules_calendar_infra_datasources_datasources-library.html">modules/calendar/infra/datasources/datasources</a></li>
+      <li><a href="modules_calendar_infra_datasources_std_deadlines_datasource/modules_calendar_infra_datasources_std_deadlines_datasource-library.html">modules/calendar/infra/datasources/std_deadlines_datasource</a></li>
+      <li><a href="modules_calendar_infra_datasources_std_invites_datasource/modules_calendar_infra_datasources_std_invites_datasource-library.html">modules/calendar/infra/datasources/std_invites_datasource</a></li>
+      <li><a href="modules_calendar_infra_datasources_std_plan_datasource/modules_calendar_infra_datasources_std_plan_datasource-library.html">modules/calendar/infra/datasources/std_plan_datasource</a></li>
+      <li><a href="modules_calendar_infra_infra/modules_calendar_infra_infra-library.html">modules/calendar/infra/infra</a></li>
+      <li><a href="modules_calendar_infra_services_services/modules_calendar_infra_services_services-library.html">modules/calendar/infra/services/services</a></li>
+      <li><a href="modules_calendar_presentation_guards_guards/modules_calendar_presentation_guards_guards-library.html">modules/calendar/presentation/guards/guards</a></li>
+      <li><a href="modules_calendar_presentation_presentation/modules_calendar_presentation_presentation-library.html">modules/calendar/presentation/presentation</a></li>
+      <li><a href="modules_calendar_presentation_repositories_calendar_plan_repository/modules_calendar_presentation_repositories_calendar_plan_repository-library.html">modules/calendar/presentation/repositories/calendar_plan_repository</a></li>
+      <li><a href="modules_calendar_presentation_repositories_repositories/modules_calendar_presentation_repositories_repositories-library.html">modules/calendar/presentation/repositories/repositories</a></li>
+      <li><a href="modules_calendar_presentation_screens_calendar_screen/modules_calendar_presentation_screens_calendar_screen-library.html">modules/calendar/presentation/screens/calendar_screen</a></li>
+      <li><a href="modules_calendar_presentation_screens_screens/modules_calendar_presentation_screens_screens-library.html">modules/calendar/presentation/screens/screens</a></li>
+      <li><a href="modules_calendar_presentation_widgets_widgets/modules_calendar_presentation_widgets_widgets-library.html">modules/calendar/presentation/widgets/widgets</a></li>
+      <li><a href="modules_calendar_utils_utils/modules_calendar_utils_utils-library.html">modules/calendar/utils/utils</a></li>
+      <li><a href="modules_dashboard_dashboard/modules_dashboard_dashboard-library.html">modules/dashboard/dashboard</a></li>
+      <li><a href="modules_dashboard_domain_datasources_datasources/modules_dashboard_domain_datasources_datasources-library.html">modules/dashboard/domain/datasources/datasources</a></li>
+      <li><a href="modules_dashboard_domain_domain/modules_dashboard_domain_domain-library.html">modules/dashboard/domain/domain</a></li>
+      <li><a href="modules_dashboard_domain_models_models/modules_dashboard_domain_models_models-library.html">modules/dashboard/domain/models/models</a></li>
+      <li><a href="modules_dashboard_domain_services_services/modules_dashboard_domain_services_services-library.html">modules/dashboard/domain/services/services</a></li>
+      <li><a href="modules_dashboard_infra_datasources_datasources/modules_dashboard_infra_datasources_datasources-library.html">modules/dashboard/infra/datasources/datasources</a></li>
+      <li><a href="modules_dashboard_infra_infra/modules_dashboard_infra_infra-library.html">modules/dashboard/infra/infra</a></li>
+      <li><a href="modules_dashboard_infra_services_services/modules_dashboard_infra_services_services-library.html">modules/dashboard/infra/services/services</a></li>
+      <li><a href="modules_dashboard_presentation_guards_guards/modules_dashboard_presentation_guards_guards-library.html">modules/dashboard/presentation/guards/guards</a></li>
+      <li><a href="modules_dashboard_presentation_presentation/modules_dashboard_presentation_presentation-library.html">modules/dashboard/presentation/presentation</a></li>
+      <li><a href="modules_dashboard_presentation_repositories_repositories/modules_dashboard_presentation_repositories_repositories-library.html">modules/dashboard/presentation/repositories/repositories</a></li>
+      <li><a href="modules_dashboard_presentation_screens_dashboard_screen/modules_dashboard_presentation_screens_dashboard_screen-library.html">modules/dashboard/presentation/screens/dashboard_screen</a></li>
+      <li><a href="modules_dashboard_presentation_screens_screens/modules_dashboard_presentation_screens_screens-library.html">modules/dashboard/presentation/screens/screens</a></li>
+      <li><a href="modules_dashboard_presentation_widgets_burndown_chart/modules_dashboard_presentation_widgets_burndown_chart-library.html">modules/dashboard/presentation/widgets/burndown_chart</a></li>
+      <li><a href="modules_dashboard_presentation_widgets_exams/modules_dashboard_presentation_widgets_exams-library.html">modules/dashboard/presentation/widgets/exams</a></li>
+      <li><a href="modules_dashboard_presentation_widgets_status_overview/modules_dashboard_presentation_widgets_status_overview-library.html">modules/dashboard/presentation/widgets/status_overview</a></li>
+      <li><a href="modules_dashboard_presentation_widgets_todays_tasks/modules_dashboard_presentation_widgets_todays_tasks-library.html">modules/dashboard/presentation/widgets/todays_tasks</a></li>
+      <li><a href="modules_dashboard_presentation_widgets_widgets/modules_dashboard_presentation_widgets_widgets-library.html">modules/dashboard/presentation/widgets/widgets</a></li>
+      <li><a href="modules_dashboard_utils_utils/modules_dashboard_utils_utils-library.html">modules/dashboard/utils/utils</a></li>
+      <li><a href="modules_moodle_domain_datasources_datasources/modules_moodle_domain_datasources_datasources-library.html">modules/moodle/domain/datasources/datasources</a></li>
+      <li><a href="modules_moodle_domain_datasources_moodle_course_datasource/modules_moodle_domain_datasources_moodle_course_datasource-library.html">modules/moodle/domain/datasources/moodle_course_datasource</a></li>
+      <li><a href="modules_moodle_domain_datasources_moodle_task_datasource/modules_moodle_domain_datasources_moodle_task_datasource-library.html">modules/moodle/domain/datasources/moodle_task_datasource</a></li>
+      <li><a href="modules_moodle_domain_domain/modules_moodle_domain_domain-library.html">modules/moodle/domain/domain</a></li>
+      <li><a href="modules_moodle_domain_models_models/modules_moodle_domain_models_models-library.html">modules/moodle/domain/models/models</a></li>
+      <li><a href="modules_moodle_domain_models_moodle_course/modules_moodle_domain_models_moodle_course-library.html">modules/moodle/domain/models/moodle_course</a></li>
+      <li><a href="modules_moodle_domain_models_moodle_task/modules_moodle_domain_models_moodle_task-library.html">modules/moodle/domain/models/moodle_task</a></li>
+      <li><a href="modules_moodle_domain_services_api_service/modules_moodle_domain_services_api_service-library.html">modules/moodle/domain/services/api_service</a></li>
+      <li><a href="modules_moodle_domain_services_services/modules_moodle_domain_services_services-library.html">modules/moodle/domain/services/services</a></li>
+      <li><a href="modules_moodle_infra_datasources_datasources/modules_moodle_infra_datasources_datasources-library.html">modules/moodle/infra/datasources/datasources</a></li>
+      <li><a href="modules_moodle_infra_datasources_std_moodle_course_datasource/modules_moodle_infra_datasources_std_moodle_course_datasource-library.html">modules/moodle/infra/datasources/std_moodle_course_datasource</a></li>
+      <li><a href="modules_moodle_infra_datasources_std_moodle_task_datasource/modules_moodle_infra_datasources_std_moodle_task_datasource-library.html">modules/moodle/infra/datasources/std_moodle_task_datasource</a></li>
+      <li><a href="modules_moodle_infra_infra/modules_moodle_infra_infra-library.html">modules/moodle/infra/infra</a></li>
+      <li><a href="modules_moodle_infra_services_services/modules_moodle_infra_services_services-library.html">modules/moodle/infra/services/services</a></li>
+      <li><a href="modules_moodle_moodle/modules_moodle_moodle-library.html">modules/moodle/moodle</a></li>
+      <li><a href="modules_moodle_presentation_guards_guards/modules_moodle_presentation_guards_guards-library.html">modules/moodle/presentation/guards/guards</a></li>
+      <li><a href="modules_moodle_presentation_presentation/modules_moodle_presentation_presentation-library.html">modules/moodle/presentation/presentation</a></li>
+      <li><a href="modules_moodle_presentation_repositories_moodle_courses_repository/modules_moodle_presentation_repositories_moodle_courses_repository-library.html">modules/moodle/presentation/repositories/moodle_courses_repository</a></li>
+      <li><a href="modules_moodle_presentation_repositories_moodle_tasks_repository/modules_moodle_presentation_repositories_moodle_tasks_repository-library.html">modules/moodle/presentation/repositories/moodle_tasks_repository</a></li>
+      <li><a href="modules_moodle_presentation_repositories_repositories/modules_moodle_presentation_repositories_repositories-library.html">modules/moodle/presentation/repositories/repositories</a></li>
+      <li><a href="modules_moodle_presentation_repositories_users_repository/modules_moodle_presentation_repositories_users_repository-library.html">modules/moodle/presentation/repositories/users_repository</a></li>
+      <li><a href="modules_moodle_presentation_screens_screens/modules_moodle_presentation_screens_screens-library.html">modules/moodle/presentation/screens/screens</a></li>
+      <li><a href="modules_moodle_presentation_widgets_course_selector/modules_moodle_presentation_widgets_course_selector-library.html">modules/moodle/presentation/widgets/course_selector</a></li>
+      <li><a href="modules_moodle_presentation_widgets_course_tag/modules_moodle_presentation_widgets_course_tag-library.html">modules/moodle/presentation/widgets/course_tag</a></li>
+      <li><a href="modules_moodle_presentation_widgets_course_widget/modules_moodle_presentation_widgets_course_widget-library.html">modules/moodle/presentation/widgets/course_widget</a></li>
+      <li><a href="modules_moodle_presentation_widgets_moodle_task_widget/modules_moodle_presentation_widgets_moodle_task_widget-library.html">modules/moodle/presentation/widgets/moodle_task_widget</a></li>
+      <li><a href="modules_moodle_presentation_widgets_user_profile_image/modules_moodle_presentation_widgets_user_profile_image-library.html">modules/moodle/presentation/widgets/user_profile_image</a></li>
+      <li><a href="modules_moodle_presentation_widgets_widgets/modules_moodle_presentation_widgets_widgets-library.html">modules/moodle/presentation/widgets/widgets</a></li>
+      <li><a href="modules_moodle_utils_api_service_utils/modules_moodle_utils_api_service_utils-library.html">modules/moodle/utils/api_service_utils</a></li>
+      <li><a href="modules_moodle_utils_utils/modules_moodle_utils_utils-library.html">modules/moodle/utils/utils</a></li>
+      <li><a href="modules_notifications_domain_datasources_datasources/modules_notifications_domain_datasources_datasources-library.html">modules/notifications/domain/datasources/datasources</a></li>
+      <li><a href="modules_notifications_domain_datasources_notifications_datasource/modules_notifications_domain_datasources_notifications_datasource-library.html">modules/notifications/domain/datasources/notifications_datasource</a></li>
+      <li><a href="modules_notifications_domain_domain/modules_notifications_domain_domain-library.html">modules/notifications/domain/domain</a></li>
+      <li><a href="modules_notifications_domain_models_models/modules_notifications_domain_models_models-library.html">modules/notifications/domain/models/models</a></li>
+      <li><a href="modules_notifications_domain_models_notification/modules_notifications_domain_models_notification-library.html">modules/notifications/domain/models/notification</a></li>
+      <li><a href="modules_notifications_domain_services_services/modules_notifications_domain_services_services-library.html">modules/notifications/domain/services/services</a></li>
+      <li><a href="modules_notifications_infra_datasources_datasources/modules_notifications_infra_datasources_datasources-library.html">modules/notifications/infra/datasources/datasources</a></li>
+      <li><a href="modules_notifications_infra_datasources_moodle_notifications_datasource/modules_notifications_infra_datasources_moodle_notifications_datasource-library.html">modules/notifications/infra/datasources/moodle_notifications_datasource</a></li>
+      <li><a href="modules_notifications_infra_infra/modules_notifications_infra_infra-library.html">modules/notifications/infra/infra</a></li>
+      <li><a href="modules_notifications_infra_services_services/modules_notifications_infra_services_services-library.html">modules/notifications/infra/services/services</a></li>
+      <li><a href="modules_notifications_notifications/modules_notifications_notifications-library.html">modules/notifications/notifications</a></li>
+      <li><a href="modules_notifications_presentation_guards_guards/modules_notifications_presentation_guards_guards-library.html">modules/notifications/presentation/guards/guards</a></li>
+      <li><a href="modules_notifications_presentation_presentation/modules_notifications_presentation_presentation-library.html">modules/notifications/presentation/presentation</a></li>
+      <li><a href="modules_notifications_presentation_repositories_notifications_repository/modules_notifications_presentation_repositories_notifications_repository-library.html">modules/notifications/presentation/repositories/notifications_repository</a></li>
+      <li><a href="modules_notifications_presentation_repositories_repositories/modules_notifications_presentation_repositories_repositories-library.html">modules/notifications/presentation/repositories/repositories</a></li>
+      <li><a href="modules_notifications_presentation_screens_screens/modules_notifications_presentation_screens_screens-library.html">modules/notifications/presentation/screens/screens</a></li>
+      <li><a href="modules_notifications_presentation_widgets_notifications_list/modules_notifications_presentation_widgets_notifications_list-library.html">modules/notifications/presentation/widgets/notifications_list</a></li>
+      <li><a href="modules_notifications_presentation_widgets_widgets/modules_notifications_presentation_widgets_widgets-library.html">modules/notifications/presentation/widgets/widgets</a></li>
+      <li><a href="modules_notifications_utils_utils/modules_notifications_utils_utils-library.html">modules/notifications/utils/utils</a></li>
+      <li><a href="modules_settings_domain_datasources_datasources/modules_settings_domain_datasources_datasources-library.html">modules/settings/domain/datasources/datasources</a></li>
+      <li><a href="modules_settings_domain_domain/modules_settings_domain_domain-library.html">modules/settings/domain/domain</a></li>
+      <li><a href="modules_settings_domain_models_models/modules_settings_domain_models_models-library.html">modules/settings/domain/models/models</a></li>
+      <li><a href="modules_settings_domain_services_services/modules_settings_domain_services_services-library.html">modules/settings/domain/services/services</a></li>
+      <li><a href="modules_settings_infra_datasources_datasources/modules_settings_infra_datasources_datasources-library.html">modules/settings/infra/datasources/datasources</a></li>
+      <li><a href="modules_settings_infra_infra/modules_settings_infra_infra-library.html">modules/settings/infra/infra</a></li>
+      <li><a href="modules_settings_infra_services_services/modules_settings_infra_services_services-library.html">modules/settings/infra/services/services</a></li>
+      <li><a href="modules_settings_presentation_guards_guards/modules_settings_presentation_guards_guards-library.html">modules/settings/presentation/guards/guards</a></li>
+      <li><a href="modules_settings_presentation_presentation/modules_settings_presentation_presentation-library.html">modules/settings/presentation/presentation</a></li>
+      <li><a href="modules_settings_presentation_repositories_repositories/modules_settings_presentation_repositories_repositories-library.html">modules/settings/presentation/repositories/repositories</a></li>
+      <li><a href="modules_settings_presentation_screens_screens/modules_settings_presentation_screens_screens-library.html">modules/settings/presentation/screens/screens</a></li>
+      <li><a href="modules_settings_presentation_screens_settings_screen/modules_settings_presentation_screens_settings_screen-library.html">modules/settings/presentation/screens/settings_screen</a></li>
+      <li><a href="modules_settings_presentation_widgets_general_settings/modules_settings_presentation_widgets_general_settings-library.html">modules/settings/presentation/widgets/general_settings</a></li>
+      <li><a href="modules_settings_presentation_widgets_theme_preview/modules_settings_presentation_widgets_theme_preview-library.html">modules/settings/presentation/widgets/theme_preview</a></li>
+      <li><a href="modules_settings_presentation_widgets_themes_settings/modules_settings_presentation_widgets_themes_settings-library.html">modules/settings/presentation/widgets/themes_settings</a></li>
+      <li><a href="modules_settings_presentation_widgets_widgets/modules_settings_presentation_widgets_widgets-library.html">modules/settings/presentation/widgets/widgets</a></li>
+      <li><a href="modules_settings_settings/modules_settings_settings-library.html">modules/settings/settings</a></li>
+      <li><a href="modules_settings_utils_utils/modules_settings_utils_utils-library.html">modules/settings/utils/utils</a></li>
+      <li><a href="modules_slots_domain_datasources_datasources/modules_slots_domain_datasources_datasources-library.html">modules/slots/domain/datasources/datasources</a></li>
+      <li><a href="modules_slots_domain_datasources_slots_datasource/modules_slots_domain_datasources_slots_datasource-library.html">modules/slots/domain/datasources/slots_datasource</a></li>
+      <li><a href="modules_slots_domain_domain/modules_slots_domain_domain-library.html">modules/slots/domain/domain</a></li>
+      <li><a href="modules_slots_domain_models_course_to_slot/modules_slots_domain_models_course_to_slot-library.html">modules/slots/domain/models/course_to_slot</a></li>
+      <li><a href="modules_slots_domain_models_models/modules_slots_domain_models_models-library.html">modules/slots/domain/models/models</a></li>
+      <li><a href="modules_slots_domain_models_reservation/modules_slots_domain_models_reservation-library.html">modules/slots/domain/models/reservation</a></li>
+      <li><a href="modules_slots_domain_models_slot/modules_slots_domain_models_slot-library.html">modules/slots/domain/models/slot</a></li>
+      <li><a href="modules_slots_domain_models_slot_aggregate/modules_slots_domain_models_slot_aggregate-library.html">modules/slots/domain/models/slot_aggregate</a></li>
+      <li><a href="modules_slots_domain_services_services/modules_slots_domain_services_services-library.html">modules/slots/domain/services/services</a></li>
+      <li><a href="modules_slots_infra_datasources_datasources/modules_slots_infra_datasources_datasources-library.html">modules/slots/infra/datasources/datasources</a></li>
+      <li><a href="modules_slots_infra_datasources_std_slots_datasource/modules_slots_infra_datasources_std_slots_datasource-library.html">modules/slots/infra/datasources/std_slots_datasource</a></li>
+      <li><a href="modules_slots_infra_infra/modules_slots_infra_infra-library.html">modules/slots/infra/infra</a></li>
+      <li><a href="modules_slots_infra_services_services/modules_slots_infra_services_services-library.html">modules/slots/infra/services/services</a></li>
+      <li><a href="modules_slots_presentation_guards_guards/modules_slots_presentation_guards_guards-library.html">modules/slots/presentation/guards/guards</a></li>
+      <li><a href="modules_slots_presentation_presentation/modules_slots_presentation_presentation-library.html">modules/slots/presentation/presentation</a></li>
+      <li><a href="modules_slots_presentation_repositories_repositories/modules_slots_presentation_repositories_repositories-library.html">modules/slots/presentation/repositories/repositories</a></li>
+      <li><a href="modules_slots_presentation_repositories_slots_repository/modules_slots_presentation_repositories_slots_repository-library.html">modules/slots/presentation/repositories/slots_repository</a></li>
+      <li><a href="modules_slots_presentation_screens_screens/modules_slots_presentation_screens_screens-library.html">modules/slots/presentation/screens/screens</a></li>
+      <li><a href="modules_slots_presentation_widgets_slot_widget/modules_slots_presentation_widgets_slot_widget-library.html">modules/slots/presentation/widgets/slot_widget</a></li>
+      <li><a href="modules_slots_presentation_widgets_widgets/modules_slots_presentation_widgets_widgets-library.html">modules/slots/presentation/widgets/widgets</a></li>
+      <li><a href="modules_slots_slots/modules_slots_slots-library.html">modules/slots/slots</a></li>
+      <li><a href="modules_slots_utils_reservation_date_time_converter_utils/modules_slots_utils_reservation_date_time_converter_utils-library.html">modules/slots/utils/reservation_date_time_converter_utils</a></li>
+      <li><a href="modules_slots_utils_utils/modules_slots_utils_utils-library.html">modules/slots/utils/utils</a></li>
+      <li><a href="modules_statistics_domain_datasources_datasources/modules_statistics_domain_datasources_datasources-library.html">modules/statistics/domain/datasources/datasources</a></li>
+      <li><a href="modules_statistics_domain_domain/modules_statistics_domain_domain-library.html">modules/statistics/domain/domain</a></li>
+      <li><a href="modules_statistics_domain_models_chart_value/modules_statistics_domain_models_chart_value-library.html">modules/statistics/domain/models/chart_value</a></li>
+      <li><a href="modules_statistics_domain_models_models/modules_statistics_domain_models_models-library.html">modules/statistics/domain/models/models</a></li>
+      <li><a href="modules_statistics_domain_models_status_aggregate/modules_statistics_domain_models_status_aggregate-library.html">modules/statistics/domain/models/status_aggregate</a></li>
+      <li><a href="modules_statistics_domain_models_task_aggregate/modules_statistics_domain_models_task_aggregate-library.html">modules/statistics/domain/models/task_aggregate</a></li>
+      <li><a href="modules_statistics_domain_models_type_aggregate/modules_statistics_domain_models_type_aggregate-library.html">modules/statistics/domain/models/type_aggregate</a></li>
+      <li><a href="modules_statistics_domain_services_services/modules_statistics_domain_services_services-library.html">modules/statistics/domain/services/services</a></li>
+      <li><a href="modules_statistics_infra_datasources_datasources/modules_statistics_infra_datasources_datasources-library.html">modules/statistics/infra/datasources/datasources</a></li>
+      <li><a href="modules_statistics_infra_infra/modules_statistics_infra_infra-library.html">modules/statistics/infra/infra</a></li>
+      <li><a href="modules_statistics_infra_services_services/modules_statistics_infra_services_services-library.html">modules/statistics/infra/services/services</a></li>
+      <li><a href="modules_statistics_presentation_guards_guards/modules_statistics_presentation_guards_guards-library.html">modules/statistics/presentation/guards/guards</a></li>
+      <li><a href="modules_statistics_presentation_presentation/modules_statistics_presentation_presentation-library.html">modules/statistics/presentation/presentation</a></li>
+      <li><a href="modules_statistics_presentation_repositories_course_stats_repository/modules_statistics_presentation_repositories_course_stats_repository-library.html">modules/statistics/presentation/repositories/course_stats_repository</a></li>
+      <li><a href="modules_statistics_presentation_repositories_global_stats_repository/modules_statistics_presentation_repositories_global_stats_repository-library.html">modules/statistics/presentation/repositories/global_stats_repository</a></li>
+      <li><a href="modules_statistics_presentation_repositories_repositories/modules_statistics_presentation_repositories_repositories-library.html">modules/statistics/presentation/repositories/repositories</a></li>
+      <li><a href="modules_statistics_presentation_screens_screens/modules_statistics_presentation_screens_screens-library.html">modules/statistics/presentation/screens/screens</a></li>
+      <li><a href="modules_statistics_presentation_widgets_bar_chart/modules_statistics_presentation_widgets_bar_chart-library.html">modules/statistics/presentation/widgets/bar_chart</a></li>
+      <li><a href="modules_statistics_presentation_widgets_chart/modules_statistics_presentation_widgets_chart-library.html">modules/statistics/presentation/widgets/chart</a></li>
+      <li><a href="modules_statistics_presentation_widgets_horizontal_bar_chart/modules_statistics_presentation_widgets_horizontal_bar_chart-library.html">modules/statistics/presentation/widgets/horizontal_bar_chart</a></li>
+      <li><a href="modules_statistics_presentation_widgets_vertical_bar_chart/modules_statistics_presentation_widgets_vertical_bar_chart-library.html">modules/statistics/presentation/widgets/vertical_bar_chart</a></li>
+      <li><a href="modules_statistics_presentation_widgets_widgets/modules_statistics_presentation_widgets_widgets-library.html">modules/statistics/presentation/widgets/widgets</a></li>
+      <li><a href="modules_statistics_statistics/modules_statistics_statistics-library.html">modules/statistics/statistics</a></li>
+      <li><a href="modules_statistics_utils_num_utils/modules_statistics_utils_num_utils-library.html">modules/statistics/utils/num_utils</a></li>
+      <li><a href="modules_statistics_utils_utils/modules_statistics_utils_utils-library.html">modules/statistics/utils/utils</a></li>
+      <li><a href="modules_theming_domain_datasources_datasources/modules_theming_domain_datasources_datasources-library.html">modules/theming/domain/datasources/datasources</a></li>
+      <li><a href="modules_theming_domain_datasources_themes_datasource/modules_theming_domain_datasources_themes_datasource-library.html">modules/theming/domain/datasources/themes_datasource</a></li>
+      <li><a href="modules_theming_domain_domain/modules_theming_domain_domain-library.html">modules/theming/domain/domain</a></li>
+      <li><a href="modules_theming_domain_models_models/modules_theming_domain_models_models-library.html">modules/theming/domain/models/models</a></li>
+      <li><a href="modules_theming_domain_models_task_status_theme/modules_theming_domain_models_task_status_theme-library.html">modules/theming/domain/models/task_status_theme</a></li>
+      <li><a href="modules_theming_domain_models_theme_base/modules_theming_domain_models_theme_base-library.html">modules/theming/domain/models/theme_base</a></li>
+      <li><a href="modules_theming_domain_services_services/modules_theming_domain_services_services-library.html">modules/theming/domain/services/services</a></li>
+      <li><a href="modules_theming_domain_services_theme_generator_service/modules_theming_domain_services_theme_generator_service-library.html">modules/theming/domain/services/theme_generator_service</a></li>
+      <li><a href="modules_theming_infra_datasources_datasources/modules_theming_infra_datasources_datasources-library.html">modules/theming/infra/datasources/datasources</a></li>
+      <li><a href="modules_theming_infra_datasources_std_themes_datasource/modules_theming_infra_datasources_std_themes_datasource-library.html">modules/theming/infra/datasources/std_themes_datasource</a></li>
+      <li><a href="modules_theming_infra_infra/modules_theming_infra_infra-library.html">modules/theming/infra/infra</a></li>
+      <li><a href="modules_theming_infra_services_material_theme_generator_service/modules_theming_infra_services_material_theme_generator_service-library.html">modules/theming/infra/services/material_theme_generator_service</a></li>
+      <li><a href="modules_theming_infra_services_services/modules_theming_infra_services_services-library.html">modules/theming/infra/services/services</a></li>
+      <li><a href="modules_theming_presentation_guards_guards/modules_theming_presentation_guards_guards-library.html">modules/theming/presentation/guards/guards</a></li>
+      <li><a href="modules_theming_presentation_presentation/modules_theming_presentation_presentation-library.html">modules/theming/presentation/presentation</a></li>
+      <li><a href="modules_theming_presentation_repositories_repositories/modules_theming_presentation_repositories_repositories-library.html">modules/theming/presentation/repositories/repositories</a></li>
+      <li><a href="modules_theming_presentation_repositories_theme_repository/modules_theming_presentation_repositories_theme_repository-library.html">modules/theming/presentation/repositories/theme_repository</a></li>
+      <li><a href="modules_theming_presentation_screens_screens/modules_theming_presentation_screens_screens-library.html">modules/theming/presentation/screens/screens</a></li>
+      <li><a href="modules_theming_presentation_widgets_widgets/modules_theming_presentation_widgets_widgets-library.html">modules/theming/presentation/widgets/widgets</a></li>
+      <li><a href="modules_theming_theming/modules_theming_theming-library.html">modules/theming/theming</a></li>
+      <li><a href="modules_theming_utils_theme_utils/modules_theming_utils_theme_utils-library.html">modules/theming/utils/theme_utils</a></li>
+      <li><a href="modules_theming_utils_utils/modules_theming_utils_utils-library.html">modules/theming/utils/utils</a></li>
 </ol>
 
   </div>
