@@ -77,7 +77,8 @@
     </section>
     
 <section class="desc markdown">
-  <p>Gets called when a repository watched via <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/watch.html">watch</a> emits a new state.</p>
+  <p>Gets called when a repository watched via <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/watch.html">watch</a> emits a new state or when the repository is initialized (in witch case <code>trigger</code> is <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/InitialBuildTrigger-class.html">InitialBuildTrigger</a>).
+Also gets called when the repository is updated (if <a href="../../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository/updateInterval.html">updateInterval</a> is not <a href="https://api.flutter.dev/flutter/dart-core/Duration/zero-constant.html">Duration.zero</a>).</p>
 <p><code>trigger</code> is the type of the repository that triggered the rebuild.</p>
 <p>Override this method to handle changes from said repositories.</p>
 <hr>
@@ -97,6 +98,8 @@
   }
 }
 </code></pre>
+<p>For watching repositories that return an <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a>, use <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/RepoWatchExt/watchAsync.html">RepoWatchExt.watchAsync</a>.
+<strong>Note:</strong> This repository must also return an <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a> to use <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/RepoWatchExt/watchAsync.html">RepoWatchExt.watchAsync</a>.</p>
 </section>
 
 
@@ -105,7 +108,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 FutureOr&lt;void&gt; build(Type trigger) async {
-  if (!_auth.state.hasData) return;
+  waitForData(_auth);
 
   if (_auth.state.requireData.isEmpty) return;
 

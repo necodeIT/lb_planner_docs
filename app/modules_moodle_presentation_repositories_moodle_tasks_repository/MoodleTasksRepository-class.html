@@ -97,7 +97,7 @@
 
     <dl class="constructor-summary-list">
         <dt id="MoodleTasksRepository" class="callable">
-          <span class="name"><a href="../modules_moodle_presentation_repositories_moodle_tasks_repository/MoodleTasksRepository/MoodleTasksRepository.html">MoodleTasksRepository</a></span><span class="signature">(<span class="parameter" id="-param-_tasks"><span class="type-annotation"><a href="../modules_moodle_domain_datasources_moodle_task_datasource/MoodleTaskDatasource-class.html">MoodleTaskDatasource</a></span> <span class="parameter-name">_tasks</span>, </span><span class="parameter" id="-param-_auth"><span class="type-annotation"><a href="../modules_auth_presentation_repositories_auth_repository/AuthRepository-class.html">AuthRepository</a></span> <span class="parameter-name">_auth</span>, </span><span class="parameter" id="-param-_ticks"><span class="type-annotation"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Ticks.html">Ticks</a></span> <span class="parameter-name">_ticks</span>, </span><span class="parameter" id="-param-_courses"><span class="type-annotation"><a href="../modules_moodle_presentation_repositories_moodle_courses_repository/MoodleCoursesRepository-class.html">MoodleCoursesRepository</a></span> <span class="parameter-name">_courses</span></span>)</span>
+          <span class="name"><a href="../modules_moodle_presentation_repositories_moodle_tasks_repository/MoodleTasksRepository/MoodleTasksRepository.html">MoodleTasksRepository</a></span><span class="signature">(<span class="parameter" id="-param-_tasks"><span class="type-annotation"><a href="../modules_moodle_domain_datasources_moodle_task_datasource/MoodleTaskDatasource-class.html">MoodleTaskDatasource</a></span> <span class="parameter-name">_tasks</span>, </span><span class="parameter" id="-param-_auth"><span class="type-annotation"><a href="../modules_auth_presentation_repositories_auth_repository/AuthRepository-class.html">AuthRepository</a></span> <span class="parameter-name">_auth</span>, </span><span class="parameter" id="-param-_courses"><span class="type-annotation"><a href="../modules_moodle_presentation_repositories_moodle_courses_repository/MoodleCoursesRepository-class.html">MoodleCoursesRepository</a></span> <span class="parameter-name">_courses</span></span>)</span>
         </dt>
         <dd>
           Provides all tasks from Moodle with the latest updates.
@@ -106,7 +106,7 @@
   </section>
     
   <section
-      class="summary offset-anchor inherited"
+      class="summary offset-anchor"
       id="instance-properties">
     <h2>Properties</h2>
     <dl class="properties">
@@ -207,6 +207,20 @@ e.g. 'Service.Auth'
 
 </dd>
 
+        <dt id="updateInterval" class="property">
+  <span class="name"><a href="../modules_moodle_presentation_repositories_moodle_tasks_repository/MoodleTasksRepository/updateInterval.html">updateInterval</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span>
+  
+
+</dt>
+<dd>
+  The interval at which the repository should update.
+If <a href="https://api.flutter.dev/flutter/dart-core/Duration/zero-constant.html">Duration.zero</a>, the repository will not update unless triggered by another repository.
+When automatic updates are enabled, the <a href="../modules_moodle_presentation_repositories_moodle_tasks_repository/MoodleTasksRepository/build.html">build</a> method will be called with <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/UpdateTrigger-class.html">UpdateTrigger</a> at the specified interval.
+  <div class="features"><span class="feature">no setter</span><span class="feature">override</span></div>
+
+</dd>
+
     </dl>
   </section>
     
@@ -236,7 +250,8 @@ e.g. 'Service.Auth'
 
 </dt>
 <dd>
-  Gets called when a repository watched via <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/watch.html">watch</a> emits a new state.
+  Gets called when a repository watched via <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/watch.html">watch</a> emits a new state or when the repository is initialized (in witch case <code>trigger</code> is <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/InitialBuildTrigger-class.html">InitialBuildTrigger</a>).
+Also gets called when the repository is updated (if <a href="../modules_moodle_presentation_repositories_moodle_tasks_repository/MoodleTasksRepository/updateInterval.html">updateInterval</a> is not <a href="https://api.flutter.dev/flutter/dart-core/Duration/zero-constant.html">Duration.zero</a>).
   <div class="features"><span class="feature">override</span></div>
 
 </dd>

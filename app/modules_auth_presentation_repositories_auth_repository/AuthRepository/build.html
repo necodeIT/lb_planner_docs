@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the authenticate method from the AuthRepository class, for the Dart programming language.">
-  <title>authenticate method - AuthRepository class - auth_repository library - Dart API</title>
+  <meta name="description" content="API docs for the build method from the AuthRepository class, for the Dart programming language.">
+  <title>build method - AuthRepository class - auth_repository library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">lb_planner</a></li>
     <li><a href="../../modules_auth_presentation_repositories_auth_repository/modules_auth_presentation_repositories_auth_repository-library.html">modules&#47;auth&#47;presentation&#47;repositories&#47;auth_repository.dart</a></li>
     <li><a href="../../modules_auth_presentation_repositories_auth_repository/AuthRepository-class.html">AuthRepository</a></li>
-    <li class="self-crumb">authenticate method</li>
+    <li class="self-crumb">build method</li>
   </ol>
-  <div class="self-name">authenticate</div>
+  <div class="self-name">build</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -57,50 +57,60 @@
     data-above-sidebar="modules_auth_presentation_repositories_auth_repository&#47;AuthRepository-class-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">authenticate</span> method 
+<h1><span class="kind-method">build</span> method 
 </h1></div>
 
     <section class="multi-line-signature">
       
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">authenticate</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="authenticate-param-username"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">username</span>, </span></li>
-<li><span class="parameter" id="authenticate-param-password"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">password</span>, </span></li>
-</ol>})
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/FutureOr-class.html">FutureOr</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="build-param-trigger"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span> <span class="parameter-name">trigger</span></span></li>
+</ol>)
 
-      
+      <div class="features"><span class="feature">override</span></div>
 
     </section>
     
 <section class="desc markdown">
-  <p>Sign in with <code>username</code> and <code>password</code>.</p>
+  <p>Gets called when a repository watched via <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/watch.html">watch</a> emits a new state or when the repository is initialized (in witch case <code>trigger</code> is <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/InitialBuildTrigger-class.html">InitialBuildTrigger</a>).
+Also gets called when the repository is updated (if <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/updateInterval.html">updateInterval</a> is not <a href="https://api.flutter.dev/flutter/dart-core/Duration/zero-constant.html">Duration.zero</a>).</p>
+<p><code>trigger</code> is the type of the repository that triggered the rebuild.</p>
+<p>Override this method to handle changes from said repositories.</p>
+<hr>
+<p><strong>Example:</strong></p>
+<pre class="language-dart"><code class="language-dart">class MyRepository extends Repository&lt;MyState&gt; {
+  final OtherRepository _otherRepository;
+
+  MyRepository(this._otherRepository) : super(MyState.new) {
+    watch(_otherRepository);
+  }
+
+  @override
+  FutureOr&lt;void&gt; build(Type trigger) async {
+    final otherState = _otherRepository.state;
+
+    // Do something with otherState
+  }
+}
+</code></pre>
+<p>For watching repositories that return an <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a>, use <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/RepoWatchExt/watchAsync.html">RepoWatchExt.watchAsync</a>.
+<strong>Note:</strong> This repository must also return an <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a> to use <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/RepoWatchExt/watchAsync.html">RepoWatchExt.watchAsync</a>.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; authenticate({
-  required String username,
-  required String password,
-}) async {
-  log(&#39;Authenticating with username $username&#39;);
-
-  emit(AsyncValue.loading());
-
-  await guard(
-    () =&gt; _auth.authenticate(
-      username: username,
-      password: password,
-      webservices: Webservice.values.toSet(),
-    ),
-  );
-
-  if (!state.hasData) return;
-
-  log(&#39;Authentication successful&#39;);
-
-  await _localStorage.write(state.requireData);
+  <pre class="language-dart"><code class="language-dart">@override
+FutureOr&lt;void&gt; build(Type trigger) async {
+  if (trigger == InitialBuildTrigger) {
+    await _authFromStorage();
+  }
 }</code></pre>
 </section>
 
@@ -119,7 +129,7 @@
     <li><a href="../../index.html">lb_planner</a></li>
     <li><a href="../../modules_auth_presentation_repositories_auth_repository/modules_auth_presentation_repositories_auth_repository-library.html">auth_repository</a></li>
     <li><a href="../../modules_auth_presentation_repositories_auth_repository/AuthRepository-class.html">AuthRepository</a></li>
-    <li class="self-crumb">authenticate method</li>
+    <li class="self-crumb">build method</li>
 </ol>
 
 

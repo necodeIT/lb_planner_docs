@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the exportedBinds method from the AuthModule class, for the Dart programming language.">
-  <title>exportedBinds method - AuthModule class - auth library - Dart API</title>
+  <meta name="description" content="API docs for the updateInterval property from the NotificationsRepository class, for the Dart programming language.">
+  <title>updateInterval property - NotificationsRepository class - notifications_repository library - Dart API</title>
 
 
   
@@ -29,11 +29,11 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">lb_planner</a></li>
-    <li><a href="../../modules_auth_auth/modules_auth_auth-library.html">modules&#47;auth&#47;auth.dart</a></li>
-    <li><a href="../../modules_auth_auth/AuthModule-class.html">AuthModule</a></li>
-    <li class="self-crumb">exportedBinds method</li>
+    <li><a href="../../modules_notifications_presentation_repositories_notifications_repository/modules_notifications_presentation_repositories_notifications_repository-library.html">modules&#47;notifications&#47;presentation&#47;repositories&#47;notifications_repository.dart</a></li>
+    <li><a href="../../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository-class.html">NotificationsRepository</a></li>
+    <li class="self-crumb">updateInterval property</li>
   </ol>
-  <div class="self-name">exportedBinds</div>
+  <div class="self-name">updateInterval</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -54,11 +54,15 @@
 <div
     id="dartdoc-main-content"
     class="main-content"
-    data-above-sidebar="modules_auth_auth&#47;AuthModule-class-sidebar.html"
+    data-above-sidebar="modules_notifications_presentation_repositories_notifications_repository&#47;NotificationsRepository-class-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-method">exportedBinds</span> method 
+<h1><span class="kind-property">updateInterval</span> property 
 </h1></div>
+
+
+        
+  <section id="getter">
 
     <section class="multi-line-signature">
       
@@ -67,36 +71,34 @@
         <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
     </ol>
   </div>
-
-<span class="returntype">void</span>
-<span class="name ">exportedBinds</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="exportedBinds-param-i"><span class="type-annotation"><a href="https://pub.dev/documentation/auto_injector/2.0.5/auto_injector/Injector-class.html">Injector</a></span> <span class="parameter-name">i</span></span></li>
-</ol>)
-
+      <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span>
+      <span class="name ">updateInterval</span>
       <div class="features"><span class="feature">override</span></div>
 
     </section>
-    
 
+    
+<section class="desc markdown">
+  <p>The interval at which the repository should update.
+If <a href="https://api.flutter.dev/flutter/dart-core/Duration/zero-constant.html">Duration.zero</a>, the repository will not update unless triggered by another repository.
+When automatic updates are enabled, the <a href="../../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository/build.html">build</a> method will be called with <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/UpdateTrigger-class.html">UpdateTrigger</a> at the specified interval.</p>
+<p>Override this getter to enable automatic updates.</p>
+</section>
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-void exportedBinds(Injector i) =&gt; i
-  ..add&lt;ApiService&gt;(MoodleApiService.new)
-  ..add&lt;AuthService&gt;(MoodleAuthService.new)
-  ..add&lt;UserDatasource&gt;(MoodleUserDatasource.new)
-  ..addRepository&lt;AuthRepository&gt;(AuthRepository.new)
-  ..addRepository&lt;UserRepository&gt;(UserRepository.new)
-  ..addSerde&lt;Token&gt;(fromJson: Token.fromJson, toJson: (t) =&gt; t.toJson())
-  ..addSerde&lt;User&gt;(fromJson: User.fromJson, toJson: (u) =&gt; u.toJson());</code></pre>
+Duration get updateInterval =&gt; kRefreshIntervalDuration;</code></pre>
 </section>
 
+  </section>
 
-  </div> <!-- /.main-content -->
 
-  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+</div> <!-- /.main-content -->
+
+<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
@@ -105,17 +107,17 @@ void exportedBinds(Injector i) =&gt; i
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">lb_planner</a></li>
-    <li><a href="../../modules_auth_auth/modules_auth_auth-library.html">auth</a></li>
-    <li><a href="../../modules_auth_auth/AuthModule-class.html">AuthModule</a></li>
-    <li class="self-crumb">exportedBinds method</li>
+    <li><a href="../../modules_notifications_presentation_repositories_notifications_repository/modules_notifications_presentation_repositories_notifications_repository-library.html">notifications_repository</a></li>
+    <li><a href="../../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository-class.html">NotificationsRepository</a></li>
+    <li class="self-crumb">updateInterval property</li>
 </ol>
 
 
-    <h5>AuthModule class</h5>
-    <div id="dartdoc-sidebar-left-content"></div>
-  </div><!--/.sidebar-offcanvas-->
+  <h5>NotificationsRepository class</h5>
+  <div id="dartdoc-sidebar-left-content"></div>
+</div><!--/.sidebar-offcanvas-->
 
-  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!--/.sidebar-offcanvas-->
 
 </main>

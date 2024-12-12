@@ -62,8 +62,7 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">NotificationsRepository</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="-param-_ticks"><span class="type-annotation"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Ticks.html">Ticks</a></span> <span class="parameter-name">_ticks</span>, </span></li>
-<li><span class="parameter" id="-param-_datasource"><span class="type-annotation"><a href="../../modules_notifications_domain_datasources_notifications_datasource/NotificationsDatasource-class.html">NotificationsDatasource</a></span> <span class="parameter-name">_datasource</span>, </span></li>
+      <span class="name ">NotificationsRepository</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="-param-_datasource"><span class="type-annotation"><a href="../../modules_notifications_domain_datasources_notifications_datasource/NotificationsDatasource-class.html">NotificationsDatasource</a></span> <span class="parameter-name">_datasource</span>, </span></li>
 <li><span class="parameter" id="-param-_auth"><span class="type-annotation"><a href="../../modules_auth_presentation_repositories_auth_repository/AuthRepository-class.html">AuthRepository</a></span> <span class="parameter-name">_auth</span></span></li>
 </ol>)
     </section>
@@ -77,8 +76,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">NotificationsRepository(this._ticks, this._datasource, this._auth) : super(AsyncValue.loading()) {
-  watch(_ticks);
+  <pre class="language-dart"><code class="language-dart">NotificationsRepository(this._datasource, this._auth) : super(AsyncValue.loading()) {
   watchAsync(_auth);
 }</code></pre>
 </section>

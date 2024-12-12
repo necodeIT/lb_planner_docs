@@ -66,7 +66,6 @@
 <li><span class="parameter" id="-param-_deadlines"><span class="type-annotation"><a href="../../modules_calendar_domain_datasources_deadlines_datasource/DeadlinesDatasource-class.html">DeadlinesDatasource</a></span> <span class="parameter-name">_deadlines</span>, </span></li>
 <li><span class="parameter" id="-param-_auth"><span class="type-annotation"><a href="../../modules_auth_presentation_repositories_auth_repository/AuthRepository-class.html">AuthRepository</a></span> <span class="parameter-name">_auth</span>, </span></li>
 <li><span class="parameter" id="-param-_connectivity"><span class="type-annotation"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/ConnectivityService-class.html">ConnectivityService</a></span> <span class="parameter-name">_connectivity</span>, </span></li>
-<li><span class="parameter" id="-param-_ticks"><span class="type-annotation"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/TickRepository-class.html">TickRepository</a></span> <span class="parameter-name">_ticks</span>, </span></li>
 <li><span class="parameter" id="-param-_tasks"><span class="type-annotation"><a href="../../modules_moodle_presentation_repositories_moodle_tasks_repository/MoodleTasksRepository-class.html">MoodleTasksRepository</a></span> <span class="parameter-name">_tasks</span>, </span></li>
 </ol>)
     </section>
@@ -85,11 +84,9 @@
   this._deadlines,
   this._auth,
   this._connectivity,
-  this._ticks,
   this._tasks,
 ) : super(AsyncValue.loading()) {
   watchAsync(_auth);
-  watch(_ticks);
   watchAsync(_tasks);
 }</code></pre>
 </section>
