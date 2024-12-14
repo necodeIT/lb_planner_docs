@@ -109,7 +109,7 @@ Also gets called when the repository is updated (if <a href="https://mcquenji.gi
   <pre class="language-dart"><code class="language-dart">@override
 FutureOr&lt;void&gt; build(Type trigger) async {
   if (trigger == InitialBuildTrigger) {
-    await _authFromStorage();
+    loadStoredTokens = _authFromStorage();
   }
 }</code></pre>
 </section>

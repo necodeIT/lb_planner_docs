@@ -99,7 +99,6 @@
   }
 
   log(&#39;Reserving slot ${slot.id} for current user&#39;);
-
   try {
     await _datasource.reserveSlot(
       token: _auth.state.requireData.pick(Webservice.lb_planner_api),

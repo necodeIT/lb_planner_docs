@@ -83,7 +83,12 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 void binds(Injector i) {
-  i.add&lt;TitleBuilder&gt;(() =&gt; (BuildContext context) =&gt; context.t.calendar_title);
+  i
+    ..add&lt;TitleBuilder&gt;(() =&gt; (BuildContext context) =&gt; context.t.calendar_title)
+    ..add&lt;InvitesDatasource&gt;(StdInvitesDatasource.new)
+    ..add&lt;DeadlinesDatasource&gt;(StdDeadlinesDatasource.new)
+    ..add&lt;PlanDatasource&gt;(StdPlanDatasource.new)
+    ..addRepository&lt;CalendarPlanRepository&gt;(CalendarPlanRepository.new);
 }</code></pre>
 </section>
 
