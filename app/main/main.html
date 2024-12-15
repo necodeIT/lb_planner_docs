@@ -78,18 +78,10 @@
   <pre class="language-dart"><code class="language-dart">void main() async {
   final options = Catcher2Options(ShoutReportMode(), []);
 
-  WidgetsFlutterBinding.ensureInitialized();
-
   Logger.root.level = Level.ALL;
 
   DeclarativeEdgeInsets.defaultPadding = Spacing.mediumSpacing;
   NetworkService.timeout = const Duration(seconds: 30);
-
-  await Sentry.init(
-    (options) =&gt; options
-      ..dsn = kSentryDSN
-      ..environment = kInstalledRelease.channel.name,
-  );
 
   if (kDebugMode) Logger.root.onRecord.listen(debugLogHandler);
 
@@ -138,15 +130,20 @@
   });
 
   if (await FlutterSingleInstance.platform.isFirstInstance()) {
-    Catcher2(
-      releaseConfig: options,
-      debugConfig: options,
-      rootWidget: ModularApp(
-        module: AppModule(),
-        debugMode: false,
-        child: const AppWidget(),
+    await Sentry.init(
+      (options) =&gt; options
+        ..dsn = kSentryDSN
+        ..environment = kInstalledRelease.toString(),
+      appRunner: () =&gt; Catcher2(
+        releaseConfig: options,
+        debugConfig: options,
+        rootWidget: ModularApp(
+          module: AppModule(),
+          debugMode: false,
+          child: const AppWidget(),
+        ),
+        enableLogger: false,
       ),
-      enableLogger: false,
     );
   } else {
     Logger(kAppName).severe(&#39;App is already running&#39;);
