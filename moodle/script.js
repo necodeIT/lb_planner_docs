@@ -497,14 +497,14 @@ function renderValue(values, name = null, params = false) {
                     </div>
                     <p class="${descClass}">${values.description}</p>
                     <div class="value-children">
-                        ${renderValue(values.value, name, params)}
+                        ${renderValue(values.fields ?? values.value, name, params)}
                     </div>
                </div>
                `;
 
         }
 
-        return renderValue(values.fields, null, params);
+        return renderValue(values.fields ?? values.value, null, params);
     }
 
     if (rootType === 'ObjectValue') {
