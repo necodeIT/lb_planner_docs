@@ -327,3 +327,59 @@ li i {
   color: var(--accent-color);
   margin-right: 0.5rem;
 }
+
+.value-children {
+  margin-left: 1rem;
+}
+
+.collapsible {
+  cursor: pointer !important;
+}
+
+.collapsible>div>div>i.fa-chevron-up {
+  color: var(--accent-color);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+
+}
+
+.collapsible[collapsed]>div>div>i.fa-chevron-up {
+  transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+}
+
+.collapsible {
+  margin-bottom: 14px;
+}
+
+.collapsible[collapsed] {
+  margin-bottom: 0;
+}
+
+.collapsible[collapsed]>div>.value-children {
+  opacity: 0;
+  overflow: hidden;
+  margin-left: 0;
+  max-height: 0 !important;
+  transition: max-height .5s;
+  -webkit-transition: max-height .5s;
+  -moz-transition: max-height .5s;
+  -ms-transition: max-height .5s;
+  -o-transition: max-height .5s;
+}
+
+.collapsible>div>.value-children {
+  opacity: 1;
+  transition: all .5s;
+  transition: all .5s;
+  -webkit-transition: all .5s, max-height .3s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+}
