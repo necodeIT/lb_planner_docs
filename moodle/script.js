@@ -523,7 +523,7 @@ function renderValue(values, name = null, params = false) {
                 <div class="${signatureClass}">
                   <p class="${nameClass}" tooltip="Copy">${name}</p>
                   <i class="fa-solid fa-arrow-right-long"></i>
-                  <p>${values.type}</p>
+                  <p>${values.type}${!params && values.nullable ? '?' : ''}</p>
                   ${params ? `<p class="param-${values.required ? 'required' : 'optional'}">${values.required ? 'required' : 'optional'}</p>` : ''}
                   ${params ? `<p class="badge param-default" tooltip="${name} is ${values.default_value} if omitted">${values.default_value ? `${values.default_value}` : ''}</p>` : ''}
                 </div>
