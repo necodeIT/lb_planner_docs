@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
   <link rel="icon" href="../../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -50,7 +46,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -62,8 +57,7 @@
 
     <section class="multi-line-signature">
       
-
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">setDeadline</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="setDeadline-param-taskId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">taskId</span>, </span></li>
 <li><span class="parameter" id="setDeadline-param-start"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">start</span>, </span></li>
 <li><span class="parameter" id="setDeadline-param-end"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">end</span></span></li>
@@ -89,14 +83,29 @@
   }
 
   try {
-    await _deadlines.setDeadline(
-      _auth.state.requireData[Webservice.lb_planner_api],
-      PlanDeadline(
-        id: taskId,
-        start: start,
-        end: end,
+    final deadline = PlanDeadline(
+      id: taskId,
+      start: start,
+      end: end,
+    );
+
+    data(
+      state.requireData.copyWith(
+        deadlines: [
+          ...state.requireData.deadlines.where((d) =&gt; d.id != taskId),
+          deadline,
+        ],
       ),
     );
+
+    await _deadlines.setDeadline(
+      _auth.state.requireData[Webservice.lb_planner_api],
+      deadline,
+    );
+
+    log(&#39;Deadline set.&#39;);
+
+    await captureEvent(&#39;deadline_set&#39;, properties: {&#39;id&#39;: taskId, &#39;start&#39;: start, &#39;end&#39;: end});
   } catch (e, st) {
     log(&#39;Failed to set deadline.&#39;, e, st);
 
@@ -107,7 +116,6 @@
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -115,7 +123,6 @@
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">lb_planner</a></li>
     <li><a href="../../modules_calendar_presentation_repositories_calendar_plan_repository/modules_calendar_presentation_repositories_calendar_plan_repository-library.html">calendar_plan_repository</a></li>
@@ -123,33 +130,24 @@
     <li class="self-crumb">setDeadline method</li>
 </ol>
 
-
     <h5>CalendarPlanRepository class</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
 <script src="../../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

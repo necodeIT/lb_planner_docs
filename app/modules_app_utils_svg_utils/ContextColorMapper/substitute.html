@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
   <link rel="icon" href="../../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -50,7 +46,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -67,12 +62,11 @@
         <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
     </ol>
   </div>
-
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/skeletonizer/Color-class.html">Color</a></span>
 <span class="name ">substitute</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="substitute-param-id"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">id</span>, </span></li>
 <li><span class="parameter" id="substitute-param-elementName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">elementName</span>, </span></li>
 <li><span class="parameter" id="substitute-param-attributeName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">attributeName</span>, </span></li>
-<li><span class="parameter" id="substitute-param-color"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a></span> <span class="parameter-name">color</span>, </span></li>
+<li><span class="parameter" id="substitute-param-color"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/skeletonizer/Color-class.html">Color</a></span> <span class="parameter-name">color</span>, </span></li>
 </ol>)
 
       <div class="features"><span class="feature">override</span></div>
@@ -94,24 +88,21 @@ Color substitute(String? id, String elementName, String attributeName, Color col
   final colorScheme = theme.colorScheme;
   final textTheme = theme.textTheme;
 
-  return switch (color.value) {
-    0xFFFF5733 =&gt; colorScheme.primary,
-    0xFFFFC300 =&gt; colorScheme.secondary,
-    0xFFDAF7A6 =&gt; colorScheme.surface,
-    0xFF900C3F =&gt; colorScheme.error,
-    0xFF581845 =&gt; colorScheme.onPrimary,
-    0xFF1F618D =&gt; colorScheme.onSecondary,
-    0xFF17202A =&gt; colorScheme.onSurface,
-    0xFFF1C40F =&gt; colorScheme.onError,
-    0xFF000000 =&gt; textTheme.bodyMedium?.color ?? color,
-    _ =&gt; color,
-  };
+  if (color == const Color(0xFFFF5733)) return colorScheme.primary;
+  if (color == const Color(0xFFFFC300)) return colorScheme.secondary;
+  if (color == const Color(0xFFDAF7A6)) return colorScheme.surface;
+  if (color == const Color(0xFF900C3F)) return colorScheme.error;
+  if (color == const Color(0xFF581845)) return colorScheme.onPrimary;
+  if (color == const Color(0xFF1F618D)) return colorScheme.onSecondary;
+  if (color == const Color(0xFF17202A)) return colorScheme.onSurface;
+  if (color == const Color(0xFFF1C40F)) return colorScheme.onError;
+  if (color == const Color(0xFF000000)) return textTheme.bodyMedium?.color ?? color;
+  return color;
 }</code></pre>
 </section>
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -119,7 +110,6 @@ Color substitute(String? id, String elementName, String attributeName, Color col
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">lb_planner</a></li>
     <li><a href="../../modules_app_utils_svg_utils/modules_app_utils_svg_utils-library.html">svg_utils</a></li>
@@ -127,33 +117,24 @@ Color substitute(String? id, String elementName, String attributeName, Color col
     <li class="self-crumb">substitute method</li>
 </ol>
 
-
     <h5>ContextColorMapper class</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
 <script src="../../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

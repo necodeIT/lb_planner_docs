@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
   <link rel="icon" href="../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -49,7 +45,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -84,7 +79,7 @@
         
 
 
-
+        
         
 
 
@@ -94,7 +89,6 @@
     
   <section class="summary offset-anchor" id="constructors">
     <h2>Constructors</h2>
-
     <dl class="constructor-summary-list">
         <dt id="GlobalStatsRepository" class="callable">
           <span class="name"><a href="../modules_statistics_presentation_repositories_global_stats_repository/GlobalStatsRepository/GlobalStatsRepository.html">GlobalStatsRepository</a></span><span class="signature">(<span class="parameter" id="-param-_tasks"><span class="type-annotation"><a href="../modules_moodle_presentation_repositories_moodle_tasks_repository/MoodleTasksRepository-class.html">MoodleTasksRepository</a></span> <span class="parameter-name">_tasks</span></span>)</span>
@@ -197,7 +191,7 @@ e.g. 'Service.Auth'
 
         <dt id="stream" class="property inherited">
   <span class="name"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/stream.html">stream</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_statistics_domain_models_task_aggregate/TaskAggregate-class.html">TaskAggregate</a></span>&gt;</span></span>&gt;</span></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_statistics_domain_models_task_aggregate/TaskAggregate-class.html">TaskAggregate</a></span>&gt;</span></span>&gt;</span></span>
   
 
 </dt>
@@ -216,13 +210,14 @@ e.g. 'Service.Auth'
 <dd class="inherited">
   The interval at which the repository should update.
 If <a href="https://api.flutter.dev/flutter/dart-core/Duration/zero-constant.html">Duration.zero</a>, the repository will not update unless triggered by another repository.
-When automatic updates are enabled, the <a href="../modules_statistics_presentation_repositories_global_stats_repository/GlobalStatsRepository/build.html">build</a> method will be called with <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/UpdateTrigger-class.html">UpdateTrigger</a> at the specified interval.
+When automatic updates are enabled, the <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/build.html">build</a> method will be called with <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/UpdateTrigger-class.html">UpdateTrigger</a> at the specified interval.
   <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
 
 </dd>
 
     </dl>
   </section>
+
     
   <section
       class="summary offset-anchor"
@@ -258,7 +253,7 @@ Also gets called when the repository is updated (if <a href="https://mcquenji.gi
 
         <dt id="close" class="callable inherited">
   <span class="name"><a href="https://pub.dev/documentation/bloc/8.1.4/bloc/BlocBase/close.html">close</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -307,7 +302,7 @@ is equal to the current <code>state</code>.
 
 </dt>
 <dd class="inherited">
-  Shortcut for <a href="https://api.flutter.dev/flutter/dart-async/Stream/listen.html">Stream.listen</a>.
+  Shortcut for <a href="https://api.flutter.dev/flutter/dart-core/Stream/listen.html">Stream.listen</a>.
   <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
@@ -420,9 +415,7 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
     
     
 
-
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -430,40 +423,30 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">lb_planner</a></li>
     <li><a href="../modules_statistics_presentation_repositories_global_stats_repository/modules_statistics_presentation_repositories_global_stats_repository-library.html">global_stats_repository</a></li>
     <li class="self-crumb">GlobalStatsRepository class</li>
 </ol>
 
-
     <h5>global_stats_repository library</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
 <script src="../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
   <link rel="icon" href="../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -49,7 +45,6 @@
   </div>
 </header>
 <main>
-
   <div
       id="dartdoc-main-content"
       class="main-content"
@@ -62,7 +57,6 @@
 
     <section class="multi-line-signature">
         
-
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
 <span class="name ">scrubSensitiveData</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="scrubSensitiveData-param-message"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">message</span></span></li>
 </ol>)
@@ -84,24 +78,28 @@
 
   final patterns = [
     &#47;&#47; Key-Value Pairs
-    RegExp(r&#39;(token|apikey|secret|password|key|access_token|refresh_token|client_secret|clientkey|clientid)=[^\s&amp;]+&#39;, caseSensitive: false),
+    for (final key in sensitiveKeys) RegExp(r&#39;(\b&#39; + key + r&#39;\b\s*=\s*)([^&amp;\s,]*)&#39;, caseSensitive: false, multiLine: true),
 
-    &#47;&#47; JSON Format
-    RegExp(r&#39;(&quot;token&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;apikey&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;secret&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;password&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;key&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;access_token&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;refresh_token&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;client_secret&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;ssn&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;clientkey&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
-    RegExp(r&#39;(&quot;clientid&quot;\s*:\s*&quot;.*?&quot;)&#39;, caseSensitive: false),
+    &#47;&#47; Json values
+    for (final key in sensitiveKeys) RegExp(r&#39;(\b&#39; + key + r&#39;\b\s*:\s*)([^&amp;\s,}]*)&#39;, caseSensitive: false, multiLine: true),
+
+    &#47;&#47; Bearer Tokens
+    RegExp(r&#39;(Bearer\s+)([^\s]*)&#39;, caseSensitive: false),
+    &#47;&#47; Basic Auth
+    RegExp(r&#39;(Basic\s+)([^\s]*)&#39;, caseSensitive: false),
+    &#47;&#47; JWT Tokens
+    RegExp(r&#39;(JWT\s+)([^\s]*)&#39;, caseSensitive: false),
   ];
 
   for (final pattern in patterns) {
-    scrubbed = message.replaceAll(pattern, r&#39;$1=***&#39;);
+    scrubbed = scrubbed.replaceAllMapped(pattern, (match) {
+      final key = match.group(1);
+      final value = match.group(2);
+
+      final length = value?.length ?? 1;
+
+      return &#39;$key${&#39;*&#39; * length}&#39;;
+    });
   }
 
   return scrubbed;
@@ -110,7 +108,6 @@
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -118,40 +115,30 @@
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">lb_planner</a></li>
     <li><a href="../main/main-library.html">main</a></li>
     <li class="self-crumb">scrubSensitiveData function</li>
 </ol>
 
-
     <h5>main library</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-left-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
 <script src="../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
   <link rel="icon" href="../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -49,7 +45,6 @@
   </div>
 </header>
 <main>
-
   <div
       id="dartdoc-main-content"
       class="main-content"
@@ -62,7 +57,6 @@
 
     <section class="multi-line-signature">
         
-
 <span class="returntype">void</span>
 <span class="name ">main</span>(<wbr>)
 
@@ -76,34 +70,59 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void main() async {
-  final options = Catcher2Options(ShoutReportMode(), []);
-
   Logger.root.level = Level.ALL;
 
   DeclarativeEdgeInsets.defaultPadding = Spacing.mediumSpacing;
   NetworkService.timeout = const Duration(seconds: 30);
+  CoreModule.isWeb = kIsWeb;
+  CoreModule.debugMode = kDebugMode;
 
-  if (kDebugMode) Logger.root.onRecord.listen(debugLogHandler);
+  setPathUrlStrategy();
 
-  if (kReleaseMode) {
-    Logger.root.onRecord.listen((record) {
-      final scrubbed = LogRecord(
-        record.level,
-        scrubSensitiveData(record.message),
-        record.loggerName,
+  Logger.root.onRecord.listen((record) {
+    final scrubbed = LogRecord(
+      record.level,
+      scrubSensitiveData(record.message),
+      record.loggerName,
+      record.error,
+      record.stackTrace,
+      record.zone,
+      record.object,
+    );
+
+    final handler = Modular.tryGet&lt;LogHandlerService&gt;();
+
+    handler?.call(scrubbed);
+
+    if (record.level &gt;= Level.SEVERE &amp;&amp; record.error != null) {
+      final logs = (handler?.flush() ?? []).join(&#39;\n&#39;);
+
+      final bytes = utf8.encode(logs);
+      final byteData = ByteData.view(bytes.buffer, bytes.offsetInBytes, bytes.length);
+
+      Sentry.captureException(
         record.error,
-        record.stackTrace,
-        record.zone,
-        record.object,
+        stackTrace: record.stackTrace,
+        hint: Hint.withAttachment(
+          SentryAttachment.fromByteData(
+            byteData,
+            &#39;.log&#39;,
+          ),
+        ),
+        withScope: (scope) async {
+          await scope.setContexts(&#39;Logger&#39;, record.loggerName);
+        },
       );
-      &#47;&#47; TODO(mcquenji): write to file
-      debugLogHandler(scrubbed);
-    });
-  }
+    }
+  });
 
   Modular
     ..setInitialRoute(&#39;&#47;dashboard&#47;&#39;)
-    ..setObservers([LogObserver()]);
+    ..to.setObservers([
+      LogObserver(),
+      SentryNavigatorObserver(),
+      kRouteObserver,
+    ]);
 
   setPrintResolver((msg) {
     final logger = Logger(&#39;Modular&#39;);
@@ -129,31 +148,47 @@
     log(msg);
   });
 
-  if (await FlutterSingleInstance.platform.isFirstInstance()) {
+  if (await FlutterSingleInstance().isFirstInstance()) {
     await Sentry.init(
       (options) =&gt; options
-        ..dsn = kSentryDSN
-        ..environment = kInstalledRelease.toString(),
-      appRunner: () =&gt; Catcher2(
-        releaseConfig: options,
-        debugConfig: options,
-        rootWidget: ModularApp(
-          module: AppModule(),
-          debugMode: false,
-          child: const AppWidget(),
-        ),
-        enableLogger: false,
-      ),
+        ..dsn = kDebugMode ? &#39;&#39; : kSentryDSN
+        ..environment = kInstalledRelease.channel.name
+        ..release = kInstalledRelease.version.toString()
+        ..debug = kDebugMode,
+      appRunner: () async {
+        WidgetsFlutterBinding.ensureInitialized();
+        if (!kIsWeb) await windowManager.ensureInitialized();
+
+        await PostHog.init(
+          apiKey: kPostHogAPIkey,
+          host: kPostHogHost,
+          debug: kDebugMode,
+          version: kInstalledRelease.toString(),
+        );
+
+        Modular.to.addListener(() {
+          Logger(&#39;Modular&#39;).finest(&#39;Route changed to ${Modular.to.path}&#39;);
+
+          PostHog().screen(Modular.to.path);
+        });
+
+        runApp(
+          ModularApp(
+            module: AppModule(),
+            debugMode: false,
+            child: const SentryScreenshotWidget(child: AppWidget()),
+          ),
+        );
+      },
     );
   } else {
-    Logger(kAppName).severe(&#39;App is already running&#39;);
+    Logger(kAppName).info(&#39;App is already running&#39;);
   }
 }</code></pre>
 </section>
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -161,40 +196,30 @@
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">lb_planner</a></li>
     <li><a href="../main/main-library.html">main</a></li>
     <li class="self-crumb">main function</li>
 </ol>
 
-
     <h5>main library</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-left-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
 <script src="../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
   <link rel="icon" href="../../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -50,7 +46,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -67,8 +62,7 @@
         <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
     </ol>
   </div>
-
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../modules_calendar_domain_models_calendar_plan/CalendarPlan-class.html">CalendarPlan</a></span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">updatePlan</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="updatePlan-param-token"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">token</span>, </span></li>
 <li><span class="parameter" id="updatePlan-param-plan"><span class="type-annotation"><a href="../../modules_calendar_domain_models_calendar_plan/CalendarPlan-class.html">CalendarPlan</a></span> <span class="parameter-name">plan</span></span></li>
 </ol>)
@@ -86,11 +80,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Future&lt;CalendarPlan&gt; updatePlan(String token, CalendarPlan plan) async {
+Future&lt;void&gt; updatePlan(String token, CalendarPlan plan) async {
   log(&#39;Updating plan&#39;);
 
   try {
-    final response = await _apiService.callFunction(
+    await _apiService.callFunction(
       function: &#39;local_lbplanner_plan_update_plan&#39;,
       token: token,
       body: {
@@ -99,11 +93,7 @@ Future&lt;CalendarPlan&gt; updatePlan(String token, CalendarPlan plan) async {
       },
     );
 
-    response.assertJson();
-
     log(&#39;Plan updated&#39;);
-
-    return CalendarPlan.fromJson(response.asJson);
   } catch (e, s) {
     log(&#39;Failed to update plan&#39;, e, s);
     rethrow;
@@ -113,7 +103,6 @@ Future&lt;CalendarPlan&gt; updatePlan(String token, CalendarPlan plan) async {
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -121,7 +110,6 @@ Future&lt;CalendarPlan&gt; updatePlan(String token, CalendarPlan plan) async {
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">lb_planner</a></li>
     <li><a href="../../modules_calendar_infra_datasources_std_plan_datasource/modules_calendar_infra_datasources_std_plan_datasource-library.html">std_plan_datasource</a></li>
@@ -129,33 +117,24 @@ Future&lt;CalendarPlan&gt; updatePlan(String token, CalendarPlan plan) async {
     <li class="self-crumb">updatePlan method</li>
 </ol>
 
-
     <h5>StdPlanDatasource class</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
 <script src="../../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

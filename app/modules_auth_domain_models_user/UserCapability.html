@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
   <link rel="icon" href="../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -49,7 +45,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -87,29 +82,19 @@
           
           
           
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="https://api.flutter.dev/flutter/dart-core/EnumName.html">EnumName</a></li>
+      <li><a href="../modules_auth_domain_models_user/UserCapabilityExtension.html">UserCapabilityExtension</a></li>
+  </ul></dd>
+          
 
 
         </dl>
       </section>
 
-    
-  <section class="summary offset-anchor" id="constructors">
-    <h2>Constructors</h2>
-
-    <dl class="constructor-summary-list">
-        <dt id="UserCapability" class="callable">
-          <span class="name"><a href="../modules_auth_domain_models_user/UserCapability/UserCapability.html">UserCapability</a></span><span class="signature">()</span>
-        </dt>
-        <dd>
-          
-            <div class="constructor-modifier features">const</div>
-        </dd>
-    </dl>
-  </section>
-
       <section class="summary offset-anchor" id="values">
         <h2>Values</h2>
-
         <dl class="properties">
             <dt id="dev" class="constant">
     <span class="name ">dev</span>
@@ -123,6 +108,9 @@
 <p>This role is typically reserved for those involved in the app's development and maintenance.</p>
   
 
+    <div>
+      <span class="signature"><code>const UserCapability(_dev)</code></span>
+    </div>
 </dd>
 
             <dt id="moderator" class="constant">
@@ -137,6 +125,9 @@
 <p>and perform other moderation tasks.</p>
   
 
+    <div>
+      <span class="signature"><code>const UserCapability(_moderator)</code></span>
+    </div>
 </dd>
 
             <dt id="teacher" class="constant">
@@ -151,6 +142,9 @@
 <p>They have access to features that allow them to e.g. manage and create time slots.</p>
   
 
+    <div>
+      <span class="signature"><code>const UserCapability(_teacher)</code></span>
+    </div>
 </dd>
 
             <dt id="student" class="constant">
@@ -164,6 +158,9 @@
 <p>They can access features tailored to their planning experience (e.g. the calendar view)</p>
   
 
+    <div>
+      <span class="signature"><code>const UserCapability(_student)</code></span>
+    </div>
 </dd>
 
         </dl>
@@ -171,7 +168,7 @@
 
     
   <section
-      class="summary offset-anchor inherited"
+      class="summary offset-anchor"
       id="instance-properties">
     <h2>Properties</h2>
     <dl class="properties">
@@ -199,6 +196,86 @@
 
 </dd>
 
+        <dt id="isDev" class="property">
+  <span class="name"><a href="../modules_auth_domain_models_user/UserCapabilityExtension/isDev.html">isDev</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../modules_auth_domain_models_user/UserCapability.html">UserCapability</a>,
+        provided by the <a href="../modules_auth_domain_models_user/UserCapabilityExtension.html">UserCapabilityExtension</a> extension</span>
+      </p>
+  Returns <code>true</code> if this capability is <a href="../modules_auth_domain_models_user/UserCapability.html">UserCapability.dev</a>. Otherwise <code>false</code>.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="isModerator" class="property">
+  <span class="name"><a href="../modules_auth_domain_models_user/UserCapabilityExtension/isModerator.html">isModerator</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../modules_auth_domain_models_user/UserCapability.html">UserCapability</a>,
+        provided by the <a href="../modules_auth_domain_models_user/UserCapabilityExtension.html">UserCapabilityExtension</a> extension</span>
+      </p>
+  Returns <code>true</code> if this capability is <a href="../modules_auth_domain_models_user/UserCapability.html">UserCapability.moderator</a>. Otherwise <code>false</code>.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="isStudent" class="property">
+  <span class="name"><a href="../modules_auth_domain_models_user/UserCapabilityExtension/isStudent.html">isStudent</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../modules_auth_domain_models_user/UserCapability.html">UserCapability</a>,
+        provided by the <a href="../modules_auth_domain_models_user/UserCapabilityExtension.html">UserCapabilityExtension</a> extension</span>
+      </p>
+  Returns <code>true</code> if this capability is <a href="../modules_auth_domain_models_user/UserCapability.html">UserCapability.student</a>. Otherwise <code>false</code>.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="isTeacher" class="property">
+  <span class="name"><a href="../modules_auth_domain_models_user/UserCapabilityExtension/isTeacher.html">isTeacher</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="../modules_auth_domain_models_user/UserCapability.html">UserCapability</a>,
+        provided by the <a href="../modules_auth_domain_models_user/UserCapabilityExtension.html">UserCapabilityExtension</a> extension</span>
+      </p>
+  Returns <code>true</code> if this capability is <a href="../modules_auth_domain_models_user/UserCapability.html">UserCapability.teacher</a>. Otherwise <code>false</code>.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="name" class="property">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/EnumName/name.html">name</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/dart-core/Enum-class.html">Enum</a>,
+        provided by the <a href="https://api.flutter.dev/flutter/dart-core/EnumName.html">EnumName</a> extension</span>
+      </p>
+  The name of the enum value.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
         <dt id="runtimeType" class="property inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
@@ -211,8 +288,21 @@
 
 </dd>
 
+        <dt id="translate" class="property">
+  <span class="name"><a href="../modules_auth_domain_models_user/UserCapability/translate.html">translate</a></span>
+  <span class="signature">&#8594; <a href="../modules_app_utils_context_utils/Translator.html">Translator</a></span>
+  
+
+</dt>
+<dd>
+  Translates the capability to a human-readable string based on the <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
     </dl>
   </section>
+
     
   <section
       class="summary offset-anchor inherited"
@@ -274,7 +364,6 @@
 
   <section class="summary offset-anchor" id="constants">
     <h2>Constants</h2>
-
     <dl class="properties">
         <dt id="values" class="constant">
     <span class="name "><a href="../modules_auth_domain_models_user/UserCapability/values-constant.html">values</a></span>
@@ -291,7 +380,6 @@
     </dl>
   </section>
 </div><!-- /.main-content -->
-
 <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
   <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -299,40 +387,30 @@
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">lb_planner</a></li>
     <li><a href="../modules_auth_domain_models_user/modules_auth_domain_models_user-library.html">user</a></li>
     <li class="self-crumb">UserCapability enum</li>
 </ol>
 
-
   <h5>user library</h5>
   <div id="dartdoc-sidebar-left-content"></div>
 </div>
-
 <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!-- /.sidebar-offcanvas -->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
 <script src="../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
   <link rel="icon" href="../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -49,7 +45,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -84,7 +79,7 @@
         
 
 
-
+        
         
 
 
@@ -94,10 +89,9 @@
     
   <section class="summary offset-anchor" id="constructors">
     <h2>Constructors</h2>
-
     <dl class="constructor-summary-list">
         <dt id="CalendarPlanRepository" class="callable">
-          <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/CalendarPlanRepository.html">CalendarPlanRepository</a></span><span class="signature">(<span class="parameter" id="-param-_plan"><span class="type-annotation"><a href="../modules_calendar_domain_datasources_plan_datasource/PlanDatasource-class.html">PlanDatasource</a></span> <span class="parameter-name">_plan</span>, </span><span class="parameter" id="-param-_deadlines"><span class="type-annotation"><a href="../modules_calendar_domain_datasources_deadlines_datasource/DeadlinesDatasource-class.html">DeadlinesDatasource</a></span> <span class="parameter-name">_deadlines</span>, </span><span class="parameter" id="-param-_auth"><span class="type-annotation"><a href="../modules_auth_presentation_repositories_auth_repository/AuthRepository-class.html">AuthRepository</a></span> <span class="parameter-name">_auth</span>, </span><span class="parameter" id="-param-_connectivity"><span class="type-annotation"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/ConnectivityService-class.html">ConnectivityService</a></span> <span class="parameter-name">_connectivity</span>, </span><span class="parameter" id="-param-_tasks"><span class="type-annotation"><a href="../modules_moodle_presentation_repositories_moodle_tasks_repository/MoodleTasksRepository-class.html">MoodleTasksRepository</a></span> <span class="parameter-name">_tasks</span></span>)</span>
+          <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/CalendarPlanRepository.html">CalendarPlanRepository</a></span><span class="signature">(<span class="parameter" id="-param-_plan"><span class="type-annotation"><a href="../modules_calendar_domain_datasources_plan_datasource/PlanDatasource-class.html">PlanDatasource</a></span> <span class="parameter-name">_plan</span>, </span><span class="parameter" id="-param-_deadlines"><span class="type-annotation"><a href="../modules_calendar_domain_datasources_deadlines_datasource/DeadlinesDatasource-class.html">DeadlinesDatasource</a></span> <span class="parameter-name">_deadlines</span>, </span><span class="parameter" id="-param-_auth"><span class="type-annotation"><a href="../modules_auth_presentation_repositories_auth_repository/AuthRepository-class.html">AuthRepository</a></span> <span class="parameter-name">_auth</span>, </span><span class="parameter" id="-param-_connectivity"><span class="type-annotation"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/ConnectivityService-class.html">ConnectivityService</a></span> <span class="parameter-name">_connectivity</span>, </span><span class="parameter" id="-param-_tasks"><span class="type-annotation"><a href="../modules_moodle_presentation_repositories_moodle_tasks_repository/MoodleTasksRepository-class.html">MoodleTasksRepository</a></span> <span class="parameter-name">_tasks</span>, </span><span class="parameter" id="-param-_invites"><span class="type-annotation"><a href="../modules_calendar_domain_datasources_invites_datasource/InvitesDatasource-class.html">InvitesDatasource</a></span> <span class="parameter-name">_invites</span></span>)</span>
         </dt>
         <dd>
           Repository for managing a user's <a href="../modules_calendar_domain_models_calendar_plan/CalendarPlan-class.html">CalendarPlan</a>.
@@ -197,7 +191,7 @@ e.g. 'Service.Auth'
 
         <dt id="stream" class="property inherited">
   <span class="name"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/stream.html">stream</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_calendar_domain_models_calendar_plan/CalendarPlan-class.html">CalendarPlan</a></span>&gt;</span></span>&gt;</span></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_calendar_domain_models_calendar_plan/CalendarPlan-class.html">CalendarPlan</a></span>&gt;</span></span>&gt;</span></span>
   
 
 </dt>
@@ -223,12 +217,26 @@ When automatic updates are enabled, the <a href="../modules_calendar_presentatio
 
     </dl>
   </section>
+
     
   <section
       class="summary offset-anchor"
       id="instance-methods">
     <h2>Methods</h2>
     <dl class="callables">
+        <dt id="acceptInvite" class="callable">
+  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/acceptInvite.html">acceptInvite</a></span><span class="signature">(<wbr><span class="parameter" id="acceptInvite-param-inviteId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">inviteId</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Accepts the invite with the given <code>inviteId</code>.
+  
+
+</dd>
+
         <dt id="addError" class="callable inherited">
   <span class="name"><a href="https://pub.dev/documentation/bloc/8.1.4/bloc/BlocBase/addError.html">addError</a></span><span class="signature">(<wbr><span class="parameter" id="addError-param-error"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">error</span>, [</span><span class="parameter" id="addError-param-stackTrace"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span></span>])
     <span class="returntype parameter">&#8594; void</span>
@@ -244,7 +252,7 @@ When automatic updates are enabled, the <a href="../modules_calendar_presentatio
 
         <dt id="build" class="callable">
   <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/build.html">build</a></span><span class="signature">(<wbr><span class="parameter" id="build-param-trigger"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span> <span class="parameter-name">trigger</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -258,7 +266,7 @@ Also gets called when the repository is updated (if <a href="../modules_calendar
 
         <dt id="changeName" class="callable">
   <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/changeName.html">changeName</a></span><span class="signature">(<wbr><span class="parameter" id="changeName-param-name"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -271,7 +279,7 @@ Also gets called when the repository is updated (if <a href="../modules_calendar
 
         <dt id="chmod" class="callable">
   <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/chmod.html">chmod</a></span><span class="signature">(<wbr><span class="parameter" id="chmod-param-userId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">userId</span>, </span><span class="parameter" id="chmod-param-accessType"><span class="type-annotation"><a href="../modules_calendar_domain_models_plan_member/PlanMemberAccessType.html">PlanMemberAccessType</a></span> <span class="parameter-name">accessType</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -284,7 +292,7 @@ Also gets called when the repository is updated (if <a href="../modules_calendar
 
         <dt id="clear" class="callable">
   <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/clear.html">clear</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -297,7 +305,7 @@ Also gets called when the repository is updated (if <a href="../modules_calendar
 
         <dt id="close" class="callable inherited">
   <span class="name"><a href="https://pub.dev/documentation/bloc/8.1.4/bloc/BlocBase/close.html">close</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -307,6 +315,19 @@ Also gets called when the repository is updated (if <a href="../modules_calendar
 This method should be called when the instance is no longer needed.
 Once <a href="https://pub.dev/documentation/bloc/8.1.4/bloc/BlocBase/close.html">close</a> is called, the instance can no longer be used.
   <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="declineInvite" class="callable">
+  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/declineInvite.html">declineInvite</a></span><span class="signature">(<wbr><span class="parameter" id="declineInvite-param-inviteId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">inviteId</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Declines the invite with the given <code>inviteId</code>.
+  
 
 </dd>
 
@@ -339,20 +360,20 @@ is equal to the current <code>state</code>.
 </dd>
 
         <dt id="enableOptionalTasks" class="callable">
-  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/enableOptionalTasks.html">enableOptionalTasks</a></span><span class="signature">(<wbr>{<span class="parameter" id="enableOptionalTasks-param-enabled"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">enabled</span> = <span class="default-value">true</span></span>})
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/enableOptionalTasks.html">enableOptionalTasks</a></span><span class="signature">(<wbr><span class="parameter" id="enableOptionalTasks-param-enabled"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">enabled</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  Sets <a href="../modules_calendar_domain_models_calendar_plan/CalendarPlan/optionalTasksEnabled.html">CalendarPlan.optionalTasksEnabled</a> to <code>enabled</code>.
+  Sets <code>CalendarPlan.optionalTasksEnabled</code> to <code>enabled</code>.
   
 
 </dd>
 
         <dt id="filterDeadlines" class="callable">
-  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/filterDeadlines.html">filterDeadlines</a></span><span class="signature">(<wbr>{<span class="parameter" id="filterDeadlines-param-taskId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">taskId</span>, </span><span class="parameter" id="filterDeadlines-param-start"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">start</span>, </span><span class="parameter" id="filterDeadlines-param-end"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">end</span>, </span><span class="parameter" id="filterDeadlines-param-plannedForToday"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">plannedForToday</span></span>})
+  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/filterDeadlines.html">filterDeadlines</a></span><span class="signature">(<wbr>{<span class="parameter" id="filterDeadlines-param-taskId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">taskId</span>, </span><span class="parameter" id="filterDeadlines-param-start"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">start</span>, </span><span class="parameter" id="filterDeadlines-param-end"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">end</span>, </span><span class="parameter" id="filterDeadlines-param-betweenStart"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">betweenStart</span>, </span><span class="parameter" id="filterDeadlines-param-betweenEnd"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">betweenEnd</span>, </span><span class="parameter" id="filterDeadlines-param-plannedForToday"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">plannedForToday</span></span>})
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_calendar_domain_models_plan_deadline/PlanDeadline-class.html">PlanDeadline</a></span>&gt;</span></span>
   </span>
   
@@ -377,6 +398,19 @@ is equal to the current <code>state</code>.
 
 </dd>
 
+        <dt id="getInvites" class="callable">
+  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/getInvites.html">getInvites</a></span><span class="signature">(<wbr>{<span class="parameter" id="getInvites-param-id"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">id</span>, </span><span class="parameter" id="getInvites-param-inviterId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">inviterId</span>, </span><span class="parameter" id="getInvites-param-inviteeId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">inviteeId</span>, </span><span class="parameter" id="getInvites-param-status"><span class="type-annotation"><a href="../modules_calendar_domain_models_plan_invite/PlanInviteStatus.html">PlanInviteStatus</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="getInvites-param-planId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">planId</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_calendar_domain_models_plan_invite/PlanInvite-class.html">PlanInvite</a></span>&gt;</span></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns a list of all invites that match the given filters.
+  
+
+</dd>
+
         <dt id="getUnplannedTasks" class="callable">
   <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/getUnplannedTasks.html">getUnplannedTasks</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_moodle_domain_models_moodle_task/MoodleTask-class.html">MoodleTask</a></span>&gt;</span></span>
@@ -390,9 +424,22 @@ is equal to the current <code>state</code>.
 
 </dd>
 
+        <dt id="inviteUser" class="callable">
+  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/inviteUser.html">inviteUser</a></span><span class="signature">(<wbr><span class="parameter" id="inviteUser-param-userId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">userId</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Invites the user with the given <code>userId</code> to the plan.
+  
+
+</dd>
+
         <dt id="kick" class="callable">
   <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/kick.html">kick</a></span><span class="signature">(<wbr><span class="parameter" id="kick-param-userId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">userId</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -405,7 +452,7 @@ is equal to the current <code>state</code>.
 
         <dt id="leavePlan" class="callable">
   <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/leavePlan.html">leavePlan</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -424,7 +471,7 @@ is equal to the current <code>state</code>.
 
 </dt>
 <dd class="inherited">
-  Shortcut for <a href="https://api.flutter.dev/flutter/dart-async/Stream/listen.html">Stream.listen</a>.
+  Shortcut for <a href="https://api.flutter.dev/flutter/dart-core/Stream/listen.html">Stream.listen</a>.
   <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
@@ -485,21 +532,21 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
 </dd>
 
         <dt id="removeDeadline" class="callable">
-  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/removeDeadline.html">removeDeadline</a></span><span class="signature">(<wbr><span class="parameter" id="removeDeadline-param-deadline"><span class="type-annotation"><a href="../modules_calendar_domain_models_plan_deadline/PlanDeadline-class.html">PlanDeadline</a></span> <span class="parameter-name">deadline</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/removeDeadline.html">removeDeadline</a></span><span class="signature">(<wbr><span class="parameter" id="removeDeadline-param-id"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">id</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  Removes the given <code>deadline</code>.
+  Removes the deadline with the given <code>id</code>.
   
 
 </dd>
 
         <dt id="setDeadline" class="callable">
   <span class="name"><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/CalendarPlanRepository/setDeadline.html">setDeadline</a></span><span class="signature">(<wbr><span class="parameter" id="setDeadline-param-taskId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">taskId</span>, </span><span class="parameter" id="setDeadline-param-start"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">start</span>, </span><span class="parameter" id="setDeadline-param-end"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span> <span class="parameter-name">end</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -563,9 +610,7 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
     
     
 
-
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -573,40 +618,30 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">lb_planner</a></li>
     <li><a href="../modules_calendar_presentation_repositories_calendar_plan_repository/modules_calendar_presentation_repositories_calendar_plan_repository-library.html">calendar_plan_repository</a></li>
     <li class="self-crumb">CalendarPlanRepository class</li>
 </ol>
 
-
     <h5>calendar_plan_repository library</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
 <script src="../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

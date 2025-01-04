@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
   <link rel="icon" href="../../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -50,7 +46,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -67,7 +62,6 @@
         <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
     </ol>
   </div>
-
 <span class="returntype"><a href="https://api.flutter.dev/flutter/material/ThemeData-class.html">ThemeData</a></span>
 <span class="name ">generateTheme</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="generateTheme-param-themeBase"><span class="type-annotation"><a href="../../modules_theming_domain_models_theme_base/ThemeBase-class.html">ThemeBase</a></span> <span class="parameter-name">themeBase</span></span></li>
 </ol>)
@@ -108,7 +102,7 @@ ThemeData generateTheme(ThemeBase themeBase) {
     decorationColor: themeBase.textColor,
   );
 
-  final templateTheme = ThemeData(brightness: themeBase.brightness);
+  final templateTheme = ThemeData(brightness: themeBase.brightness, colorScheme: colorScheme, textTheme: textTheme);
 
   return ThemeData(
     cardTheme: CardTheme(
@@ -123,6 +117,36 @@ ThemeData generateTheme(ThemeBase themeBase) {
       checkColor: WidgetStateProperty.all&lt;Color&gt;(themeBase.onAccentColor),
       side: BorderSide(color: themeBase.accentColor, width: 2),
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) {
+            return themeBase.tertiaryColor.darken();
+          }
+
+          return themeBase.accentColor;
+        }),
+        foregroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) {
+            return themeBase.tertiaryColor.lighten(20);
+          }
+
+          return themeBase.onAccentColor;
+        }),
+        elevation: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.hovered) || states.contains(WidgetState.focused)) {
+            return 4;
+          }
+
+          if (states.contains(WidgetState.disabled)) {
+            return 0;
+          }
+
+          return 2;
+        }),
+        shape: WidgetStateProperty.all(squircle(radius: 6)),
+      ),
+    ),
     tooltipTheme: TooltipThemeData(
       decoration: ShapeDecoration(
         color: themeBase.primaryColor,
@@ -133,7 +157,7 @@ ThemeData generateTheme(ThemeBase themeBase) {
       textStyle: textTheme.bodySmall,
     ),
     brightness: themeBase.brightness,
-    useMaterial3: false,
+    useMaterial3: themeBase.usesMaterial3,
     primaryColor: themeBase.secondaryColor,
     dividerColor: themeBase.tertiaryColor,
     canvasColor: themeBase.primaryColor,
@@ -159,6 +183,67 @@ ThemeData generateTheme(ThemeBase themeBase) {
     iconButtonTheme: const IconButtonThemeData(
       style: ButtonStyle(
         splashFactory: NoSplash.splashFactory,
+        overlayColor: WidgetStatePropertyAll(Colors.transparent),
+        backgroundColor: WidgetStatePropertyAll(Colors.transparent),
+      ),
+    ),
+    splashColor: Colors.transparent,
+    splashFactory: NoSplash.splashFactory,
+    cardColor: themeBase.primaryColor,
+    dropdownMenuTheme: DropdownMenuThemeData(
+      inputDecorationTheme: InputDecorationTheme(
+        constraints: const BoxConstraints(
+          maxHeight: 40,
+        ),
+        filled: true,
+        fillColor: themeBase.secondaryColor,
+        isDense: true,
+        isCollapsed: true,
+        border: OutlineInputBorder(
+          borderRadius: squircle().borderRadius,
+          borderSide: BorderSide.none,
+        ),
+      ),
+      menuStyle: MenuStyle(
+        padding: WidgetStatePropertyAll(PaddingAll(Spacing.smallSpacing).Vertical(Spacing.mediumSpacing)),
+        backgroundColor: WidgetStatePropertyAll(themeBase.secondaryColor),
+        shape: WidgetStatePropertyAll(squircle()),
+        elevation: const WidgetStatePropertyAll(8),
+        alignment: Alignment.bottomCenter * 5,
+      ),
+    ),
+    menuButtonTheme: MenuButtonThemeData(
+      style: ButtonStyle(
+        padding: WidgetStateProperty.all(PaddingAll(Spacing.mediumSpacing).Vertical(Spacing.xsSpacing)),
+        shape: WidgetStateProperty.all(squircle()),
+        animationDuration: Duration.zero,
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (states) {
+            if (states.contains(WidgetState.hovered) || states.contains(WidgetState.focused)) {
+              return themeBase.accentColor;
+            }
+
+            return themeBase.secondaryColor;
+          },
+        ),
+        iconColor: WidgetStateProperty.resolveWith(
+          (states) {
+            if (states.contains(WidgetState.hovered) || states.contains(WidgetState.focused)) {
+              return themeBase.onAccentColor;
+            }
+
+            return themeBase.textColor;
+          },
+        ),
+        foregroundColor: WidgetStateProperty.resolveWith(
+          (states) {
+            if (states.contains(WidgetState.hovered) || states.contains(WidgetState.focused)) {
+              return themeBase.onAccentColor;
+            }
+
+            return themeBase.textColor;
+          },
+        ),
       ),
     ),
   );
@@ -167,7 +252,6 @@ ThemeData generateTheme(ThemeBase themeBase) {
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -175,7 +259,6 @@ ThemeData generateTheme(ThemeBase themeBase) {
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">lb_planner</a></li>
     <li><a href="../../modules_theming_infra_services_material_theme_generator_service/modules_theming_infra_services_material_theme_generator_service-library.html">material_theme_generator_service</a></li>
@@ -183,33 +266,24 @@ ThemeData generateTheme(ThemeBase themeBase) {
     <li class="self-crumb">generateTheme method</li>
 </ol>
 
-
     <h5>MaterialThemeGeneratorService class</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
 <script src="../../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

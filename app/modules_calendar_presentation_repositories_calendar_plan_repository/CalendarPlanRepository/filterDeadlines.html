@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
   <link rel="icon" href="../../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -50,7 +46,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -62,11 +57,12 @@
 
     <section class="multi-line-signature">
       
-
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../modules_calendar_domain_models_plan_deadline/PlanDeadline-class.html">PlanDeadline</a></span>&gt;</span></span>
 <span class="name ">filterDeadlines</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="filterDeadlines-param-taskId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">taskId</span>, </span></li>
 <li><span class="parameter" id="filterDeadlines-param-start"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">start</span>, </span></li>
 <li><span class="parameter" id="filterDeadlines-param-end"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">end</span>, </span></li>
+<li><span class="parameter" id="filterDeadlines-param-betweenStart"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">betweenStart</span>, </span></li>
+<li><span class="parameter" id="filterDeadlines-param-betweenEnd"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">betweenEnd</span>, </span></li>
 <li><span class="parameter" id="filterDeadlines-param-plannedForToday"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">plannedForToday</span>, </span></li>
 </ol>})
 
@@ -87,6 +83,8 @@
   int? taskId,
   DateTime? start,
   DateTime? end,
+  DateTime? betweenStart,
+  DateTime? betweenEnd,
   bool? plannedForToday,
 }) {
   if (!state.hasData) {
@@ -95,11 +93,22 @@
     return [];
   }
 
+  final now = DateTime.now();
+
   return state.requireData.deadlines.where((deadline) {
     if (taskId != null &amp;&amp; deadline.id != taskId) return false;
     if (start != null &amp;&amp; deadline.start != start) return false;
     if (end != null &amp;&amp; deadline.end != end) return false;
-    if (plannedForToday != null &amp;&amp; deadline.start.isBefore(DateTime.now()) &amp;&amp; deadline.end.isAfter(DateTime.now())) return false;
+
+    if (betweenStart != null &amp;&amp; deadline.start.isBefore(betweenStart)) return false;
+    if (betweenEnd != null &amp;&amp; deadline.end.isAfter(betweenEnd)) return false;
+
+    if (plannedForToday != null) {
+      final startsBeforeToday = deadline.start.isBefore(now) || deadline.start.isSameDate(now);
+      final endsAfterToday = deadline.end.isAfter(now) || deadline.end.isSameDate(now);
+
+      if (plannedForToday &amp;&amp; !(startsBeforeToday &amp;&amp; endsAfterToday)) return false;
+    }
 
     return true;
   }).toList();
@@ -108,7 +117,6 @@
 
 
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -116,7 +124,6 @@
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">lb_planner</a></li>
     <li><a href="../../modules_calendar_presentation_repositories_calendar_plan_repository/modules_calendar_presentation_repositories_calendar_plan_repository-library.html">calendar_plan_repository</a></li>
@@ -124,33 +131,24 @@
     <li class="self-crumb">filterDeadlines method</li>
 </ol>
 
-
     <h5>CalendarPlanRepository class</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div><!--/.sidebar-offcanvas-->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
 <script src="../../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 

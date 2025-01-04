@@ -16,15 +16,11 @@
   <link rel="stylesheet" href="../static-assets/github.css?v1">
   <link rel="stylesheet" href="../static-assets/styles.css?v1">
   <link rel="icon" href="../static-assets/favicon.png?v1">
-
   
 </head>
 
-
 <body data-base-href="../" data-using-base-href="false" class="light-theme">
-
 <div id="overlay-under-drawer"></div>
-
 <header id="title">
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
@@ -49,7 +45,6 @@
   </div>
 </header>
 <main>
-
 <div
     id="dartdoc-main-content"
     class="main-content"
@@ -84,7 +79,7 @@
         
 
 
-
+        
         
 
 
@@ -94,7 +89,6 @@
     
   <section class="summary offset-anchor" id="constructors">
     <h2>Constructors</h2>
-
     <dl class="constructor-summary-list">
         <dt id="NotificationsRepository" class="callable">
           <span class="name"><a href="../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository/NotificationsRepository.html">NotificationsRepository</a></span><span class="signature">(<span class="parameter" id="-param-_datasource"><span class="type-annotation"><a href="../modules_notifications_domain_datasources_notifications_datasource/NotificationsDatasource-class.html">NotificationsDatasource</a></span> <span class="parameter-name">_datasource</span>, </span><span class="parameter" id="-param-_auth"><span class="type-annotation"><a href="../modules_auth_presentation_repositories_auth_repository/AuthRepository-class.html">AuthRepository</a></span> <span class="parameter-name">_auth</span></span>)</span>
@@ -209,13 +203,25 @@ e.g. 'Service.Auth'
 
         <dt id="stream" class="property inherited">
   <span class="name"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/stream.html">stream</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_notifications_domain_models_notification/Notification-class.html">Notification</a></span>&gt;</span></span>&gt;</span></span>&gt;</span></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_notifications_domain_models_notification/Notification-class.html">Notification</a></span>&gt;</span></span>&gt;</span></span>&gt;</span></span>
   
 
 </dt>
 <dd class="inherited">
   The current <a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/stream.html">stream</a> of states.
   <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="unreadNotifications" class="property">
+  <span class="name"><a href="../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository/unreadNotifications.html">unreadNotifications</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_notifications_domain_models_notification/Notification-class.html">Notification</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  The unread notifications.
+  <div class="features"><span class="feature">no setter</span></div>
 
 </dd>
 
@@ -235,6 +241,7 @@ When automatic updates are enabled, the <a href="../modules_notifications_presen
 
     </dl>
   </section>
+
     
   <section
       class="summary offset-anchor"
@@ -270,7 +277,7 @@ Also gets called when the repository is updated (if <a href="../modules_notifica
 
         <dt id="close" class="callable inherited">
   <span class="name"><a href="https://pub.dev/documentation/bloc/8.1.4/bloc/BlocBase/close.html">close</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -311,6 +318,19 @@ is equal to the current <code>state</code>.
 
 </dd>
 
+        <dt id="filter" class="callable">
+  <span class="name"><a href="../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository/filter.html">filter</a></span><span class="signature">(<wbr>{<span class="parameter" id="filter-param-type"><span class="type-annotation"><a href="../modules_notifications_domain_models_notification/NotificationType.html">NotificationType</a>?</span> <span class="parameter-name">type</span>, </span><span class="parameter" id="filter-param-read"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">read</span>, </span><span class="parameter" id="filter-param-readBefore"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">readBefore</span>, </span><span class="parameter" id="filter-param-readAfter"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">readAfter</span>, </span><span class="parameter" id="filter-param-timestampBefore"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">timestampBefore</span>, </span><span class="parameter" id="filter-param-timestampAfter"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">timestampAfter</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_notifications_domain_models_notification/Notification-class.html">Notification</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Filters notifications based on the provided parameters.
+  
+
+</dd>
+
         <dt id="listen" class="callable inherited">
   <span class="name"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/Repository/listen.html">listen</a></span><span class="signature">(<wbr><span class="parameter" id="listen-param-onData"><span class="type-annotation">void</span> <span class="parameter-name">onData</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_notifications_domain_models_notification/Notification-class.html">Notification</a></span>&gt;</span></span>&gt;</span></span></span>)?, {</span><span class="parameter" id="listen-param-onError"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Function-class.html">Function</a>?</span> <span class="parameter-name">onError</span>, </span><span class="parameter" id="listen-param-onDone"><span class="type-annotation">void</span> <span class="parameter-name">onDone</span>()?, </span><span class="parameter" id="listen-param-cancelOnError"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">cancelOnError</span></span>})
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/StreamSubscription-class.html">StreamSubscription</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://mcquenji.github.io/mcquenji_core/mcquenji_core/AsyncValue-class.html">AsyncValue</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../modules_notifications_domain_models_notification/Notification-class.html">Notification</a></span>&gt;</span></span>&gt;</span></span>&gt;</span></span>
@@ -319,7 +339,7 @@ is equal to the current <code>state</code>.
 
 </dt>
 <dd class="inherited">
-  Shortcut for <a href="https://api.flutter.dev/flutter/dart-async/Stream/listen.html">Stream.listen</a>.
+  Shortcut for <a href="https://api.flutter.dev/flutter/dart-core/Stream/listen.html">Stream.listen</a>.
   <div class="features"><span class="feature">inherited</span></div>
 
 </dd>
@@ -339,7 +359,7 @@ is equal to the current <code>state</code>.
 
         <dt id="markAllAsRead" class="callable">
   <span class="name"><a href="../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository/markAllAsRead.html">markAllAsRead</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -352,7 +372,7 @@ is equal to the current <code>state</code>.
 
         <dt id="markAsRead" class="callable">
   <span class="name"><a href="../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository/markAsRead.html">markAsRead</a></span><span class="signature">(<wbr><span class="parameter" id="markAsRead-param-notification"><span class="type-annotation"><a href="../modules_notifications_domain_models_notification/Notification-class.html">Notification</a></span> <span class="parameter-name">notification</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -420,7 +440,7 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
 
         <dt id="unread" class="callable">
   <span class="name"><a href="../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository/unread.html">unread</a></span><span class="signature">(<wbr><span class="parameter" id="unread-param-notification"><span class="type-annotation"><a href="../modules_notifications_domain_models_notification/Notification-class.html">Notification</a></span> <span class="parameter-name">notification</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -433,7 +453,7 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
 
         <dt id="unreadAll" class="callable">
   <span class="name"><a href="../modules_notifications_presentation_repositories_notifications_repository/NotificationsRepository/unreadAll.html">unreadAll</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
@@ -484,9 +504,7 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
     
     
 
-
   </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
@@ -494,40 +512,30 @@ A <code>change</code> occurs when a new <code>state</code> is emitted.
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
 </header>
-
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">lb_planner</a></li>
     <li><a href="../modules_notifications_presentation_repositories_notifications_repository/modules_notifications_presentation_repositories_notifications_repository-library.html">notifications_repository</a></li>
     <li class="self-crumb">NotificationsRepository class</li>
 </ol>
 
-
     <h5>notifications_repository library</h5>
     <div id="dartdoc-sidebar-left-content"></div>
   </div>
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
-
 </main>
-
 <footer>
   <span class="no-break">
     lb_planner
       1.0.0+1
   </span>
-
   
 </footer>
-
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
 <script src="../static-assets/docs.dart.js"></script>
 
-
-
 </body>
-
 </html>
 
