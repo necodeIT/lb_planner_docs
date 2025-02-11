@@ -85,6 +85,8 @@ be thrown <code>GuardedRouteException</code>.</bool></p>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;bool&gt; canActivate(String path, ModularRoute route) async {
+  return true;
+
   final size = MediaQueryData.fromView(PlatformDispatcher.instance.views.first).size;
 
   return invert ? size &lt; minWindowSize : size &gt;= minWindowSize;

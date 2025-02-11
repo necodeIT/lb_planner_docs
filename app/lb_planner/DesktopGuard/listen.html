@@ -76,6 +76,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static void listen(BuildContext context, {bool invert = false, String redirectTo = &#39;&#47;mobile&#39;}) {
+  return;
+
   final size = MediaQuery.sizeOf(context);
 
   if (invert ? size &gt;= minWindowSize : size &lt; minWindowSize) {
