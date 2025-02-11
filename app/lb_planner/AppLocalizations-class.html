@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the AppLocalizations class from the lb_planner library, for the Dart programming language.">
+  <title>AppLocalizations class - lb_planner library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">lb_planner</a></li>
+    <li><a href="../lb_planner/lb_planner-library.html">lb_planner.dart</a></li>
+    <li class="self-crumb">AppLocalizations class</li>
+  </ol>
+  <div class="self-name">AppLocalizations</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="lb_planner&#47;lb_planner-library-sidebar.html"
+    data-below-sidebar="lb_planner&#47;AppLocalizations-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">AppLocalizations</span> class 
+    <a href="https://dart.dev/language/class-modifiers#abstract" class="feature feature-abstract" title="This type can not be directly constructed.">abstract</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Callers can lookup localized strings with an instance of AppLocalizations
+returned by <code>AppLocalizations.of(context)</code>.</p>
+<p>Applications need to include <code>AppLocalizations.delegate()</code> in their app's
+<code>localizationDelegates</code> list, and the locales they support in the app's
+<code>supportedLocales</code> list. For example:</p>
+<pre class="language-dart"><code class="language-dart">import 'gen_l10n/app_localizations.dart';
+
+return MaterialApp(
+  localizationsDelegates: AppLocalizations.localizationsDelegates,
+  supportedLocales: AppLocalizations.supportedLocales,
+  home: MyApplicationHome(),
+);
+</code></pre>
+<h2 id="update-pubspecyaml">Update pubspec.yaml</h2>
+<p>Please make sure to update your pubspec.yaml to include the following
+packages:</p>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  # Internationalization support.
+  flutter_localizations:
+    sdk: flutter
+  intl: any # Use the pinned version from flutter_localizations
+
+  # Rest of dependencies
+</code></pre>
+<h2 id="ios-applications">iOS Applications</h2>
+<p>iOS applications define key application metadata, including supported
+locales, in an Info.plist file that is built into the application bundle.
+To configure the locales supported by your app, you’ll need to edit this
+file.</p>
+<p>First, open your project’s ios/Runner.xcworkspace Xcode workspace file.
+Then, in the Project Navigator, open the Info.plist file under the Runner
+project’s Runner folder.</p>
+<p>Next, select the Information Property List item, select Add Item from the
+Editor menu, then select Localizations from the pop-up menu.</p>
+<p>Select and expand the newly-created Localizations item then, for each
+locale your application supports, add a new item and select the locale
+you wish to add from the pop-up menu in the Value field. This list should
+be consistent with the languages listed in the AppLocalizations.supportedLocales
+property.</p>
+</section>
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="AppLocalizations" class="callable">
+          <span class="name"><a href="../lb_planner/AppLocalizations/AppLocalizations.html">AppLocalizations</a></span><span class="signature">(<span class="parameter" id="-param-locale"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">locale</span></span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="app_titleBar_pro" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/app_titleBar_pro.html">app_titleBar_pro</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title bar label for Pro version.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="app_titleBar_trial" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/app_titleBar_trial.html">app_titleBar_trial</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title bar label for Trial version.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="app_update_aur" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/app_update_aur.html">app_update_aur</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Instruction to update the application via the AUR package manager.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="app_update_web" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/app_update_web.html">app_update_web</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Instruction for updating the web version by refreshing the page.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="auth_dataCollectionConsent" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_dataCollectionConsent.html">auth_dataCollectionConsent</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Consent text for data collection and processing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="auth_dataCollectionConsentSuffix" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_dataCollectionConsentSuffix.html">auth_dataCollectionConsentSuffix</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Suffix to the consent string
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="auth_invalidCredentials" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_invalidCredentials.html">auth_invalidCredentials</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Error message for invalid login credentials.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="auth_login" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_login.html">auth_login</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Login button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="auth_password" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_password.html">auth_password</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the password input field.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="auth_privacyPolicy" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_privacyPolicy.html">auth_privacyPolicy</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the privacy policy link.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="auth_subtitle" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_subtitle.html">auth_subtitle</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Subtitle guiding users to log in with their Moodle account.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="auth_username" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_username.html">auth_username</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the username input field.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_clearPlan" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_clearPlan.html">calendar_clearPlan</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to clear all tasks from a plan.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_clearPlan_message" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_clearPlan_message.html">calendar_clearPlan_message</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Confirmation message for clearing a plan.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_clearPlan_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_clearPlan_title.html">calendar_clearPlan_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Confirmation title for clearing a plan.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_invite" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_invite.html">calendar_invite</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for inviting someone to a plan.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_invited" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_invited.html">calendar_invited</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Status label indicating that a user has been invited.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_inviteUsers" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_inviteUsers.html">calendar_inviteUsers</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to invite users to join a plan.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_inYourPlan" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_inYourPlan.html">calendar_inYourPlan</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Status label indicating that a plan is part of your schedule.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_leave" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_leave.html">calendar_leave</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to leave a plan.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_leave_message" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_leave_message.html">calendar_leave_message</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Confirmation message for leaving a plan.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_leave_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_leave_title.html">calendar_leave_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Confirmation title when attempting to leave a plan.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_members" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_members.html">calendar_members</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for members section in the calendar.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_plan" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_plan.html">calendar_plan</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the calendar plan section.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_removeDeadline" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_removeDeadline.html">calendar_removeDeadline</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to remove a task's deadline.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_searchMembers" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_searchMembers.html">calendar_searchMembers</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Placeholder or label for searching members within a plan.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_searchTasks" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_searchTasks.html">calendar_searchTasks</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Placeholder or label for searching tasks.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_searchUsers" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_searchUsers.html">calendar_searchUsers</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Placeholder or label for searching users.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_tasks" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_tasks.html">calendar_tasks</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for tasks section in the calendar.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_tasksOverview" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_tasksOverview.html">calendar_tasksOverview</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the overview of tasks in the calendar.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_tasksOverview_description" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_tasksOverview_description.html">calendar_tasksOverview_description</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Detailed explanation of what the tasks overview displays.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_tasksOverview_description_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_tasksOverview_description_title.html">calendar_tasksOverview_description_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the description of the tasks overview.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="calendar_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_title.html">calendar_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the calendar view.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="courses_dueDate" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/courses_dueDate.html">courses_dueDate</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Column header for course due date.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="courses_name" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/courses_name.html">courses_name</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Column header for course name.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="courses_overview" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/courses_overview.html">courses_overview</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the course overview section.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="courses_plannedDueDate" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/courses_plannedDueDate.html">courses_plannedDueDate</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Column header for planned due date of a course.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="courses_status" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/courses_status.html">courses_status</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Column header for course status.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="courses_type" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/courses_type.html">courses_type</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Column header for course type.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_burnDownChart" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_burnDownChart.html">dashboard_burnDownChart</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the burndown chart displayed on the dashboard.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_burnDownChart_explanation_message" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_burnDownChart_explanation_message.html">dashboard_burnDownChart_explanation_message</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Detailed explanation of how the burndown chart works.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_burnDownChart_explanation_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_burnDownChart_explanation_title.html">dashboard_burnDownChart_explanation_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the explanation of the burndown chart.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_burnDownChart_plannedTrajectory" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_burnDownChart_plannedTrajectory.html">dashboard_burnDownChart_plannedTrajectory</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the planned trajectory line in the burndown chart.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_exams" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_exams.html">dashboard_exams</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Section title for upcoming exams on the dashboard.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_exams_noExams" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_exams_noExams.html">dashboard_exams_noExams</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Message displayed when there are no upcoming exams.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_noSlotsReservedToday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_noSlotsReservedToday.html">dashboard_noSlotsReservedToday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Message displayed when there are no slots reserved for today.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_noTasksOverdue" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_noTasksOverdue.html">dashboard_noTasksOverdue</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Message displayed when there are no overdue tasks.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_overdueTasks" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_overdueTasks.html">dashboard_overdueTasks</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Section title for overdue tasks on the dashboard.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_slotsReservedToday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_slotsReservedToday.html">dashboard_slotsReservedToday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the number of reserved slots for today.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_statusOverview" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_statusOverview.html">dashboard_statusOverview</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the status overview section on the dashboard.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_title.html">dashboard_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the dashboard view.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_todaysTasks" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_todaysTasks.html">dashboard_todaysTasks</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Section title for today's tasks on the dashboard.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="dashboard_todaysTasks_noTasks" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_todaysTasks_noTasks.html">dashboard_todaysTasks_noTasks</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Message displayed when no tasks are planned for today.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="enum_taskStatus_done" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/enum_taskStatus_done.html">enum_taskStatus_done</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Status label indicating that a task is completed.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="enum_taskStatus_late" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/enum_taskStatus_late.html">enum_taskStatus_late</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Status label indicating that a task is overdue.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="enum_taskStatus_pending" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/enum_taskStatus_pending.html">enum_taskStatus_pending</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Status label indicating that a task is pending.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="enum_taskStatus_uploaded" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/enum_taskStatus_uploaded.html">enum_taskStatus_uploaded</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Status label indicating that a task has been uploaded.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_cancel" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_cancel.html">global_cancel</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global cancel button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_close" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_close.html">global_close</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global close button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_confirm" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_confirm.html">global_confirm</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global confirmation button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_continue" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_continue.html">global_continue</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global continue button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_create" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_create.html">global_create</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global create button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_delete" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_delete.html">global_delete</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global delete button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_dismiss" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_dismiss.html">global_dismiss</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global dismiss button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_edit" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_edit.html">global_edit</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global edit button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_loading" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_loading.html">global_loading</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global loading indicator text.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_nA" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_nA.html">global_nA</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global text for 'Not Available' or 'Not Applicable'.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_ok" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_ok.html">global_ok</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global OK button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_search" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_search.html">global_search</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global search label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="global_update" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/global_update.html">global_update</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Global update button label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="localeName" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/localeName.html">localeName</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="moodle_courseSelectionScreen_selectCourses" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/moodle_courseSelectionScreen_selectCourses.html">moodle_courseSelectionScreen_selectCourses</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Instruction to select courses on the Moodle course selection screen.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="moodle_courseSelector_search" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/moodle_courseSelector_search.html">moodle_courseSelector_search</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Placeholder or label for searching courses in Moodle.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="moodle_moodleTaskWidget_openInMoodle" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/moodle_moodleTaskWidget_openInMoodle.html">moodle_moodleTaskWidget_openInMoodle</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to open a task directly in Moodle.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="moodle_task_exam" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/moodle_task_exam.html">moodle_task_exam</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for exam tasks in Moodle.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="moodle_task_optional" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/moodle_task_optional.html">moodle_task_optional</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Abbreviation for optional tasks in Moodle (EK).
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="moodle_task_participation" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/moodle_task_participation.html">moodle_task_participation</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Abbreviation for participation tasks in Moodle (M).
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="moodle_task_required" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/moodle_task_required.html">moodle_task_required</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Abbreviation for required tasks in Moodle (GK).
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="notFound" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notFound.html">notFound</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Error message displayed when the user navigates to a non-existent page.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="notFound_returnHome" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notFound_returnHome.html">notFound_returnHome</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to return to the home page.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="notification_invite_accept" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_invite_accept.html">notification_invite_accept</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to accept an invitation.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="notification_invite_accepted" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_invite_accepted.html">notification_invite_accepted</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Status label indicating that an invitation has been accepted.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="notification_invite_decline" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_invite_decline.html">notification_invite_decline</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to decline an invitation.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="notification_invite_declined" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_invite_declined.html">notification_invite_declined</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Status label indicating that an invitation has been declined.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="notification_list_showAll" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_list_showAll.html">notification_list_showAll</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button or link label to show all notifications.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="notification_list_showUnread" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_list_showUnread.html">notification_list_showUnread</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button or link label to filter and show unread notifications.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="notification_planRemoved" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_planRemoved.html">notification_planRemoved</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Notification informing the user that they have been removed from a shared plan, with a copy saved.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_consent" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_consent.html">settings_feedback_consent</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Consent text for sharing personal details with the developers.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_consentSuffix" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_consentSuffix.html">settings_feedback_consentSuffix</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Suffix to the consent string
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_description" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_description.html">settings_feedback_description</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Description prompting the user to describe their problem in the feedback form.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_error_message" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_error_message.html">settings_feedback_error_message</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Error message displayed when feedback submission fails.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_error_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_error_title.html">settings_feedback_error_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title displayed when feedback submission fails.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_sent_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_sent_title.html">settings_feedback_sent_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title displayed after feedback is successfully sent.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_submit" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_submit.html">settings_feedback_submit</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to submit feedback.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_title.html">settings_feedback_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the feedback section.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_type_bug" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_type_bug.html">settings_feedback_type_bug</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Feedback type option for reporting a bug.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_type_feature" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_type_feature.html">settings_feedback_type_feature</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Feedback type option for requesting a feature.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_type_other" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_type_other.html">settings_feedback_type_other</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Feedback type option for other types of feedback.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_feedback_type_typo" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_type_typo.html">settings_feedback_type_typo</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Feedback type option for reporting a typo.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_general" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_general.html">settings_general</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  General settings section label.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_general_clearCache" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_general_clearCache.html">settings_general_clearCache</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to clear the application cache.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_general_credits" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_general_credits.html">settings_general_credits</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the credits section.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_general_deleteProfile" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_general_deleteProfile.html">settings_general_deleteProfile</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to delete the user's profile.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_general_displayTaskCount" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_general_displayTaskCount.html">settings_general_displayTaskCount</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Option to toggle the display of the task count.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_general_enableEK" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_general_enableEK.html">settings_general_enableEK</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Option to enable EK modules in settings.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_theme" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_theme.html">settings_theme</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for theme selection in settings.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="settings_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_title.html">settings_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the settings section.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_addSupervisor" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_addSupervisor.html">slots_edit_addSupervisor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to add a supervisor to a slot.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_courseMappings" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_courseMappings.html">slots_edit_courseMappings</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the course mappings section in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_createSlot" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_createSlot.html">slots_edit_createSlot</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to create a new slot.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_editSlot" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_editSlot.html">slots_edit_editSlot</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to edit a slot.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_endTime" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_endTime.html">slots_edit_endTime</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the end time input in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_room" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_room.html">slots_edit_room</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the room input in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_selectClass" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_selectClass.html">slots_edit_selectClass</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Prompt to select a class for slot mapping.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_selectCourse" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_selectCourse.html">slots_edit_selectCourse</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Prompt to select a course for slot mapping.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_size" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_size.html">slots_edit_size</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the size input in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_startTime" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_startTime.html">slots_edit_startTime</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the start time input in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_supervisors" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_supervisors.html">slots_edit_supervisors</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for the supervisors section in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_edit_weekday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_edit_weekday.html">slots_edit_weekday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for selecting the weekday in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_reserve_error" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_reserve_error.html">slots_reserve_error</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Error message displayed when a slot reservation fails.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_slotmaster_deleteSlot_message" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_slotmaster_deleteSlot_message.html">slots_slotmaster_deleteSlot_message</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Confirmation message for deleting a slot.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_slotmaster_newSlot" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_slotmaster_newSlot.html">slots_slotmaster_newSlot</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Button label to create a new slot.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_title" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_title.html">slots_title</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Title for the slots section.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_weekday_friday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_weekday_friday.html">slots_weekday_friday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for Friday in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_weekday_monday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_weekday_monday.html">slots_weekday_monday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for Monday in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_weekday_saturday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_weekday_saturday.html">slots_weekday_saturday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for Saturday in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_weekday_sunday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_weekday_sunday.html">slots_weekday_sunday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for Sunday in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_weekday_thursday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_weekday_thursday.html">slots_weekday_thursday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for Thursday in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_weekday_tuesday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_weekday_tuesday.html">slots_weekday_tuesday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for Tuesday in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="slots_weekday_wednesday" class="property">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_weekday_wednesday.html">slots_weekday_wednesday</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Label for Wednesday in slot editing.
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="app_update_appImage" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/app_update_appImage.html">app_update_appImage</a></span><span class="signature">(<wbr><span class="parameter" id="app_update_appImage-param-url"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">url</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Prompt to update the application image using the provided download URL.
+  
+
+</dd>
+
+        <dt id="app_update_download" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/app_update_download.html">app_update_download</a></span><span class="signature">(<wbr><span class="parameter" id="app_update_download-param-url"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">url</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Prompt to download and install the latest version using the provided URL.
+  
+
+</dd>
+
+        <dt id="auth_accessHint" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_accessHint.html">auth_accessHint</a></span><span class="signature">(<wbr><span class="parameter" id="auth_accessHint-param-appname"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">appname</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Access restriction message that uses the app name placeholder.
+  
+
+</dd>
+
+        <dt id="auth_version" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/auth_version.html">auth_version</a></span><span class="signature">(<wbr><span class="parameter" id="auth_version-param-version"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">version</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Displays the current version of the application with a version placeholder.
+  
+
+</dd>
+
+        <dt id="calendar_tasksCountLabel" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/calendar_tasksCountLabel.html">calendar_tasksCountLabel</a></span><span class="signature">(<wbr><span class="parameter" id="calendar_tasksCountLabel-param-count"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Label showing the number of tasks, with pluralization based on count.
+  
+
+</dd>
+
+        <dt id="dashboard_burnDownChart_idealTrajectory" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/dashboard_burnDownChart_idealTrajectory.html">dashboard_burnDownChart_idealTrajectory</a></span><span class="signature">(<wbr><span class="parameter" id="dashboard_burnDownChart_idealTrajectory-param-count"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/num-class.html">num</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Label for the ideal daily task completion rate in the burndown chart, showing tasks per day.
+  
+
+</dd>
+
+        <dt id="mobile" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/mobile.html">mobile</a></span><span class="signature">(<wbr><span class="parameter" id="mobile-param-appname"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">appname</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Error message displayed when the user tries to access the app on a mobile device.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="notification_invite" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_invite.html">notification_invite</a></span><span class="signature">(<wbr><span class="parameter" id="notification_invite-param-username"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">username</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Notification message indicating that a user has invited you to join their plan, includes username.
+  
+
+</dd>
+
+        <dt id="notification_inviteAccepted" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_inviteAccepted.html">notification_inviteAccepted</a></span><span class="signature">(<wbr><span class="parameter" id="notification_inviteAccepted-param-username"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">username</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Notification that a user's invitation has been accepted, includes username.
+  
+
+</dd>
+
+        <dt id="notification_inviteDeclined" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_inviteDeclined.html">notification_inviteDeclined</a></span><span class="signature">(<wbr><span class="parameter" id="notification_inviteDeclined-param-username"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">username</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Notification that a user's invitation has been declined, includes username.
+  
+
+</dd>
+
+        <dt id="notification_list_title" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_list_title.html">notification_list_title</a></span><span class="signature">(<wbr><span class="parameter" id="notification_list_title-param-count"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Title for the notifications list showing the total count of notifications.
+  
+
+</dd>
+
+        <dt id="notification_newUser" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_newUser.html">notification_newUser</a></span><span class="signature">(<wbr><span class="parameter" id="notification_newUser-param-appname"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">appname</span>, </span><span class="parameter" id="notification_newUser-param-username"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">username</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Welcome message for new users, including app name and username placeholders.
+  
+
+</dd>
+
+        <dt id="notification_planLeft" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/notification_planLeft.html">notification_planLeft</a></span><span class="signature">(<wbr><span class="parameter" id="notification_planLeft-param-username"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">username</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Notification message when a user leaves a shared plan, includes username.
+  
+
+</dd>
+
+        <dt id="settings_feedback_sent_message" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_feedback_sent_message.html">settings_feedback_sent_message</a></span><span class="signature">(<wbr><span class="parameter" id="settings_feedback_sent_message-param-sentryid"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">sentryid</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Message displayed after successfully sending feedback, includes the feedback ID placeholder.
+  
+
+</dd>
+
+        <dt id="settings_general_version" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/settings_general_version.html">settings_general_version</a></span><span class="signature">(<wbr><span class="parameter" id="settings_general_version-param-version"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">version</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Displays the current app version in settings, with version placeholder.
+  
+
+</dd>
+
+        <dt id="slots_details_mappingsCount" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_details_mappingsCount.html">slots_details_mappingsCount</a></span><span class="signature">(<wbr><span class="parameter" id="slots_details_mappingsCount-param-count"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Displays the number of course mappings for the slot, using a count placeholder.
+  
+
+</dd>
+
+        <dt id="slots_details_reservationsCount" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_details_reservationsCount.html">slots_details_reservationsCount</a></span><span class="signature">(<wbr><span class="parameter" id="slots_details_reservationsCount-param-reservations"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">reservations</span>, </span><span class="parameter" id="slots_details_reservationsCount-param-size"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">size</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Displays the current reservations over the total slot size, with reservations and size placeholders.
+  
+
+</dd>
+
+        <dt id="slots_details_sizeCount" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_details_sizeCount.html">slots_details_sizeCount</a></span><span class="signature">(<wbr><span class="parameter" id="slots_details_sizeCount-param-count"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Displays the size of the slot, using a count placeholder.
+  
+
+</dd>
+
+        <dt id="slots_details_supervisorsCount" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_details_supervisorsCount.html">slots_details_supervisorsCount</a></span><span class="signature">(<wbr><span class="parameter" id="slots_details_supervisorsCount-param-count"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Displays the number of supervisors assigned to the slot, using a count placeholder.
+  
+
+</dd>
+
+        <dt id="slots_slotmaster_deleteSlot_title" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/slots_slotmaster_deleteSlot_title.html">slots_slotmaster_deleteSlot_title</a></span><span class="signature">(<wbr><span class="parameter" id="slots_slotmaster_deleteSlot_title-param-room"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">room</span>, </span><span class="parameter" id="slots_slotmaster_deleteSlot_title-param-startUnit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">startUnit</span>, </span><span class="parameter" id="slots_slotmaster_deleteSlot_title-param-endUnit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">endUnit</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Confirmation title for deleting a slot, including room, start unit, and end unit placeholders.
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="of" class="callable">
+  <span class="name"><a href="../lb_planner/AppLocalizations/of.html">of</a></span><span class="signature">(<wbr><span class="parameter" id="of-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="../lb_planner/AppLocalizations-class.html">AppLocalizations</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>Constants</h2>
+    <dl class="properties">
+        <dt id="delegate" class="constant">
+    <span class="name "><a href="../lb_planner/AppLocalizations/delegate-constant.html">delegate</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/widgets/LocalizationsDelegate-class.html">LocalizationsDelegate</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../lb_planner/AppLocalizations-class.html">AppLocalizations</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="localizationsDelegates" class="constant">
+    <span class="name "><a href="../lb_planner/AppLocalizations/localizationsDelegates-constant.html">localizationsDelegates</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/LocalizationsDelegate-class.html">LocalizationsDelegate</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  A list of this localizations delegate along with the default localizations
+delegates.
+  
+
+</dd>
+
+        <dt id="supportedLocales" class="constant">
+    <span class="name "><a href="../lb_planner/AppLocalizations/supportedLocales-constant.html">supportedLocales</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/skeletonizer/Locale-class.html">Locale</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  A list of this localizations delegate's supported locales.
+  
+
+</dd>
+
+    </dl>
+  </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">lb_planner</a></li>
+    <li><a href="../lb_planner/lb_planner-library.html">lb_planner</a></li>
+    <li class="self-crumb">AppLocalizations class</li>
+</ol>
+
+    <h5>lb_planner library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    lb_planner
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

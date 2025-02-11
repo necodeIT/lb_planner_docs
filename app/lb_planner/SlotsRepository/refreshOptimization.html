@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the refreshOptimization property from the SlotsRepository class, for the Dart programming language.">
+  <title>refreshOptimization property - SlotsRepository class - lb_planner library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">lb_planner</a></li>
+    <li><a href="../../lb_planner/lb_planner-library.html">lb_planner.dart</a></li>
+    <li><a href="../../lb_planner/SlotsRepository-class.html">SlotsRepository</a></li>
+    <li class="self-crumb">refreshOptimization property</li>
+  </ol>
+  <div class="self-name">refreshOptimization</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="lb_planner&#47;SlotsRepository-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-property">refreshOptimization</span> property 
+</h1></div>
+
+    
+
+    
+        
+  <section id="getter">
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+      <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+      get
+      <span class="name ">refreshOptimization</span>
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Determines whether refresh optimization is enabled.</p>
+<p>When set to true, the repository dynamically adjusts its update interval based on whether
+the most recent update actually changed the state:</p>
+<ul>
+<li><strong>No state change:</strong> The update interval increases exponentially (using a 1.5 growth factor)
+up to a maximum of 10× the base <a href="../../lb_planner/SlotsRepository/updateInterval.html">updateInterval</a>. This minimizes redundant updates.</li>
+<li><strong>State change detected:</strong> The update interval resets to the base <a href="../../lb_planner/SlotsRepository/updateInterval.html">updateInterval</a> for more
+frequent updates.</li>
+</ul>
+<p>Additionally, if an update is triggered outside of the regular loop while refresh optimization
+is enabled, the interval resets to <a href="../../lb_planner/SlotsRepository/updateInterval.html">updateInterval</a>.</p>
+<p>Override this getter to return <code>true</code> if you want your repository to use this dynamic behavior.</p>
+<p><em>Will be turned on in the future by default as the optimization algorithm is improved.</em></p>
+</section>
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+bool get refreshOptimization =&gt; true;</code></pre>
+</section>
+
+  </section>
+
+
+</div> <!-- /.main-content -->
+<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">lb_planner</a></li>
+    <li><a href="../../lb_planner/lb_planner-library.html">lb_planner</a></li>
+    <li><a href="../../lb_planner/SlotsRepository-class.html">SlotsRepository</a></li>
+    <li class="self-crumb">refreshOptimization property</li>
+</ol>
+
+  <h5>SlotsRepository class</h5>
+  <div id="dartdoc-sidebar-left-content"></div>
+</div><!--/.sidebar-offcanvas-->
+<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    lb_planner
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
