@@ -98,7 +98,7 @@ void routes(RouteManager r) {
           customTransition: defaultTransition,
           guards: [
             CapabilityGuard({UserCapability.student}, redirectTo: &#39;&#47;slots&#47;&#39;),
-            FeatureGuard([kCalendarPlanFeatureID], redirectTo: &#39;&#47;settings&#47;&#39;),
+            &#47;&#47; FeatureGuard([kCalendarPlanFeatureID], redirectTo: &#39;&#47;settings&#47;&#39;),
           ],
         ),
         ModuleRoute(

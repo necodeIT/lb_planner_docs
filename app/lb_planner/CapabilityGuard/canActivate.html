@@ -91,6 +91,8 @@ Future&lt;bool&gt; canActivate(String path, ModularRoute route) async {
     return false;
   }
 
+  await user.ready;
+
   if (!user.state.hasData) {
     return false;
   }
